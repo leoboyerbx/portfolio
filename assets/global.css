@@ -1,0 +1,6 @@
+@import './fonts/Fragen/Fragen.css';
+@import './fonts/Satoshi/Satoshi.css';
+
+body {
+    @apply font-sans;
+}

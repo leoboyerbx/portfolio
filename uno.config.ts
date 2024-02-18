@@ -11,9 +11,12 @@ import {
 
 export default defineConfig({
   theme: {
-    colors: {},
+    colors: {
+      theme: '#fce14b',
+    },
     fontFamily: {
       sans: ['Satoshi', 'sans-serif'],
+      serif: ['Fragen', 'serif'],
     },
   },
   presets: [
