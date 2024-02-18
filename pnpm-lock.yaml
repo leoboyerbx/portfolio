@@ -43,6 +43,9 @@ devDependencies:
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
+  unocss:
+    specifier: ^0.58.5
+    version: 0.58.5(@unocss/webpack@0.58.5)(postcss@8.4.35)(vite@5.1.3)
 
 packages:
 
