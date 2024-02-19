@@ -1,5 +1,8 @@
+<script lang="ts">
+import 'virtual:devtools-outline'
+</script>
 <template>
   <div>
-    <h1>Hello</h1>
+    <Hero />
   </div>
 </template>

@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^0.58.5
     version: 0.58.5(@unocss/webpack@0.58.5)(postcss@8.4.35)(vite@5.1.3)
   unocss-preset-columns:
-    specifier: link:../unocss-preset-columns
-    version: link:../unocss-preset-columns
+    specifier: ^1.0.1
+    version: 1.0.1
 
 packages:
 
@@ -7657,6 +7657,12 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
     dev: false
+
+  /unocss-preset-columns@1.0.1:
+    resolution: {integrity: sha512-ywHKUpiiOBSStyFW3YEEjiSTjIQ8kHH5X1DAb4Q8yN0jTsNiklFWHNLCw9D+N0oOeiEu3XDJlE33r2dd/Kq+Qg==}
+    dependencies:
+      '@unocss/core': 0.58.5
+    dev: true
 
   /unocss@0.58.5(@unocss/webpack@0.58.5)(postcss@8.4.35)(vite@5.1.3):
     resolution: {integrity: sha512-0g4P6jLgRRNnhscxw7nQ9RHGrKJ1UPPiHPet+YT3TXUcmy4mTiYgo9+kGQf5bjyrzsELJ10cT6Qz2y6g9Tls4g==}

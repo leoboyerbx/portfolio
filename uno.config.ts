@@ -9,6 +9,8 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 
+import { presetColumns } from 'unocss-preset-columns'
+
 export default defineConfig({
   theme: {
     colors: {
@@ -22,6 +24,7 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify(),
+    presetColumns(14),
     presetIcons(),
     presetWebFonts({
       fonts: {},
