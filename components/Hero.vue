@@ -8,7 +8,7 @@
       >
         <span class="">Hi, I'm <span class="text-theme">Léo</span>,</span>
         <br />
-        <span>an creative developer.</span>
+        <span>a <span class="text-sky-500">creative</span> developer.</span>
       </h1>
     </div>
     <div class="grid grid-cols-14 mt-1/2c">
