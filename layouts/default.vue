@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+const { locale } = useI18n()
+</script>
 
 <template>
   <div>
-    <Html lang="en">
+    <Html :lang="locale">
       <Head>
         <Title>Léo Boyer - Creative Developer</Title>
         <Meta
