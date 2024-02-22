@@ -11,11 +11,23 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root', // recommended
-    },
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+      },
+      {
+        code: 'fr',
+        iso: 'fr-FR',
+      },
+    ],
+    baseUrl: 'https://www.leoboyer.dev',
+    detectBrowserLanguage: false,
+    // {
+    //   useCookie: true,
+    //   cookieKey: 'i18n_redirected',
+    //   redirectOn: 'root', // recommended
+    // },
   },
   app: {
     head: {

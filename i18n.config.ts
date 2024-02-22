@@ -1,6 +1,25 @@
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: 'en',
+
+  strategy: 'prefix_except_default',
+  defaultLocale: 'en',
+  locales: [
+    {
+      code: 'en',
+      iso: 'en-US',
+    },
+    {
+      code: 'fr',
+      iso: 'fr-FR',
+    },
+  ],
+  baseUrl: 'https://www.leoboyer.dev',
+  detectBrowserLanguage: {
+    useCookie: true,
+    cookieKey: 'i18n_redirected',
+    redirectOn: 'root', // recommended
+  },
   messages: {
     en: {
       hi: "Hi, I'm",

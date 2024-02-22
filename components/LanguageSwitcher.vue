@@ -4,15 +4,17 @@ const otherLocale = computed(() => (locale.value === 'en' ? 'fr' : 'en'))
 const switchLocale = () => {
   locale.value = otherLocale.value
 }
+const switchLocalePath = useSwitchLocalePath()
 </script>
 <template>
   <transition mode="out-in">
-    <button
+    <nuxt-link
       :key="otherLocale"
       class="flex items-center gap-1"
-      @click="switchLocale"
+      :to="switchLocalePath(otherLocale)"
     >
+      <!-- @click="switchLocale" -->
       <span class="i-uil:globe block"></span> {{ otherLocale.toUpperCase() }}
-    </button>
+    </nuxt-link>
   </transition>
 </template>
