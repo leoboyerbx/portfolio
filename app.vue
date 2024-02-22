@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import 'virtual:devtools-outline'
 </script>
 <template>

@@ -25,6 +25,7 @@
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.2.5",
     "unocss": "^0.58.5",
-    "unocss-preset-columns": "^1.0.1"
+    "unocss-preset-columns": "^1.0.1",
+    "vite-plugin-devtools-outline": "^1.0.0"
   }
 }
