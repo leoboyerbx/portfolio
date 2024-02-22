@@ -1,10 +1,12 @@
 <script setup lang="ts"></script>
 <template>
-  <header class="w-full bg-slate-900 h-100vh text-white flex flex-col">
+  <header
+    class="w-full bg-slate-900 min-h-100vh py-18 text-white flex flex-col"
+  >
     <!-- <div class="absolute top-1c right-1c text-xs font-extrabold opacity-50">
       <LanguageSwitcher />
     </div> -->
-    <div class="grid grid-cols-14 md:h-50vh pt-18">
+    <div class="grid grid-cols-14 md:h-50vh">
       <h1
         class="font-black leading-110% self-end"
         col="start-2 span-12"
