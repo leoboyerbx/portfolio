@@ -1,6 +1,9 @@
 <script setup lang="ts"></script>
 <template>
   <header class="w-full bg-slate-900 h-100vh text-white flex flex-col">
+    <div class="absolute top-1c right-1c text-xs font-extrabold opacity-50">
+      <LanguageSwitcher />
+    </div>
     <div class="grid grid-cols-14 md:h-50vh pt-18">
       <h1
         class="font-black leading-110% self-end"
@@ -9,7 +12,7 @@
         text="12 md:6vw"
       >
         <span class=""
-          >👋 <br class="sm:hidden" />Hi, I'm
+          >👋 <br class="sm:hidden" />{{ $t('hi') }}
           <span class="text-theme">Léo</span>,</span
         >
         <br />
@@ -22,8 +25,7 @@
         col="start-2 span-10"
         md:col="start-3 span-10"
       >
-        This portfolio website is currently being redesigned. It will be back
-        soon !
+        {{ $t('wip') }}
       </p>
       <Contacts col="start-2 span-10" md:col="start-3 span-8" />
     </div>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const links = [
+const { t } = useI18n()
+const links = computed(() => [
   {
     icon: 'i-uil:github',
     title: 'GitHub',
@@ -12,16 +13,16 @@ const links = [
   },
   {
     icon: 'i-uil:envelope',
-    title: 'Send me an email !',
+    title: t('contact.email'),
     url: 'mailto:contact@leoboyer.fr',
   },
-]
+])
 </script>
 <template>
   <div class="flex items-center gap-2">
     <a
       v-for="link in links"
-      :key="link.title"
+      :key="link.url"
       :href="link.url"
       :title="link.title"
       class="opacity-50 hover:opacity-100 transition duration-50"
