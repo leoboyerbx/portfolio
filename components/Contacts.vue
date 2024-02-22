@@ -18,7 +18,7 @@ const links = [
 ]
 </script>
 <template>
-  <div class="flex items-center gap-2" col="start-3 span-8">
+  <div class="flex items-center gap-2">
     <a
       v-for="link in links"
       :key="link.title"

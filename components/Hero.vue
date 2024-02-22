@@ -1,24 +1,31 @@
 <script setup lang="ts"></script>
 <template>
   <header class="w-full bg-slate-900 h-100vh text-white flex flex-col">
-    <div class="grid grid-cols-14 h-50vh">
+    <div class="grid grid-cols-14 md:h-50vh pt-18">
       <h1
-        class="font-black text-6vw leading-110% self-end"
-        col="start-3 span-11"
+        class="font-black leading-110% self-end"
+        col="start-2 span-12"
+        md:col="start-3 span-10"
+        text="12 md:6vw"
       >
-        <span class="">Hi, I'm <span class="text-theme">Léo</span>,</span>
+        <span class=""
+          >👋 <br class="sm:hidden" />Hi, I'm
+          <span class="text-theme">Léo</span>,</span
+        >
         <br />
         <span>a <span class="text-sky-500">creative</span> developer.</span>
       </h1>
     </div>
-    <div class="grid grid-cols-14 mt-1/2c">
-      <p class="text-xl max-w-72 font-light" col="start-3 span-10">
-        This portfolio site is currently being redesigned. It will be back soon
-        !
+    <div class="grid grid-cols-14 mt-16 md:mt-1/2c">
+      <p
+        class="text-xl max-w-72 font-light mb-4"
+        col="start-2 span-10"
+        md:col="start-3 span-10"
+      >
+        This portfolio website is currently being redesigned. It will be back
+        soon !
       </p>
-    </div>
-    <div class="grid grid-cols-14 mt-1c">
-      <Contacts />
+      <Contacts col="start-2 span-10" md:col="start-3 span-8" />
     </div>
   </header>
 </template>
