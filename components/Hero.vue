@@ -36,8 +36,9 @@
       </p>
       <Contacts col="start-2 span-10" md:col="start-3 span-4" />
       <div
-        class="flex flex-col font-serif font-extralight group text-sm"
-        col="start-9 end-13"
+        class="flex flex-col items-start font-serif font-extralight group text-sm lt-md:mt-32"
+        col="start-2 span-10"
+        md:col="start-9 span-4"
       >
         <p
           class="opacity-50 transition duration-200 group-hover:(opacity-100 duration-1600)"
