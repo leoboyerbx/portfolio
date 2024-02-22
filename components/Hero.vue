@@ -50,11 +50,12 @@
         </p>
         <a
           href="https://old.leoboyer.fr/"
+          target="_blank"
           class="flex items-center gap-1 hover:underline"
         >
           <span class="i-uil:external-link-alt inline-block"></span>
-          off you go to the old site&nbsp;!</a
-        >
+          off you go to the old site&nbsp;!
+        </a>
       </div>
     </div>
   </header>
