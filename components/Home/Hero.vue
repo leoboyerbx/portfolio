@@ -7,23 +7,7 @@
       <LanguageSwitcher />
     </div> -->
     <div class="grid grid-cols-14 md:h-40vh">
-      <h1
-        class="font-black leading-110% self-end"
-        col="start-2 span-12"
-        md:col="start-3 span-10"
-        text="12 md:6vw"
-      >
-        <span class=""
-          >👋 <br class="sm:hidden" />{{ $t('hi') }}
-          <span class="text-theme">Léo</span>,</span
-        >
-        <br />
-        <span
-          >a
-          <span class="text-sky-500">creative</span>
-          developer.</span
-        >
-      </h1>
+      <HomeHeroText />
     </div>
     <div class="grid grid-cols-14 mt-16 md:mt-1/2c">
       <p
