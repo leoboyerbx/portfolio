@@ -1,9 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 const otherLocale = computed(() => (locale.value === 'en' ? 'fr' : 'en'))
-const switchLocale = () => {
-  locale.value = otherLocale.value
-}
 const switchLocalePath = useSwitchLocalePath()
 </script>
 <template>
