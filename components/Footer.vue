@@ -2,7 +2,7 @@
 const currentYear = new Date().getFullYear()
 </script>
 <template>
-  <footer class="relative pnk-grid pb-12 pt-24">
+  <footer class="relative pnk-grid pb-12 pt-36">
     <div class="grid-centered-12 flex items-center">
       <div class="flex items-center gap-1 text-sm">
         © {{ currentYear }} -

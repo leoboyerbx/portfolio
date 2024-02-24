@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <section class="mb-36 flex flex-col">
+  <section class="flex flex-col">
     <header class="pnk-grid">
       <h2 class="section-title grid-centered-8 mb-28 text-center">
         My <span font="serif light" class="italic">humble</span><br />
@@ -9,7 +9,7 @@
     </header>
     <article class="pnk-grid">
       <div
-        class="flex flex-col gap-8"
+        class="mb-12 flex flex-col gap-8"
         col="start-3 span-3"
         font="serif extralight"
       >

@@ -22,6 +22,30 @@ body {
     opacity: 0;
 }
 
+.btn-animation:not(:disabled) {
+    animation: button-pop 0.25s ease-out;
+}
+
+.btn-animation:active:hover:not(:disabled),
+.btn-animation:active:focus:not(:disabled) {
+    animation: none;
+    transform: scale(0.95);
+}
+
+@keyframes button-pop {
+    0% {
+        transform: scale(0.95);
+    }
+
+    40% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 .grid-centered-4 {
     @apply col-start-2 col-span-12 lg:(col-start-3 col-span-10) xl:(col-start-4 col-span-8) 2xl:(col-start-5 col-span-6) 3xl:(col-start-6 col-span-4);
 }

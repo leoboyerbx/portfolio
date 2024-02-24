@@ -5,18 +5,24 @@
       <LanguageSwitcher />
     </div> -->
     <div class="grid grid-cols-14 md:h-40vh">
-      <HomeHeroText />
+      <HeroText />
     </div>
     <div class="grid grid-cols-14 mt-16 md:mt-1/2c">
-      <p
-        class="mb-8 max-w-72 font-extralight"
-        text="lg 2xl:xl"
-        font="serif extralight"
+      <div
+        class="mb-8 max-w-72 flex flex-col gap-3"
         col="start-2 span-10"
         md:col="start-3 span-10"
+        text="lg 2xl:xl"
+        font="serif extralight"
       >
-        {{ $t('intro') }}
-      </p>
+        <p>
+          {{ $t('intro') }}
+        </p>
+        <p>
+          Currently working at
+          <a href="https://www.wanaka.studio" class="underline">Wanaka</a>
+        </p>
+      </div>
       <Contacts
         col="start-2 span-10"
         md:col="start-3 span-4"

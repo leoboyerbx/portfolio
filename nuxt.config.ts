@@ -7,6 +7,12 @@ export default defineNuxtConfig({
   vite: {
     plugins: [devtoolsOutline(), devtoolsColumns()],
   },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
