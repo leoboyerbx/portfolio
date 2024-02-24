@@ -12,6 +12,9 @@ import {
 import { presetColumns } from 'unocss-preset-columns'
 
 export default defineConfig({
+  shortcuts: {
+    'pnk-grid': 'grid grid-cols-14',
+  },
   theme: {
     colors: {
       theme: '#fce14b',
