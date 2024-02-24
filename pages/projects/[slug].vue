@@ -5,7 +5,7 @@
       <img
         src="~/assets/img/journiz.webp"
         alt=""
-        class="row-start-1 aspect-16/10 border border-slate-300/50 rounded-lg object-cover opacity-90"
+        class="row-start-1 aspect-16/10 border border-slate-300/50 rounded-xl object-cover opacity-90"
         col="start-2 span-8"
       />
       <div
@@ -17,6 +17,15 @@
         <p class="pl-8 text-5 font-light font-serif ml-2c">
           Reinventing school trips
         </p>
+      </div>
+      <div class="mt-6" col="start-2 span-5">
+        <Button
+          href="https://journiz.fr"
+          target="_blank"
+          icon="i-uil:external-link-alt"
+        >
+          Go to the project
+        </Button>
       </div>
     </header>
     <section class="pnk-grid">

@@ -10,6 +10,16 @@ const props = defineProps({
     required: false,
     default: 'neutral',
   },
+  icon: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  iconBefore: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 })
 const tag = props.href ? 'a' : 'button'
 
@@ -24,6 +34,11 @@ const hasBeenClicked = ref(false)
     @click="hasBeenClicked = true"
   >
     <slot />
+    <span
+      v-if="icon"
+      :class="[icon, { '-order-1': iconBefore }]"
+      class="text-sm"
+    ></span>
   </component>
 </template>
 <style scoped>
@@ -31,7 +46,7 @@ const hasBeenClicked = ref(false)
   --color: theme('colors.slate.50');
 }
 .pnk-btn {
-  @apply border rounded-full px-5 py-1.5 font-light transition duration-100;
+  @apply border rounded-full px-5 py-1.5 font-light transition duration-100 inline-flex items-center gap-2;
   color: var(--color);
   --bg-opacity: 15%;
   --border-opacity: 40%;
@@ -47,6 +62,6 @@ const hasBeenClicked = ref(false)
   );
 }
 .pnk-btn:hover {
-  --bg-opacity: 5%;
+  --bg-opacity: 10%;
 }
 </style>
