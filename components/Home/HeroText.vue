@@ -15,7 +15,7 @@
       <span class="line-content">
         a
         <span
-          class="bg-gradient-to-r from-slate-500 to-indigo-600 text-white/30 bg-clip-text"
+          class="bg-gradient-to-r from-red-600 to-indigo-600 text-white/30 bg-clip-text"
           >curious</span
         >
         developer.
