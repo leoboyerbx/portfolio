@@ -16,7 +16,7 @@
         <p class="text-lg">
           Sometimes when I'm building something, I find myself needing a
           reusable thing that I decide to publish. It implies to write and
-          maintain documentation ans manage releases.
+          maintain documentation and to manage releases.
         </p>
         <p class="text-slate-300 italic">
           Some of these projects are very old, but I still use them from time to
