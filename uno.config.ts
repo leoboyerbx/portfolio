@@ -3,6 +3,7 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
+  presetTypography,
   presetUno,
   presetWebFonts,
   transformerDirectives,
@@ -66,6 +67,13 @@ export default defineConfig({
     presetIcons(),
     presetWebFonts({
       fonts: {},
+    }),
+    presetTypography({
+      cssExtend: {
+        h1: {
+          'font-weight': 100,
+        },
+      },
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
