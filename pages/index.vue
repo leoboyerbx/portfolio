@@ -2,7 +2,7 @@
 <template>
   <div class="relative bg-slate-950 overflow-clip">
     <img
-      src="~/assets/img/hero.png"
+      src="~/assets/img/hero.webp"
       alt=""
       class="absolute block top-0 left-0 w-full"
     />
