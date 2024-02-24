@@ -14,14 +14,17 @@
     <span class="line" style="--line-index: 1">
       <span class="line-content">
         a
-        <span class="text-sky-500">creative</span>
+        <span
+          class="bg-gradient-to-r from-slate-500 to-indigo-600 text-white/30 bg-clip-text"
+          >curious</span
+        >
         developer.
       </span>
     </span>
   </h1>
 </template>
 <style scoped>
-.line {
+/* .line {
   display: block;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
@@ -35,5 +38,5 @@
   from {
     transform: translateY(100%);
   }
-}
+} */
 </style>

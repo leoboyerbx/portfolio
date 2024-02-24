@@ -1,8 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <header
-    class="w-full bg-slate-900 min-h-100vh py-18 text-white flex flex-col"
-  >
+  <header class="w-full min-h-100vh py-18 text-white flex flex-col">
     <!-- <div class="absolute top-1c right-1c text-xs font-extrabold opacity-50">
       <LanguageSwitcher />
     </div> -->
