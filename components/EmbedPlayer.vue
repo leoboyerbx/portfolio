@@ -8,14 +8,14 @@ const urlWithAutoplay = computed(() => {
   url.searchParams.set('autoplay', '1')
   return url.toString()
 })
-const loaded = ref(false)
+const clicked = ref(false)
 </script>
 <template>
   <div
     class="relative aspect-video overflow-hidden border border-slate-500/50 rounded-xl bg-gray-950"
   >
     <iframe
-      v-if="loaded"
+      v-if="clicked"
       :src="urlWithAutoplay"
       frameborder="0"
       class="absolute inset-0 h-full w-full"
@@ -24,13 +24,12 @@ const loaded = ref(false)
     <div
       v-else
       class="absolute inset-0 grid h-full w-full place-content-center"
-      @click="loaded = true"
+      @click="clicked = true"
     >
       <img
         :src="thumbnailUrl"
         alt="Video Thumbnail"
         class="absolute inset-0 h-full w-full object-cover opacity-90"
-        @load="loaded = true"
       />
       <button
         class="z-1 grid h-16 w-16 place-content-center rounded-full bg-slate-800/30"
