@@ -27,6 +27,7 @@ export default defineI18nConfig(() => ({
       wip: `This portfolio website is currently being redesigned. It will be back soon !`,
       contact: {
         email: 'Send me an email !',
+        phone: 'Call me !',
       },
     },
     fr: {

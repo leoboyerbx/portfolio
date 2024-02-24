@@ -17,7 +17,11 @@
       >
         {{ $t('intro') }}
       </p>
-      <Contacts col="start-2 span-10" md:col="start-3 span-4" />
+      <Contacts
+        col="start-2 span-10"
+        md:col="start-3 span-4"
+        class="text-24px"
+      />
     </div>
   </header>
 </template>
