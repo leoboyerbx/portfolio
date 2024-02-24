@@ -13,7 +13,8 @@
     />
     <main class="relative z-10">
       <HomeHero />
-      <ProjectList />
+      <ProjectList class="mb-32" />
+      <OpenSourceList />
     </main>
     <Footer />
   </div>
