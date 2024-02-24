@@ -23,7 +23,7 @@ export default defineI18nConfig(() => ({
   messages: {
     en: {
       hi: "Hi, I'm",
-      intro: `I like to try all sorts of things with code and technology, with a strong focus on crafting user-centric realtime experiences.`,
+      intro: `I like to try all sorts of things with code and tech, with a strong focus on crafting user-centric realtime experiences.`,
       wip: `This portfolio website is currently being redesigned. It will be back soon !`,
       contact: {
         email: 'Send me an email !',
