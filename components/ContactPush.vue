@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <section class="pnk-grid pb-16">
+  <section class="pnk-grid pb-6">
     <header class="grid-centered-8">
       <h2 class="section-title mb-16 text-center">
         Let's work <span font="serif light" class="italic">together !</span>

@@ -13,7 +13,7 @@ const { locale } = useI18n()
         />
       </Head>
       <Body>
-        <div class="relative overflow-clip">
+        <div class="relative min-h-100vh flex flex-col overflow-clip">
           <img
             src="~/assets/img/hero.webp"
             alt=""
@@ -27,7 +27,7 @@ const { locale } = useI18n()
           <main class="relative z-10">
             <slot />
           </main>
-          <Footer />
+          <Footer class="mt-auto" />
         </div>
       </Body>
     </Html>
