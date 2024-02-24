@@ -64,10 +64,7 @@ devDependencies:
   unocss-preset-columns:
     specifier: ^1.0.1
     version: 1.0.1
-  vite-plugin-devtools-columns:
-    specifier: ^1.0.1
-    version: 1.0.1
-  vite-plugin-devtools-outline:
+  vite-plugin-dev-guides:
     specifier: ^1.0.0
     version: 1.0.0
 
@@ -8272,8 +8269,23 @@ packages:
       vscode-uri: 3.0.8
     dev: false
 
-  /vite-plugin-devtools-columns@1.0.1:
-    resolution: {integrity: sha512-4ydbbibRuGWC5kEQch3K0aYGl2l7iKirqcaowGSJVik34lEYgA0ETlOZUHIzshqn1TY2KUpgjbLSv8+a1w4tPw==}
+  /vite-plugin-dev-guides@1.0.0:
+    resolution: {integrity: sha512-J2DEf+3QdQHM+cdBrVAm/O5F9LAUGeAESfcfjM6uzMEEgUt2lpdD5K0+IapDm7g81PKJPvoAzeFjxviHFIrKAg==}
+    dependencies:
+      vite-plugin-devtools-columns: 1.0.2
+      vite-plugin-devtools-outline: 1.0.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - terser
+    dev: true
+
+  /vite-plugin-devtools-columns@1.0.2:
+    resolution: {integrity: sha512-SBCQsWAXPghpsguokmgSZcv0hLojMzS0t5T/xmm/sh9RRu0ch/+93WAhDnY8HQrYw1qhlrn3F5VBjmgVOmqu5g==}
     dependencies:
       vite: 5.1.3
     transitivePeerDependencies:

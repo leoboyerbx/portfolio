@@ -32,7 +32,6 @@
     "prettier": "^3.2.5",
     "unocss": "^0.58.5",
     "unocss-preset-columns": "^1.0.1",
-    "vite-plugin-devtools-columns": "^1.0.1",
-    "vite-plugin-devtools-outline": "^1.0.0"
+    "vite-plugin-dev-guides": "^1.0.0"
   }
 }

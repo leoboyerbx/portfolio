@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { devtoolsOutline } from 'vite-plugin-devtools-outline'
-import { devtoolsColumns } from 'vite-plugin-devtools-columns'
+import { devtoolsOutline, devtoolsColumns } from 'vite-plugin-dev-guides'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@unocss/nuxt', '@vueuse/nuxt', '@nuxtjs/i18n'],
