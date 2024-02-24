@@ -23,6 +23,7 @@
     "@iconify/json": "^2.2.185",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/i18n": "^8.1.1",
+    "@unocss/eslint-config": "^0.58.5",
     "@unocss/nuxt": "^0.58.5",
     "@unocss/reset": "^0.58.5",
     "eslint": "^8.56.0",
