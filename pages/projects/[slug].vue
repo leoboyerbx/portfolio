@@ -60,6 +60,28 @@
           thumbnail-url="https://i3.ytimg.com/vi/e0KKXw5cIjg/maxresdefault.jpg"
         />
       </div>
+      <div class="prose mt-16 text-lg" col="start-3 span-5">
+        <p>
+          I was in charge of the video production. I had to figure out how to
+          make the ideas we wrote in the storyboard come to life. This implied
+          finding teenagers that could play, planning a drone shot inside a
+          town, framing, editing and a bit of compositing for "AR" effects.
+        </p>
+      </div>
+    </section>
+    <section class="pnk-grid">
+      <div class="grid-centered-10">
+        <ImageGallery
+          :images="[
+            'https://picsum.photos/seed/1/1920/1080/',
+            'https://picsum.photos/seed/2/1920/1080/',
+            'https://picsum.photos/seed/3/1920/1080/',
+            'https://picsum.photos/seed/4/1920/1080/',
+            'https://picsum.photos/seed/5/1920/1080/',
+            'https://picsum.photos/seed/6/1920/1080/',
+          ]"
+        />
+      </div>
     </section>
   </div>
 </template>
