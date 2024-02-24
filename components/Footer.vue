@@ -16,7 +16,7 @@ const currentYear = new Date().getFullYear()
         </a>
       </div>
       <a
-        class="ml-auto flex items-center text-sm text-slate-200 font-medium transition duration-200 hover:text-slate-50"
+        class="ml-auto flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
       >
         <span class="i-uil:file-alt mr-1 block"></span> CV
       </a>
