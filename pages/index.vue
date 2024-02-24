@@ -4,9 +4,17 @@
     <img
       src="~/assets/img/hero.webp"
       alt=""
-      class="pointer-events-none absolute left-0 block h-200vh w-full blur -top-6"
+      class="pointer-events-none absolute left-0 block h-150vh w-full blur -top-6"
     />
-    <HomeHero relative />
-    <ProjectList relative />
+    <img
+      src="~/assets/img/hero.webp"
+      alt=""
+      class="pointer-events-none absolute left-0 z-0 block h-200vh w-full rotate-180 opacity-80 blur grayscale -bottom-6"
+    />
+    <main class="relative z-10">
+      <HomeHero />
+      <ProjectList />
+    </main>
+    <Footer />
   </div>
 </template>
