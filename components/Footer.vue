@@ -3,12 +3,15 @@ const currentYear = new Date().getFullYear()
 </script>
 <template>
   <footer class="relative pnk-grid pb-12 pt-36">
-    <div class="grid-centered-12 flex items-center">
+    <div
+      class="grid-centered-10 flex items-center border border-slate-500/50 rounded-2xl from-indigo-600/10 to-yellow-200/10 bg-gradient-to-r px-8 py-4 backdrop-blur-xl"
+    >
+      <!-- older variant: class="grid-centered-8 flex items-center" -->
       <div class="flex items-center gap-1 text-sm">
         © {{ currentYear }} -
         <a
           href="https://pnk.studio/"
-          class="mb-px flex items-center gap-1 text-slate-500 font-extrabold transition duration-200 hover:text-slate-50"
+          class="mb-px flex items-center gap-1 text-slate-400 font-extrabold transition duration-200 hover:(text-slate-50 underline)"
           target="_blank"
         >
           <span class="i-uil:mountains-sun mb-0.5 inline-block text-lg"></span>
