@@ -1,11 +1,12 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="relative bg-slate-950 overflow-clip">
+  <div class="relative overflow-clip">
     <img
       src="~/assets/img/hero.webp"
       alt=""
-      class="absolute block top-0 left-0 w-full"
+      class="pointer-events-none absolute left-0 block h-200vh w-full blur -top-6"
     />
-    <HomeHero class="relative" />
+    <HomeHero relative />
+    <ProjectList relative />
   </div>
 </template>
