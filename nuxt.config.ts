@@ -2,8 +2,8 @@
 import { devtoolsOutline, devtoolsColumns } from 'vite-plugin-dev-guides'
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@unocss/nuxt', '@vueuse/nuxt', '@nuxtjs/i18n'],
-  css: ['@unocss/reset/tailwind.css', 'assets/global.css'],
+  modules: ['@unocss/nuxt', '@vueuse/nuxt', '@nuxtjs/i18n', 'nuxt-directus'],
+  css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
   vite: {
     plugins: [devtoolsOutline(), devtoolsColumns()],
   },
@@ -13,6 +13,10 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  directus: {
+    url: 'https://admin.leoboyer.dev',
+    devtools: true,
+  },
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',

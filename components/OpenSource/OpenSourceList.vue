@@ -1,11 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { OpenSourceContent } from '~/types/apiTypes'
+const { getSingletonItem } = useDirectusItems()
+const { data } = await useAsyncData(async () => {
+  const item = await getSingletonItem({
+    collection: 'OpenSource',
+  })
+  return item
+})
+
+const { title, description, works, sideNote } = data.value as OpenSourceContent
+console.log(works)
+</script>
 <template>
   <section class="flex flex-col">
     <header class="pnk-grid">
-      <h2 class="section-title grid-centered-8 mb-28 text-center">
-        My <span font="serif light" class="italic">humble</span><br />
-        open-source work
-      </h2>
+      <h2
+        class="section-title grid-centered-8 mb-28 text-center"
+        v-html="title"
+      ></h2>
     </header>
     <article class="pnk-grid">
       <div
@@ -14,17 +26,18 @@
         font="serif extralight"
       >
         <p class="text-lg">
-          Sometimes when I'm building something, I find myself needing a
-          reusable thing that I decide to publish. It implies to write and
-          maintain documentation and to manage releases.
+          {{ description }}
         </p>
         <p class="text-slate-300 italic">
-          Some of these projects are very old, but I still use them from time to
-          time.
+          {{ sideNote }}
         </p>
       </div>
       <div class="flex flex-col" col="start-8 span-5">
-        <OpenSourcePush v-for="i in 5" :key="i"></OpenSourcePush>
+        <OpenSourcePush
+          v-for="work in works"
+          :key="work.title"
+          :work="work"
+        ></OpenSourcePush>
       </div>
     </article>
   </section>

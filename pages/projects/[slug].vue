@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
   <div class="mb-36 flex flex-col gap-32">
-    <header class="pnk-grid pt-1c">
+    <header class="pnk-grid pt-36">
       <img
         src="~/assets/img/journiz.webp"
         alt=""
@@ -14,7 +14,7 @@
       >
         <h1 class="text-9vw font-black leading-120%">Journiz</h1>
 
-        <p class="pl-8 text-5 font-light font-serif ml-2c">
+        <p class="pl-8 text-6 font-light font-serif ml-2c">
           Reinventing school trips
         </p>
       </div>
