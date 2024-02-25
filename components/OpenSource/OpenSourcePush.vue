@@ -32,7 +32,7 @@ useEventListener('resize', updateHeight)
     <span
       class="outer-description h-0 overflow-clip text-slate-400 font-extralight transition-all duration-500"
     >
-      <span ref="innerDescription" class="block pb-1">
+      <span ref="innerDescription" class="block pb-1 pr-6">
         {{ work.description }}
       </span>
     </span>
