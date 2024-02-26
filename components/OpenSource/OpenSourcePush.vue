@@ -5,10 +5,10 @@ defineProps<{
   work: OpenSourceWork
 }>()
 const innerDescription = ref<HTMLElement>()
-const descriptionHeight = ref(24)
+const descriptionHeight = ref('24px')
 const updateHeight = () => {
   if (!innerDescription.value) return
-  descriptionHeight.value = innerDescription.value.clientHeight
+  descriptionHeight.value = innerDescription.value.clientHeight + 'px'
 }
 onMounted(updateHeight)
 useEventListener('resize', updateHeight)
@@ -39,7 +39,10 @@ useEventListener('resize', updateHeight)
   </a>
 </template>
 <style scoped>
-.group:hover .outer-description {
-  height: v-bind(descriptionHeight + 'px');
+.outer-description {
+  height: 0;
+}
+a:hover .outer-description {
+  height: v-bind(descriptionHeight);
 }
 </style>
