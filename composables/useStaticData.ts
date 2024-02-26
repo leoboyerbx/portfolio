@@ -1,9 +1,12 @@
 import type { StaticData } from '~/types/apiTypes'
 
-let cachedData: StaticData
-export const useStaticData = async () => {
+export async function useStaticData(): Promise<StaticData> {
+  const cachedData = useState<StaticData | null>(
+    'static-data-cache',
+    () => null
+  )
   const { getSingletonItem } = useDirectusItems()
-  if (cachedData) return cachedData
+  if (cachedData.value) return cachedData.value
   const { data } = await useAsyncData(async () => {
     const item = await getSingletonItem<StaticData>({
       collection: 'static',
@@ -11,7 +14,7 @@ export const useStaticData = async () => {
     return item
   })
   if (data.value) {
-    cachedData = data.value
+    cachedData.value = data.value
   }
-  return cachedData
+  return cachedData.value!
 }
