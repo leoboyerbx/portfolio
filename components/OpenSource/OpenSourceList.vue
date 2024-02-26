@@ -2,14 +2,13 @@
 import type { OpenSourceContent } from '~/types/apiTypes'
 const { getSingletonItem } = useDirectusItems()
 const { data } = await useAsyncData(async () => {
-  const item = await getSingletonItem({
+  const item = await getSingletonItem<OpenSourceContent>({
     collection: 'OpenSource',
   })
   return item
 })
 
 const { title, description, works, sideNote } = data.value as OpenSourceContent
-console.log(works)
 </script>
 <template>
   <section class="flex flex-col">
@@ -35,7 +34,7 @@ console.log(works)
       <div class="flex flex-col" col="start-8 span-5">
         <OpenSourcePush
           v-for="work in works"
-          :key="work.title"
+          :key="work.name"
           :work="work"
         ></OpenSourcePush>
       </div>
