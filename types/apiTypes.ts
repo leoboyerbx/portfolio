@@ -10,7 +10,7 @@ export interface OpenSourceContent {
   works: OpenSourceWork[]
 }
 
-export interface ContactLink {
+export interface Link {
   title: string
   url: string
   newTab: boolean
@@ -18,6 +18,17 @@ export interface ContactLink {
 export interface StaticData {
   id: string
   intro: string
-  contactLinks: ContactLink[]
+  contactLinks: Link[]
   contactTitle: string
+}
+export interface Project {
+  id: string
+  sort: number | null
+  date_created: string
+  date_updated: string
+  name: string
+  slug: string
+  baseline?: string
+  links: Link[]
+  thumbnail: string
 }

@@ -1,9 +1,36 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { Project } from '~/types/apiTypes'
+
+const { slug } = useRoute().params
+
+const { getItems } = useDirectusItems()
+const { data } = await useAsyncData(async () => {
+  const items = await getItems<Project>({
+    collection: 'projects',
+    params: {
+      filter: {
+        slug: {
+          _eq: slug,
+        },
+      },
+    },
+  })
+  return items[0]
+})
+if (!data?.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Not Found',
+  })
+}
+const { name, baseline, thumbnail, links } = data.value
+const { getThumbnail: img } = useDirectusFiles()
+</script>
 <template>
   <div class="mb-36 flex flex-col gap-32">
     <header class="pnk-grid pt-36">
       <img
-        src="~/assets/img/journiz.webp"
+        :src="img(thumbnail, { width: 1920, height: 1200, fit: 'cover' })"
         alt=""
         class="row-start-1 aspect-16/10 border border-slate-300/50 rounded-xl object-cover opacity-90"
         col="start-2 span-8"
@@ -12,24 +39,26 @@
         class="relative row-start-1 flex flex-col items-end self-end my-1c"
         col="start-7 span-6"
       >
-        <h1 class="text-9vw font-black leading-120%">Journiz</h1>
+        <h1 class="text-9vw font-black leading-120%">{{ name }}</h1>
 
         <p class="pl-8 text-6 font-light font-serif ml-2c">
-          Reinventing school trips
+          {{ baseline }}
         </p>
       </div>
       <div class="mt-6" col="start-2 span-5">
         <Button
-          href="https://journiz.fr"
-          target="_blank"
-          icon="i-uil:external-link-alt"
+          v-for="link in links"
+          :key="link.url"
+          :href="link.url"
+          :target="link.newTab ? '_blank' : ''"
+          :icon="link.newTab ? 'i-uil:external-link-alt' : ''"
         >
-          Go to the project
+          {{ link.title }}
         </Button>
       </div>
     </header>
     <section class="pnk-grid">
-      <div class="prose mt-12" col="start-3 span-5">
+      <div class="mt-12 prose" col="start-3 span-5">
         <p>
           Magna veniam est pariatur eu aliquip dolore cillum nostrud incididunt
           elit occaecat. Irure minim ea reprehenderit in elit deserunt ea
@@ -69,7 +98,7 @@
           thumbnail-url="https://i3.ytimg.com/vi/e0KKXw5cIjg/maxresdefault.jpg"
         />
       </div>
-      <div class="prose mt-16 text-lg" col="start-3 span-5">
+      <div class="mt-16 text-lg prose" col="start-3 span-5">
         <p>
           I was in charge of the video production. I had to figure out how to
           make the ideas we wrote in the storyboard come to life. This implied
