@@ -16,7 +16,7 @@ defineProps<{
 <style scoped lang="scss">
 .gallery {
   img {
-    @apply h-3c w-full rounded-lg object-cover h-3c;
+    @apply h-3.5c w-full rounded-lg object-cover h-3c;
     &:nth-child(4n + 1),
     &:nth-child(4n) {
       @apply col-span-5;

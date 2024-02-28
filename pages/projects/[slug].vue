@@ -23,14 +23,19 @@ if (!data?.value) {
     statusMessage: 'Not Found',
   })
 }
-const { name, baseline, thumbnail, links } = data.value
+const project = data.value
 const { getThumbnail: img } = useDirectusFiles()
+const images = project.images.blocks
+  .filter((b) => b.type === 'image')
+  .map((block) => useRuntimeConfig().public.apiUrl + block.data.file.url)
 </script>
 <template>
   <div class="mb-36 flex flex-col gap-32">
     <header class="pnk-grid pt-36">
       <img
-        :src="img(thumbnail, { width: 1920, height: 1200, fit: 'cover' })"
+        :src="
+          img(project.thumbnail, { width: 1920, height: 1200, fit: 'cover' })
+        "
         alt=""
         class="row-start-1 aspect-16/10 border border-slate-300/50 rounded-xl object-cover opacity-90"
         col="start-2 span-8"
@@ -39,15 +44,15 @@ const { getThumbnail: img } = useDirectusFiles()
         class="relative row-start-1 flex flex-col items-end self-end my-1c"
         col="start-7 span-6"
       >
-        <h1 class="text-9vw font-black leading-120%">{{ name }}</h1>
+        <h1 class="text-9vw font-black leading-120%">{{ project.name }}</h1>
 
         <p class="pl-8 text-6 font-light font-serif ml-2c">
-          {{ baseline }}
+          {{ project.baseline }}
         </p>
       </div>
       <div class="mt-6" col="start-2 span-5">
         <Button
-          v-for="link in links"
+          v-for="link in project.links"
           :key="link.url"
           :href="link.url"
           :target="link.newTab ? '_blank' : ''"
@@ -58,67 +63,41 @@ const { getThumbnail: img } = useDirectusFiles()
       </div>
     </header>
     <section class="pnk-grid">
-      <div class="mt-12 prose" col="start-3 span-5">
-        <p>
-          Magna veniam est pariatur eu aliquip dolore cillum nostrud incididunt
-          elit occaecat. Irure minim ea reprehenderit in elit deserunt ea
-          excepteur anim proident nisi sunt <strong>fugiat</strong> enim ad.
-          Ipsum consectetur eu anim occaecat quis exercitation eu. Veniam velit
-          adipisicing duis nisi reprehenderit aute. Incididunt ex excepteur
-          dolore ad irure labore reprehenderit consequat officia ut enim ipsum
-          culpa. Sint magna ad reprehenderit sunt nostrud mollit reprehenderit
-          elit occaecat excepteur officia enim dolore. Nisi Lorem ut eu amet
-          nostrud eiusmod est incididunt commodo labore. Cupidatat occaecat
-          irure tempor incididunt ea id.
-        </p>
-      </div>
+      <div
+        class="mt-12 prose"
+        col="start-3 span-5"
+        v-html="project.description"
+      ></div>
       <div col="start-9 span-4" class="flex flex-col items-start">
-        <h2 class="mb-4 text-8 font-bold">On this project</h2>
+        <h2 class="mb-4 text-8 font-bold">{{ project.skillsTitle }}</h2>
         <ul class="flex flex-col gap-1 text-sm font-thin font-serif">
-          <li>Design Process & UX</li>
-          <li class="my-2 h-px w-full bg-current opacity-50"></li>
-          <li>Mobile Developement</li>
-          <li>Web Developement</li>
-          <li>Backend</li>
-          <li>Ops</li>
-          <li class="my-2 h-px w-full bg-current opacity-50"></li>
-          <li>Video Production</li>
-          <li>Editing</li>
+          <template v-for="(skill, i) in project.skills" :key="i">
+            <li
+              v-if="skill.divider"
+              class="my-2 h-px w-full bg-current opacity-50"
+            ></li>
+            <li v-else>{{ skill.name }}</li>
+          </template>
         </ul>
       </div>
     </section>
     <section class="pnk-grid">
-      <h2 class="grid-centered-8 mb-8 text-center text-12 font-bold">
-        Watch the teaser
-      </h2>
+      <h2
+        class="grid-centered-8 section-title mb-8 text-center"
+        v-html="project.videoTitle"
+      ></h2>
       <div class="grid-centered-8">
-        <EmbedPlayer
-          class="w-full"
-          url="https://www.youtube.com/embed/e0KKXw5cIjg"
-          thumbnail-url="https://i3.ytimg.com/vi/e0KKXw5cIjg/maxresdefault.jpg"
-        />
+        <EmbedPlayer class="w-full" :url="project.videoUrl" />
       </div>
-      <div class="mt-16 text-lg prose" col="start-3 span-5">
-        <p>
-          I was in charge of the video production. I had to figure out how to
-          make the ideas we wrote in the storyboard come to life. This implied
-          finding teenagers that could play, planning a drone shot inside a
-          town, framing, editing and a bit of compositing for "AR" effects.
-        </p>
-      </div>
+      <div
+        class="mt-16 text-lg prose"
+        col="start-3 span-5"
+        v-html="project.videoDescription"
+      ></div>
     </section>
     <section class="pnk-grid">
       <div class="grid-centered-10">
-        <ImageGallery
-          :images="[
-            'https://picsum.photos/seed/1/1920/1080/',
-            'https://picsum.photos/seed/2/1920/1080/',
-            'https://picsum.photos/seed/3/1920/1080/',
-            'https://picsum.photos/seed/4/1920/1080/',
-            'https://picsum.photos/seed/5/1920/1080/',
-            'https://picsum.photos/seed/6/1920/1080/',
-          ]"
-        />
+        <ImageGallery :images="images" />
       </div>
     </section>
   </div>

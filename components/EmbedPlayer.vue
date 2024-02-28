@@ -1,12 +1,25 @@
 <script setup lang="ts">
 const props = defineProps<{
   url: string
-  thumbnailUrl: string
+  thumbnailUrl?: string
 }>()
 const urlWithAutoplay = computed(() => {
   const url = new URL(props.url)
   url.searchParams.set('autoplay', '1')
   return url.toString()
+})
+const thumb = computed(() => {
+  if (props.thumbnailUrl) {
+    return props.thumbnailUrl
+  }
+  if (props.url.startsWith('https://www.youtube.com/embed/')) {
+    return (
+      'https://img.youtube.com/vi/' +
+      props.url.split('embed/')[1] +
+      '/maxresdefault.jpg'
+    )
+  }
+  return ''
 })
 const clicked = ref(false)
 </script>
@@ -27,7 +40,7 @@ const clicked = ref(false)
       @click="clicked = true"
     >
       <img
-        :src="thumbnailUrl"
+        :src="thumb"
         alt="Video Thumbnail"
         class="absolute inset-0 h-full w-full object-cover opacity-90"
       />

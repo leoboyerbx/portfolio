@@ -11,6 +11,7 @@
     "deploy": "git checkout main && git pull && git merge dev && git push && git checkout dev"
   },
   "dependencies": {
+    "@extractus/oembed-extractor": "^4.0.2",
     "@vueuse/core": "^10.7.2",
     "@vueuse/nuxt": "^10.7.2",
     "motion": "^10.17.0",

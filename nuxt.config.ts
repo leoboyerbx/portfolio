@@ -17,6 +17,11 @@ export default defineNuxtConfig({
     url: 'https://admin.leoboyer.dev',
     devtools: true,
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: 'https://admin.leoboyer.dev',
+    },
+  },
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
