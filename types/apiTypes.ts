@@ -31,6 +31,7 @@ export interface OpenSourceContent {
 export interface StaticData {
   id: string
   intro: string
+  projectsTitle: string
   contactLinks: Link[]
   contactTitle: string
 }
@@ -75,3 +76,7 @@ export interface Project {
   videoDescription: string
   images: ProjectImages
 }
+export type ProjectPushData = Pick<
+  Project,
+  'id' | 'name' | 'slug' | 'baseline' | 'thumbnail'
+>

@@ -1,9 +1,31 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { Project, ProjectPushData } from '~/types/apiTypes'
+
+const { getItems } = useDirectusItems()
+const { data } = await useAsyncData(() =>
+  getItems<ProjectPushData>({
+    collection: 'projects',
+    params: {
+      limit: -1,
+      fields: ['id', 'name', 'slug', 'baseline', 'thumbnail'],
+    },
+  })
+)
+const projects = data.value
+const { projectsTitle } = await useStaticData()
+</script>
 <template>
   <section class="pnk-grid w-full">
-    <h2 class="section-title grid-centered-8 mb-36 text-center">Projects</h2>
+    <h2
+      class="section-title grid-centered-8 mb-36 text-center"
+      v-html="projectsTitle"
+    ></h2>
     <div class="grid-centered-8 flex flex-col gap-36">
-      <ProjectPush v-for="i in 4" :key="i"></ProjectPush>
+      <ProjectPush
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
+      ></ProjectPush>
     </div>
   </section>
 </template>
