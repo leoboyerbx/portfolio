@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const currentYear = new Date().getFullYear()
+const { resume } = await useStaticData()
+const resumeUrl = useRuntimeConfig().public.apiUrl + '/assets/' + resume
 </script>
 <template>
   <footer class="relative pnk-grid pb-12 pt-36">
@@ -18,6 +20,7 @@ const currentYear = new Date().getFullYear()
           <span>pnk.studio</span>
         </a>
       </div>
+      {{ resumeUrl }}
       <a
         class="ml-auto flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
       >

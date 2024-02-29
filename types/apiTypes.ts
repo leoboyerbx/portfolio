@@ -34,6 +34,7 @@ export interface StaticData {
   projectsTitle: string
   contactLinks: Link[]
   contactTitle: string
+  resume: string
 }
 
 export interface ProjectSkill {
