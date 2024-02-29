@@ -21,7 +21,9 @@ const { getThumbnail: img } = useDirectusFiles()
           class="aspect-16/10 border border-slate-400/50 rounded-lg object-cover opacity-80"
         />
       </header>
-      <section class="flex flex-col justify-end">
+      <section
+        class="flex flex-col justify-end md:group-even:(items-end text-right)"
+      >
         <h3 class="text-3xl font-bold md:text-5xl">{{ project.name }}</h3>
         <p class="font-light lt-md:text-sm">{{ project.baseline }}</p>
       </section>

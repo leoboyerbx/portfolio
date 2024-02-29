@@ -25,9 +25,11 @@ if (!data?.value) {
 }
 const project = data.value
 const { getThumbnail: img } = useDirectusFiles()
-const images = project.images.blocks
-  .filter((b) => b.type === 'image')
-  .map((block) => useRuntimeConfig().public.apiUrl + block.data.file.url)
+const images =
+  project.images?.blocks
+    ?.filter((b) => b.type === 'image')
+    .map((block) => useRuntimeConfig().public.apiUrl + block.data.file.url) ??
+  []
 </script>
 <template>
   <div class="mb-36 flex flex-col gap-32">
@@ -44,7 +46,9 @@ const images = project.images.blocks
         class="relative row-start-1 flex flex-col items-end self-end my-1c"
         col="start-7 span-6"
       >
-        <h1 class="text-9vw font-black leading-120%">{{ project.name }}</h1>
+        <h1 class="text-right text-9vw font-black leading-120%">
+          {{ project.name }}
+        </h1>
 
         <p class="pl-8 text-6 font-light font-serif ml-2c">
           {{ project.baseline }}
@@ -64,13 +68,17 @@ const images = project.images.blocks
     </header>
     <section class="pnk-grid">
       <div
+        v-if="project.description"
         class="mt-12 prose"
         col="start-3 span-6"
         v-html="project.description"
       ></div>
       <div col="start-10 span-3" class="flex flex-col items-start">
         <h2 class="mb-4 text-8 font-bold">{{ project.skillsTitle }}</h2>
-        <ul class="flex flex-col gap-1 text-sm font-thin font-serif">
+        <ul
+          v-if="project.skills?.length"
+          class="flex flex-col gap-1 text-sm font-thin font-serif"
+        >
           <template v-for="(skill, i) in project.skills" :key="i">
             <li
               v-if="skill.divider"
@@ -81,8 +89,9 @@ const images = project.images.blocks
         </ul>
       </div>
     </section>
-    <section class="pnk-grid">
+    <section v-if="project.videoUrl" class="pnk-grid">
       <h2
+        v-if="project.videoTitle"
         class="grid-centered-8 section-title mb-12 text-center"
         v-html="project.videoTitle"
       ></h2>
@@ -90,12 +99,13 @@ const images = project.images.blocks
         <EmbedPlayer class="w-full" :url="project.videoUrl" />
       </div>
       <div
+        v-if="project.videoDescription"
         class="mt-16 text-lg prose"
         col="start-3 span-5"
         v-html="project.videoDescription"
       ></div>
     </section>
-    <section class="pnk-grid">
+    <section v-if="images.length" class="pnk-grid">
       <div class="grid-centered-10">
         <ImageGallery :images="images" />
       </div>
