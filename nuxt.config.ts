@@ -13,26 +13,13 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  routeRules: {
-    '/api/**': {
-      proxy: 'https://admin.leoboyer.dev/**',
-    },
-  },
-  $development: {
-    directus: {
-      url: 'http://localhost:3000/api',
-      devtools: true,
-    },
-  },
-  $production: {
-    directus: {
-      url: 'https://www.leoboyer.dev/api',
-      devtools: true,
-    },
+  directus: {
+    url: 'https://api.leoboyer.dev',
+    devtools: true,
   },
   runtimeConfig: {
     public: {
-      apiUrl: '/api',
+      apiUrl: 'https://api.leoboyer.dev',
     },
   },
   i18n: {
