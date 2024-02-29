@@ -50,7 +50,7 @@ const images = project.images.blocks
           {{ project.baseline }}
         </p>
       </div>
-      <div class="mt-6" col="start-2 span-5">
+      <div v-if="project.links?.length > 0" class="mt-6" col="start-2 span-5">
         <Button
           v-for="link in project.links"
           :key="link.url"
@@ -65,10 +65,10 @@ const images = project.images.blocks
     <section class="pnk-grid">
       <div
         class="mt-12 prose"
-        col="start-3 span-5"
+        col="start-3 span-6"
         v-html="project.description"
       ></div>
-      <div col="start-9 span-4" class="flex flex-col items-start">
+      <div col="start-10 span-3" class="flex flex-col items-start">
         <h2 class="mb-4 text-8 font-bold">{{ project.skillsTitle }}</h2>
         <ul class="flex flex-col gap-1 text-sm font-thin font-serif">
           <template v-for="(skill, i) in project.skills" :key="i">
@@ -83,7 +83,7 @@ const images = project.images.blocks
     </section>
     <section class="pnk-grid">
       <h2
-        class="grid-centered-8 section-title mb-8 text-center"
+        class="grid-centered-8 section-title mb-12 text-center"
         v-html="project.videoTitle"
       ></h2>
       <div class="grid-centered-8">

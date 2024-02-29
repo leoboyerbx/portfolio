@@ -74,3 +74,15 @@ body {
         @apply font-serif font-light
     }
 }
+
+// Wysi styles
+
+.prose {
+    @apply font-serif font-extralight;
+
+    h2,
+    h3,
+    h4 {
+        @apply font-medium;
+    }
+}
