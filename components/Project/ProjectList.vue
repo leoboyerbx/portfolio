@@ -16,10 +16,9 @@ const { projectsTitle } = await useStaticData()
 </script>
 <template>
   <section class="pnk-grid w-full">
-    <h2
-      class="section-title grid-centered-8 mb-36 text-center"
-      v-html="projectsTitle"
-    ></h2>
+    <ScrollReveal class="grid-centered-8 mb-36">
+      <h2 class="section-title text-center" v-html="projectsTitle"></h2>
+    </ScrollReveal>
     <div class="grid-centered-8 flex flex-col gap-36">
       <ProjectPush
         v-for="project in projects"

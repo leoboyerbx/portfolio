@@ -16,6 +16,14 @@ export default defineConfig({
   shortcuts: {
     'pnk-grid': 'grid grid-cols-14',
   },
+  rules: [
+    ['clip-base', { 'clip-path': ' polygon(0 0, 100% 0, 100% 100%, 0 100%)' }],
+    ['clip-left', { 'clip-path': ' polygon(0 0, 0 0, 0 100%, 0 100%)' }],
+    [
+      'clip-right',
+      { 'clip-path': ' polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' },
+    ],
+  ],
   theme: {
     colors: {
       theme: '#fce14b',
