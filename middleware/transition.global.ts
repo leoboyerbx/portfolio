@@ -1,6 +1,6 @@
 import { getLenis } from '~/plugins/lenis.client'
 
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware((to) => {
   to.meta.pageTransition = {
     name: 'page',
     mode: 'out-in',
