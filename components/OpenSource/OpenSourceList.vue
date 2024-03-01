@@ -13,13 +13,12 @@ const { title, description, works, sideNote } = data.value as OpenSourceContent
 <template>
   <section class="flex flex-col">
     <header class="pnk-grid">
-      <h2
-        class="section-title grid-centered-8 mb-28 text-center"
-        v-html="title"
-      ></h2>
+      <ScrollReveal class="grid-centered-8 mb-28">
+        <h2 class="section-title text-center" v-html="title"></h2>
+      </ScrollReveal>
     </header>
     <article class="pnk-grid">
-      <div
+      <ScrollReveal
         class="mb-12 flex flex-col gap-8"
         col="start-2 span-12"
         md:col="start-2 span-5"
@@ -33,8 +32,9 @@ const { title, description, works, sideNote } = data.value as OpenSourceContent
         <p class="text-slate-300 italic">
           {{ sideNote }}
         </p>
-      </div>
-      <div
+      </ScrollReveal>
+      <ScrollReveal
+        :delay="0.15"
         class="flex flex-col"
         col="start-2 span-12"
         md:col="start-8 span-6"
@@ -45,7 +45,7 @@ const { title, description, works, sideNote } = data.value as OpenSourceContent
           :key="work.name"
           :work="work"
         ></OpenSourcePush>
-      </div>
+      </ScrollReveal>
     </article>
   </section>
 </template>

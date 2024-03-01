@@ -18,6 +18,10 @@ const props = defineProps({
     type: String as PropType<keyof typeof effects>,
     default: 'default',
   },
+  delay: {
+    type: Number,
+    default: 0,
+  },
 })
 
 const effect = computed(() => effects[props.effect])
@@ -26,7 +30,10 @@ const target = ref<HTMLElement>()
 let animation: AnimationControls
 onMounted(() => {
   if (!target.value) return
-  animation = animate(target.value, ...effect.value)
+  animation = animate(target.value, effect.value[0], {
+    ...effect.value[1],
+    delay: props.delay,
+  })
   animation.pause()
 })
 
