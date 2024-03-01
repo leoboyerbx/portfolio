@@ -11,7 +11,6 @@ body {
 }
 
 /* Default transition */
-/* we will explain what these classes do next! */
 .v-enter-active,
 .v-leave-active {
     transition: opacity 0.15s ease;
@@ -85,4 +84,10 @@ body {
     h4 {
         @apply font-medium;
     }
+}
+
+.kbd {
+    @apply text-9px uppercase font-sans px-2 py-0 rounded border;
+    border-color: color-mix(in srgb, currentColor 50%, transparent);
+    background-color: color-mix(in srgb, currentColor 20%, transparent);
 }

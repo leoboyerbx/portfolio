@@ -5,18 +5,19 @@ defineProps<{
 </script>
 <template>
   <div class="gallery grid grid-cols-8 gap-4">
-    <img
+    <ImageLightbox
       v-for="image in images"
       :key="image"
       :src="image"
       alt="Gallery Image"
+      class="img"
     />
   </div>
 </template>
 <style scoped lang="scss">
 .gallery {
-  img {
-    @apply h-3.5c w-full rounded-lg object-cover h-3c;
+  .img {
+    @apply w-full rounded-lg object-cover overflow-hidden;
     &:nth-child(4n + 1),
     &:nth-child(4n) {
       @apply col-span-5;
