@@ -13,6 +13,7 @@ const { locale } = useI18n()
         />
       </Head>
       <Body>
+        <MainNav />
         <div class="relative min-h-100vh flex flex-col overflow-clip">
           <img
             src="~/assets/img/hero.webp"
