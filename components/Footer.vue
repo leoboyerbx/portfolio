@@ -4,7 +4,7 @@ const currentYear = new Date().getFullYear()
 <template>
   <footer class="relative pnk-grid pb-12 pt-36">
     <div
-      class="grid-centered-10 flex items-center border border-slate-500/50 rounded-2xl from-indigo-600/10 to-yellow-200/10 bg-gradient-to-r px-8 py-4 backdrop-blur-xl"
+      class="grid-centered-10 flex items-center border border-slate-500/50 rounded-full from-indigo-600/10 to-yellow-200/10 bg-gradient-to-r px-8 py-4 backdrop-blur-xl"
     >
       <!-- older variant: class="grid-centered-8 flex items-center" -->
       <div class="flex items-center gap-1 text-sm">
