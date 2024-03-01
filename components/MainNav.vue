@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { animate } from 'motion'
 import { getLenis } from '~/plugins/lenis.client'
 
 const links: Record<string, string> = {
