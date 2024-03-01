@@ -2,7 +2,7 @@
 const { intro } = await useStaticData()
 </script>
 <template>
-  <header class="min-h-100vh w-full flex flex-col py-16">
+  <header class="min-h-100vh w-full flex flex-col pb-16 pt-36">
     <!-- <div class="absolute top-1c right-1c text-xs font-extrabold opacity-50">
       <LanguageSwitcher />
     </div> -->

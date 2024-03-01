@@ -46,20 +46,16 @@ const goBack = () => {
 }
 </script>
 <template>
-  <div class="pointer-events-none fixed left-0 top-0 z-1000 w-full px-8 py-7">
+  <div class="pointer-events-none fixed left-0 top-0 z-50 w-full px-8 py-7">
     <nav
       ref="navEl"
-      class="nav-transition pointer-events-auto absolute h-14 flex items-center overflow-clip border rounded-full"
+      class="nav-transition nav-bg pointer-events-auto absolute h-14 flex items-center overflow-clip border rounded-full"
       :style="{
         width: `${width}px`,
         left: isHome ? '50%' : '24px',
         transform: isHome ? 'translateX(-50%)' : 'none',
       }"
-      :class="[
-        scrolled || !isHome
-          ? 'border-slate-400/50 bg-slate-400/20 backdrop-blur-xl'
-          : ' border-transparent',
-      ]"
+      :class="{ transparent: !scrolled && isHome }"
     >
       <!-- <transition mode="out-in"> -->
       <button
@@ -75,7 +71,7 @@ const goBack = () => {
       </button>
       <ul
         ref="menuEl"
-        class="child-transition flex flex-shrink-0 items-center gap-12 px-8"
+        class="child-transition flex flex-shrink-0 items-center gap-3 px-8 md:gap-12 sm:gap-8"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
@@ -111,5 +107,12 @@ $ease: theme('easing.power4-in-out');
 }
 .child-transition {
   transition: transform $duration $ease;
+}
+
+.nav-bg {
+  @apply border-slate-400/50 bg-slate-400/20 backdrop-blur-xl;
+  &.transparent {
+    @apply md:( bg-transparent border-transparent);
+  }
 }
 </style>

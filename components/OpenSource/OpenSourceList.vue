@@ -21,7 +21,10 @@ const { title, description, works, sideNote } = data.value as OpenSourceContent
     <article class="pnk-grid">
       <div
         class="mb-12 flex flex-col gap-8"
-        col="start-3 span-3"
+        col="start-2 span-12"
+        md:col="start-2 span-5"
+        lg:col="start-3 span-4"
+        xl:col="start-3 span-3"
         font="serif extralight"
       >
         <p class="text-lg">
@@ -31,7 +34,12 @@ const { title, description, works, sideNote } = data.value as OpenSourceContent
           {{ sideNote }}
         </p>
       </div>
-      <div class="flex flex-col" col="start-8 span-5">
+      <div
+        class="flex flex-col"
+        col="start-2 span-12"
+        md:col="start-8 span-6"
+        xl:col="start-8 span-5"
+      >
         <OpenSourcePush
           v-for="work in works"
           :key="work.name"

@@ -6,7 +6,7 @@ const { contactTitle, contactLinks } = await useStaticData()
     <header class="grid-centered-8">
       <h2 class="section-title mb-16 text-center" v-html="contactTitle"></h2>
     </header>
-    <article class="grid-centered-8 flex justify-center gap-5">
+    <article class="grid-centered-8 flex flex-wrap justify-center gap-5">
       <Button
         v-for="link in contactLinks"
         :key="link.url"

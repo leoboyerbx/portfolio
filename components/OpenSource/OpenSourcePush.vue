@@ -30,7 +30,7 @@ useEventListener('resize', updateHeight)
       ></span>
     </span>
     <span
-      class="outer-description h-0 overflow-clip text-slate-400 font-extralight transition-all duration-500"
+      class="outer-description overflow-clip text-slate-400 font-extralight transition-all duration-500"
     >
       <span ref="innerDescription" class="block pb-1 pr-6">
         {{ work.description }}
@@ -39,10 +39,12 @@ useEventListener('resize', updateHeight)
   </a>
 </template>
 <style scoped>
-.outer-description {
-  height: 0;
-}
-a:hover .outer-description {
-  height: v-bind(descriptionHeight);
+@screen md {
+  .outer-description {
+    height: 0;
+  }
+  a:hover .outer-description {
+    height: v-bind(descriptionHeight);
+  }
 }
 </style>

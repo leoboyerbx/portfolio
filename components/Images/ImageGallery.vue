@@ -17,15 +17,17 @@ defineProps<{
 <style scoped lang="scss">
 .gallery {
   .img {
-    @apply w-full rounded-lg object-cover overflow-hidden;
-    &:nth-child(4n + 1),
-    &:nth-child(4n) {
-      @apply col-span-5;
-    }
+    @apply w-full rounded-lg object-cover overflow-hidden col-span-full;
+    @screen md {
+      &:nth-child(4n + 1),
+      &:nth-child(4n) {
+        @apply col-span-5;
+      }
 
-    &:nth-child(4n + 2),
-    &:nth-child(4n + 3) {
-      @apply col-span-3;
+      &:nth-child(4n + 2),
+      &:nth-child(4n + 3) {
+        @apply col-span-3;
+      }
     }
   }
 }
