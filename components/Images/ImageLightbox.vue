@@ -28,16 +28,14 @@ onKeyStroke('Escape', close)
           @mousemove="hasMoved = true"
         >
           <img :src="src" :alt="alt" class="h-8/10 w-8/10 object-contain" />
-          <transition>
-            <button
-              v-if="hasMoved"
-              class="absolute left-4 top-4 flex items-center gap-2 text-sm"
-              @click="close"
-            >
-              <span class="kbd">Esc</span>
-              <span>Close</span>
-            </button>
-          </transition>
+          <button
+            class="absolute right-4 top-4 flex items-center gap-2 text-sm transition duration-200"
+            :class="hasMoved ? '' : 'md:opacity-0'"
+            @click="close"
+          >
+            <span>Close</span>
+            <span class="kbd">Esc</span>
+          </button>
         </div>
       </transition>
     </teleport>
