@@ -16,7 +16,7 @@ export function onElementInView(
 }
 
 export default function useElementInView(
-  options: Parameters<typeof onElementInView>[2] = {},
+  options: Parameters<typeof onElementInView>[2] & { leaving?: boolean } = {},
   target?: MaybeRef<HTMLElement | undefined>
 ) {
   target = target || ref<HTMLElement>()
@@ -25,6 +25,12 @@ export default function useElementInView(
     target,
     (entry) => {
       inView.value = entry.isIntersecting
+      if (options.leaving) {
+        return () => {
+          console.log('leaving')
+          inView.value = false
+        }
+      }
     },
     options
   )
