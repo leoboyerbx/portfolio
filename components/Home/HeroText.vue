@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import isVowel from '~/utils/isVowel'
-const texts = ['creative', 'curious', 'angry']
+const texts = [
+  { text: 'creative', colors: ['red', '#fff'] },
+  { text: 'curious', colors: ['#fff', '#fff'] },
+  { text: 'angry', colors: ['#fff', '#fff'] },
+]
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
 const currentText = ref(0)
@@ -47,7 +51,7 @@ useIntervalFn(() => {
         >
           <span
             v-for="(text, i) in texts"
-            :key="text[1]"
+            :key="text.text[1]"
             ref="textElements"
             class="left-0 top-0 items-baseline whitespace-nowrap transition duration-200"
             :class="[
@@ -55,10 +59,13 @@ useIntervalFn(() => {
               currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
             ]"
           >
-            <span v-if="isVowel(text[0])" class="mr-0.25em -ml-0.25em">n</span>
+            <span v-if="isVowel(text.text[0])" class="mr-0.25em -ml-0.25em"
+              >n</span
+            >
             <TextEffect
-              class="from-red-600 to-indigo-600 bg-gradient-to-r bg-clip-text text-white/30"
-              :text="text"
+              class=""
+              :text="text.text"
+              :colors="text.colors"
               effect="wave"
             ></TextEffect>
           </span>
