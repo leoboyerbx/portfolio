@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import isVowel from '~/utils/isVowel'
 const texts = ['creative', 'curious', 'angry']
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
@@ -55,10 +56,11 @@ useIntervalFn(() => {
             ]"
           >
             <span v-if="isVowel(text[0])" class="mr-0.25em -ml-0.25em">n</span>
-            <span
+            <TextEffect
               class="from-red-600 to-indigo-600 bg-gradient-to-r bg-clip-text text-white/30"
-              >{{ text }}</span
-            >
+              :text="text"
+              effect="wave"
+            ></TextEffect>
           </span>
         </span>
         developer.
