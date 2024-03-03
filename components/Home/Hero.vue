@@ -7,7 +7,7 @@ const { intro } = await useStaticData()
       <LanguageSwitcher />
     </div> -->
     <div class="grid grid-cols-14 md:h-40vh">
-      <HeroText />
+      <HeroText col="start-2 span-12" md:col="start-3 span-11" />
     </div>
     <div class="grid grid-cols-14 mt-16 md:mt-1/2c">
       <div
