@@ -15,12 +15,12 @@ const texts: {
 ]
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
-const currentText = ref(2)
+const currentText = ref(0)
 const currentTextWidth = computed(() => {
   return textWidths.value[currentText.value] ?? 0
 })
 
-const isResizing = ref(false)
+const isResizing = ref(true)
 const computeWidths = async () => {
   if (!textElements.value) return
   isResizing.value = true
@@ -31,6 +31,7 @@ const computeWidths = async () => {
   }
   isResizing.value = false
 }
+
 onMounted(() => {
   computeWidths()
 })

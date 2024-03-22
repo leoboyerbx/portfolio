@@ -44,9 +44,18 @@ const goBack = () => {
     router.push('/')
   }
 }
+
+const mounted = useMounted()
 </script>
 <template>
-  <div class="pointer-events-none fixed left-0 top-0 z-50 w-full px-8 py-7">
+  <div
+    class="pointer-events-none fixed left-0 top-0 z-50 w-full px-8 py-7"
+    :class="
+      mounted
+        ? 'delay-500 transition duration-600 ease-power4-out'
+        : 'transform translate-y-2 opacity-0'
+    "
+  >
     <nav
       ref="navEl"
       class="nav-transition nav-bg pointer-events-auto absolute h-14 flex items-center overflow-clip border rounded-full"
