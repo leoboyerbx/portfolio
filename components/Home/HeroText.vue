@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import isVowel from '~/utils/isVowel'
-const texts = [
-  { text: 'creative', colors: ['red', '#fff'] },
-  { text: 'curious', colors: ['#fff', '#fff'] },
-  { text: 'angry', colors: ['#fff', '#fff'] },
+import type { TextEffect } from '#components'
+
+const texts: {
+  text: string
+  colors: string[]
+  effect: InstanceType<typeof TextEffect>['$props']['effect']
+}[] = [
+  { text: 'creative', colors: ['#38bdf8', '#c084fc'], effect: 'wave' },
+  { text: 'curious', colors: ['#0369a1', '#a7f3d0'], effect: 'blurry' },
+  { text: 'angry', colors: ['#f87171', '#ea580c'], effect: 'shake' },
+  { text: 'excited', colors: ['#6ee7b7', '#7dd3fc'], effect: 'wave' },
+  { text: 'juggling', colors: ['#fce14b', '#dc2626'], effect: 'shake' },
 ]
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
@@ -53,20 +61,24 @@ useIntervalFn(() => {
             v-for="(text, i) in texts"
             :key="text.text[1]"
             ref="textElements"
-            class="left-0 top-0 items-baseline whitespace-nowrap transition duration-200"
+            class="left-0 top-0 items-baseline whitespace-nowrap"
             :class="[
               i === texts.length - 1 ? 'relative' : 'absolute',
-              currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
+              currentText === i ? '' : 'pointer-events-none select-none',
             ]"
           >
-            <span v-if="isVowel(text.text[0])" class="mr-0.25em -ml-0.25em"
+            <span
+              v-if="isVowel(text.text[0])"
+              class="mr-0.25em transition duration-200 -ml-0.25em"
+              :class="currentText === i ? 'opacity-100' : 'opacity-0 delay-50'"
               >n</span
             >
             <TextEffect
-              class=""
+              class="transition duration-200"
+              :class="currentText === i ? 'opacity-100 delay-200' : 'opacity-0'"
               :text="text.text"
               :colors="text.colors"
-              effect="wave"
+              :effect="text.effect"
             ></TextEffect>
           </span>
         </span>
