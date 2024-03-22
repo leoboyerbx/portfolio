@@ -15,26 +15,28 @@ const texts: {
 ]
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
-const currentText = ref(0)
+const currentText = ref(2)
 const currentTextWidth = computed(() => {
   return textWidths.value[currentText.value] ?? 0
 })
 
-const isComputingWidth = ref(false)
+const isResizing = ref(false)
 const computeWidths = async () => {
   if (!textElements.value) return
-  isComputingWidth.value = true
+  isResizing.value = true
   // await new Promise((resolve) => setTimeout(resolve, 0))
   await nextTick()
   for (let i = 0; i < textElements.value.length; i++) {
     textWidths.value[i] = textElements.value[i].offsetWidth
   }
-  isComputingWidth.value = false
+  isResizing.value = false
 }
 onMounted(() => {
   computeWidths()
 })
-useEventListener('resize', useDebounceFn(computeWidths, 500))
+useEventListener('resize', () => {
+  computeWidths()
+})
 
 useIntervalFn(() => {
   currentText.value = (currentText.value + 1) % texts.length
@@ -54,8 +56,11 @@ useIntervalFn(() => {
       <span class="line-content">
         <span class="mr-0.25em">a</span>
         <span
-          class="relative inline-block transition-all duration-300"
-          :style="{ width: currentTextWidth + 'px' }"
+          class="relative inline-block"
+          :style="{
+            width: currentTextWidth + 'px',
+            transition: isResizing ? 'none' : 'width 0.3s',
+          }"
         >
           <span
             v-for="(text, i) in texts"
@@ -69,13 +74,17 @@ useIntervalFn(() => {
           >
             <span
               v-if="isVowel(text.text[0])"
-              class="mr-0.25em transition duration-200 -ml-0.25em"
-              :class="currentText === i ? 'opacity-100' : 'opacity-0 delay-50'"
+              class="mr-0.25em transition-opacity duration-200 -ml-0.25em"
+              :class="[
+                currentText === i ? 'opacity-100' : 'opacity-0 delay-50',
+              ]"
               >n</span
             >
             <TextEffect
-              class="transition duration-200"
-              :class="currentText === i ? 'opacity-100 delay-200' : 'opacity-0'"
+              class="transition-opacity"
+              :class="[
+                currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
+              ]"
               :text="text.text"
               :colors="text.colors"
               :effect="text.effect"
