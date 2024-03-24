@@ -49,8 +49,7 @@ const images =
       <div
         class="md:self-enditems-end relative flex flex-col my-1c md:(row-start-1 text-right)"
         col="start-2 span-12"
-        md:col="start-8 span-6"
-        lg:col="start-7 span-6"
+        md:col="start-7 span-6"
       >
         <h1 class="text-9vw font-black leading-120%">
           {{ project.name }}

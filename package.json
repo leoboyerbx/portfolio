@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@extractus/oembed-extractor": "^4.0.2",
+    "@motionone/easing": "^10.17.0",
     "@studio-freight/lenis": "^1.0.39",
     "@vueuse/core": "^10.7.2",
     "@vueuse/nuxt": "^10.7.2",

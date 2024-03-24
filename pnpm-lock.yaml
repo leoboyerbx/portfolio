@@ -8,6 +8,9 @@ dependencies:
   '@extractus/oembed-extractor':
     specifier: ^4.0.2
     version: 4.0.2
+  '@motionone/easing':
+    specifier: ^10.17.0
+    version: 10.17.0
   '@studio-freight/lenis':
     specifier: ^1.0.39
     version: 1.0.42
