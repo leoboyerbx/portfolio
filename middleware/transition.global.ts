@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const store = useTransitionsStore()
 
-  if (to.meta.isProjectPage) {
+  if (store.isTransitionningToProject) {
     from.meta.pageTransition = {
       name: 'toProject',
       mode: 'out-in',
@@ -80,7 +80,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
         thumb.removeAttribute('style')
         store.isTransitionningToProject = false
-
+        store.linkRect = undefined
         done()
       },
     }
