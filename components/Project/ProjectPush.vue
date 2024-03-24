@@ -42,6 +42,7 @@ const onClickLink = async (
   transitions.linkRect = trigger
     .querySelector('.thumb')
     ?.getBoundingClientRect()
+
   transitions.isLeaving = false // This allows the transitions hook to continue
 }
 </script>

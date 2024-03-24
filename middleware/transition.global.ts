@@ -38,11 +38,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
         // Invert
         const invertX = linkThumbRect.left - targetRect.left
-        const invertY =
-          window.innerHeight / 2 -
-          linkThumbRect.height / 2 -
-          targetTop +
-          (window.innerWidth < 768 ? -36 : 3)
+        const invertY = linkThumbRect.top - targetTop
+
         thumb.setAttribute(
           'style',
           `
