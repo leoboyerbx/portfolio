@@ -23,6 +23,11 @@ export default defineConfig({
       'clip-right',
       { 'clip-path': ' polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' },
     ],
+    ['clip-top', { 'clip-path': ' polygon(0 0, 100% 0, 100% 0, 0 0)' }],
+    [
+      'clip-bottom',
+      { 'clip-path': ' polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' },
+    ],
   ],
   theme: {
     colors: {

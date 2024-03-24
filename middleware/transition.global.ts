@@ -39,7 +39,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
         // Invert
         const invertX = linkThumbRect.left - targetRect.left
         const invertY =
-          window.innerHeight / 2 - linkThumbRect.height / 2 - targetTop + 3 // + 3 for borders & pixel-rounding
+          window.innerHeight / 2 -
+          linkThumbRect.height / 2 -
+          targetTop +
+          (window.innerWidth < 768 ? -36 : 3)
         thumb.setAttribute(
           'style',
           `
@@ -76,9 +79,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
         await animation.finished
 
         thumb.removeAttribute('style')
-        setTimeout(() => {
-          store.isTransitionningToProject = false
-        }, 1000)
+        store.isTransitionningToProject = false
+
         done()
       },
     }

@@ -3,9 +3,12 @@ import type { Project } from '~/types/apiTypes'
 defineProps<{
   project: Project
 }>()
+const { target, inView } = useProjectElementInView()
+
+const transition = 'transition-all duration-1000 ease-power4-out'
 </script>
 <template>
-  <section class="pnk-grid">
+  <section ref="target" class="pnk-grid">
     <div
       col="start-2 span-12"
       sm:col="start-3 span-10"
@@ -13,7 +16,12 @@ defineProps<{
       lg:col="start-10 span-3"
       class="flex flex-col items-start"
     >
-      <h2 class="mb-4 text-8 font-bold leading-110%">
+      <h2
+        class="mb-4 text-8 font-bold leading-110%"
+        :class="
+          inView ? 'opacity-100 ' + transition : 'opacity-0 translate-y-8'
+        "
+      >
         {{ project.skillsTitle }}
       </h2>
       <ul
@@ -22,10 +30,17 @@ defineProps<{
       >
         <template v-for="(skill, i) in project.skills" :key="i">
           <li
-            v-if="skill.divider"
-            class="my-2 h-px w-full bg-current opacity-50"
-          ></li>
-          <li v-else>{{ skill.name }}</li>
+            :class="
+              inView ? 'opacity-100 ' + transition : 'opacity-0 translate-y-8'
+            "
+            :style="{ transitionDelay: `${i * 40 + 100}ms` }"
+          >
+            <span
+              v-if="skill.divider"
+              class="my-2 block h-px w-full bg-current opacity-50"
+            ></span>
+            <span v-else class="block">{{ skill.name }}</span>
+          </li>
         </template>
       </ul>
     </div>
@@ -36,6 +51,11 @@ defineProps<{
       sm:col="start-3 span-10"
       md:col="start-3 span-7"
       lg:col="start-3 span-6"
+      :class="
+        inView
+          ? 'opacity-100 delay-300 ' + transition
+          : 'opacity-0 translate-y-8'
+      "
       v-html="project.description"
     ></div>
   </section>

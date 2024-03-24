@@ -1,36 +1,41 @@
+import { inView as motioninView } from 'motion'
 export const useProjectElementInView = (
-  ...args: Parameters<typeof useElementInView>
+  options: Parameters<typeof onElementInView>[2] & { leaving?: boolean } = {},
+  target?: MaybeRef<HTMLElement | undefined>
 ) => {
   const inView = ref(false)
+  target = target || ref<HTMLElement>()
 
-  args[1] = args[1] || ref<HTMLElement>()
+  let cleanup: VoidFunction
+  if (!options.margin) options.margin = '0px 50px -10% 50px'
+  onBeforeUnmount(() => cleanup?.())
   const startWatchingElement = () => {
-    onElementInView(
-      args[1],
-      (entry) => {
+    const el = unref(target)
+    if (!el) return
+    cleanup = motioninView(
+      el,
+      (entry: IntersectionObserverEntry) => {
         inView.value = entry.isIntersecting
-        if (args[0]?.leaving) {
+        if (options.leaving) {
           return () => {
             inView.value = false
           }
         }
       },
-      args[0]
+      options
     )
   }
 
   const store = useTransitionsStore()
-  console.log(store.isTransitionningToProject)
   if (!store.isTransitionningToProject) {
-    console.log('startWatchingElement')
-    startWatchingElement()
+    onMounted(startWatchingElement)
   } else {
-    // watch(
-    //   () => store.isTransitionningToProject,
-    //   () => startWatchingElement(),
-    //   { once: true }
-    // )
+    watch(
+      () => store.isTransitionningToProject,
+      () => startWatchingElement(),
+      { once: true }
+    )
   }
 
-  return { inView, target: args[1] }
+  return { inView, target }
 }

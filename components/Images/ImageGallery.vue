@@ -2,15 +2,23 @@
 defineProps<{
   images: string[]
 }>()
+const { target, inView } = useProjectElementInView()
+const transition = 'transition-all duration-1000 ease-power4-out'
 </script>
 <template>
-  <div class="gallery grid grid-cols-8 gap-4">
+  <div ref="target" class="gallery grid grid-cols-8 gap-4">
     <ImageLightbox
       v-for="image in images"
       :key="image"
       :src="image"
       alt="Gallery Image"
       class="img"
+      :class="
+        inView
+          ? 'clip-base opacity-100 ' + transition
+          : ' opacity-0 clip-bottom'
+      "
+      :style="{ transitionDelay: `${images.indexOf(image) * 100}ms` }"
     />
   </div>
 </template>

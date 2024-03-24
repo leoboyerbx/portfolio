@@ -102,7 +102,7 @@ const onClickLink = async (
 <style lang="scss">
 .project-link.leaving {
   .thumb {
-    @apply scale-98 translate-x-20% transition duration-900 ease-power3-in-out;
+    @apply scale-98 transition duration-900 ease-power3-in-out;
   }
   .text-content {
     @apply opacity-0 transition duration-900 ease-power2-in-out;

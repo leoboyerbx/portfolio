@@ -36,7 +36,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
         :class="
           inView
             ? 'clip-base ' + transition
-            : 'clip-right translate-x-24 md:group-even:clip-right opacity-0'
+            : 'clip-right translate-x-24 opacity-0'
         "
       >
         {{ project.name }}
@@ -47,7 +47,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
         :class="
           inView
             ? 'clip-base delay-200 ' + transition
-            : 'clip-right translate-x-16 md:group-even:clip-right opacity-0'
+            : 'clip-right translate-x-16 opacity-0'
         "
       >
         {{ project.baseline }}
@@ -59,15 +59,22 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       col="start-2 span-10"
       md:col="start-2 span-8"
     >
-      <Button
-        v-for="link in project.links"
+      <div
+        v-for="(link, i) in project.links"
         :key="link.url"
-        :href="link.url"
-        :target="link.newTab ? '_blank' : ''"
-        :icon="link.newTab ? 'i-uil:external-link-alt' : ''"
+        :class="
+          inView ? 'opacity-100 ' + transition : 'opacity-0 translate-y-8'
+        "
+        :style="{ transitionDelay: `${i * 100 + 400}ms` }"
       >
-        {{ link.title }}
-      </Button>
+        <Button
+          :href="link.url"
+          :target="link.newTab ? '_blank' : ''"
+          :icon="link.newTab ? 'i-uil:external-link-alt' : ''"
+        >
+          {{ link.title }}
+        </Button>
+      </div>
     </div>
   </header>
 </template>
