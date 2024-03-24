@@ -1,10 +1,8 @@
 export const useTransitionsStore = defineStore('transitions', () => {
-  const lastTrigger = ref<HTMLElement>()
   const isTransitionningToProject = ref(false)
 
-  const setTrigger = (trigger: HTMLElement) => {
-    lastTrigger.value = trigger
-  }
+  const linkRect = ref<DOMRect>()
+  const isLeaving = ref(false)
 
-  return { lastTrigger, setTrigger, isTransitionningToProject }
+  return { linkRect, isTransitionningToProject, isLeaving }
 })

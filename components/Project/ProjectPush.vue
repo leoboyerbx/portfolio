@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NuxtLink } from '#build/components'
+import { getLenis } from '~/plugins/lenis.client'
 import type { ProjectPushData } from '~/types/apiTypes'
 
 defineProps<{
@@ -16,9 +17,32 @@ const transition = 'transition-all duration-1000 ease-power4-out'
 
 const transitions = useTransitionsStore()
 const linkElement = ref<HTMLElement>()
-const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
-  transitions.setTrigger(linkElement.value!)
-  navigate(e)
+const lenis = getLenis()
+
+const onClickLink = async (
+  e: MouseEvent,
+  navigate: (e: MouseEvent) => void
+) => {
+  const trigger = linkElement.value!
+  transitions.isTransitionningToProject = true
+  transitions.isLeaving = true
+  navigate(e) // Trigger next page load, but the router will await for the bus
+
+  trigger.classList.add('leaving')
+  await new Promise((resolve) =>
+    lenis.scrollTo(trigger, {
+      duration: 0.9,
+      easing: power3.inOut.toFunction(),
+      lock: true,
+      onComplete: resolve,
+      offset: -window.innerHeight / 2 + trigger.offsetHeight / 2,
+    })
+  )
+
+  transitions.linkRect = trigger
+    .querySelector('.thumb')
+    ?.getBoundingClientRect()
+  transitions.isLeaving = false // This allows the transitions hook to continue
 }
 </script>
 <template>

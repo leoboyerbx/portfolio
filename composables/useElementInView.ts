@@ -27,7 +27,6 @@ export default function useElementInView(
       inView.value = entry.isIntersecting
       if (options.leaving) {
         return () => {
-          console.log('leaving')
           inView.value = false
         }
       }

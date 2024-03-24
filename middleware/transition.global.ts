@@ -6,7 +6,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (process.server) return
 
   const store = useTransitionsStore()
-  let linkThumbRect: DOMRect | undefined
 
   if (to.meta.isProjectPage) {
     from.meta.pageTransition = {
@@ -14,24 +13,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
       mode: 'out-in',
       css: false,
       async onLeave(page, done) {
-        store.isTransitionningToProject = true
-        const lenis = getLenis()
-        const trigger = store.lastTrigger
-        if (!trigger) return done()
-        trigger.classList.add('leaving')
         page.classList.add('leaving-page')
-        await new Promise((resolve) =>
-          lenis.scrollTo(trigger, {
-            duration: 0.9,
-            easing: power3.inOut.toFunction(),
-            lock: true,
-            onComplete: resolve,
-            offset: -window.innerHeight / 2 + trigger.offsetHeight / 2,
-          })
-        )
-
-        linkThumbRect = trigger.querySelector('.thumb')?.getBoundingClientRect()
-        lenis.stop()
+        await until(() => store.isLeaving).toBe(false)
         done()
       },
     }
@@ -40,6 +23,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
       css: false,
       async onEnter(el, done) {
         const thumb = el.querySelector('.project-thumb')
+        const linkThumbRect = store.linkRect
         if (!thumb || !linkThumbRect) {
           done()
           return
@@ -69,7 +53,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
         )
 
         const lenis = getLenis()
-        lenis.start()
         lenis.scrollTo(0, {
           duration: 0.9,
           easing: power4.inOut.toFunction(),
@@ -93,7 +76,9 @@ export default defineNuxtRouteMiddleware((to, from) => {
         await animation.finished
 
         thumb.removeAttribute('style')
-        store.isTransitionningToProject = false
+        setTimeout(() => {
+          store.isTransitionningToProject = false
+        }, 1000)
         done()
       },
     }
