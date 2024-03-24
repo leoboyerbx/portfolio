@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Project } from '~/types/apiTypes'
+definePageMeta({
+  isProjectPage: true,
+})
 
 const { slug } = useRoute().params
 
