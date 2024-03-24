@@ -103,3 +103,10 @@ body {
     opacity: 0;
     filter: blur(0.5rem);
 }
+
+// To project page transition
+.leaving-page {
+    .leaving-item:not(.project-link.leaving) {
+        @apply transition-opacity duration-700 opacity-0;
+    }
+}

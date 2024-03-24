@@ -29,7 +29,7 @@ const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
     <a
       ref="linkElement"
       :href="href"
-      class="group"
+      class="group project-link leaving-item"
       @click="onClickLink($event, navigate)"
     >
       <article
@@ -37,14 +37,14 @@ const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
         class="grid-centered-8 flex flex-col gap-6 md:(flex-row group-even:flex-row-reverse)"
       >
         <header
-          class="aspect-16/10 origin-bottom-left overflow-hidden border border-slate-400/50 rounded-lg md:w-1/2 md:group-odd:(origin-bottom-right)"
+          class="thumb aspect-16/10 origin-bottom-left overflow-hidden border border-slate-300/50 rounded-lg md:w-1/2 md:group-odd:(origin-bottom-right)"
           :class="[inView ? 'scale-100' : 'scale-75 opacity-0', transition]"
         >
           <img
             :src="
               img(project.thumbnail, { width: 960, height: 600, fit: 'cover' })
             "
-            alt=""
+            :alt="`Thumb for ${project.name}`"
             class="block object-cover opacity-80"
             :class="[inView ? 'scale-100' : 'scale-125', transition]"
           />
@@ -74,3 +74,16 @@ const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
     </a>
   </NuxtLink>
 </template>
+<style lang="scss">
+.project-link.leaving {
+  .thumb {
+    @apply scale-98 translate-x-20% transition duration-1000 ease-power3-in-out;
+  }
+  &:nth-child(2n) .thumb {
+    @apply translate-x-20%;
+  }
+  &:nth-child(2n + 1) .thumb {
+    @apply -translate-x-20%;
+  }
+}
+</style>

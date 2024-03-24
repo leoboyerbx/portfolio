@@ -5,12 +5,14 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (to.meta.isProjectPage) {
     from.meta.pageTransition = {
       name: 'toProject',
+      mode: 'out-in',
       css: false,
-      async onLeave(_, done) {
+      async onLeave(page, done) {
         const lenis = getLenis()
 
         const trigger = useTransitionTrigger()
-        console.log(trigger)
+        trigger.classList.add('leaving')
+        page.classList.add('leaving-page')
         await new Promise((resolve) =>
           lenis.scrollTo(trigger, {
             duration: 1,
@@ -22,7 +24,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         )
 
         lenis.stop()
-        await new Promise((resolve) => setTimeout(resolve, 2000))
+        await new Promise((resolve) => setTimeout(resolve, 500))
         done()
       },
     }

@@ -17,7 +17,10 @@ const { projectsTitle } = await useStaticData()
 <template>
   <section class="pnk-grid w-full">
     <ScrollReveal class="grid-centered-8 mb-36">
-      <h2 class="section-title text-center" v-html="projectsTitle"></h2>
+      <h2
+        class="section-title leaving-item text-center"
+        v-html="projectsTitle"
+      ></h2>
     </ScrollReveal>
     <div class="grid-centered-8 flex flex-col gap-36">
       <ProjectPush
