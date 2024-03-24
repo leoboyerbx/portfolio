@@ -32,10 +32,3 @@ const project = data.value
     <ProjectImages v-if="project.images?.blocks?.length" :project="project" />
   </div>
 </template>
-<style lang="scss">
-.project-thumb {
-  // &.animating {
-  //   @apply col-start-8 col-span-4 scale-98 translate-x-20%;
-  // }
-}
-</style>
