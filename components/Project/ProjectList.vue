@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Project, ProjectPushData } from '~/types/apiTypes'
+import type { ProjectPushData } from '~/types/apiTypes'
 
 const { getItems } = useDirectusItems()
 const { data } = await useAsyncData(() =>

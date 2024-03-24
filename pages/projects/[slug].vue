@@ -37,17 +37,21 @@ const images =
 <template>
   <div class="mb-36 flex flex-col gap-1.5c">
     <header class="pnk-grid pt-36">
-      <img
-        :src="
-          img(project.thumbnail, { width: 1920, height: 1200, fit: 'cover' })
-        "
-        alt=""
-        class="row-start-1 aspect-16/10 border border-slate-300/50 rounded-xl object-cover opacity-90"
+      <div
+        class="project-thumb relative row-start-1 aspect-16/10 overflow-hidden border border-slate-300/50 rounded-xl"
         col="start-2 span-12"
         md:col="start-2 span-8"
-      />
+      >
+        <img
+          :src="
+            img(project.thumbnail, { width: 1920, height: 1200, fit: 'cover' })
+          "
+          alt=""
+          class="h-full w-full object-cover opacity-85"
+        />
+      </div>
       <div
-        class="md:self-enditems-end relative flex flex-col my-1c md:(row-start-1 text-right)"
+        class="invisible relative flex flex-col items-end my-1c md:(row-start-1 self-end text-right)"
         col="start-2 span-12"
         md:col="start-5 span-8"
         lg:col="start-7 span-6"
@@ -77,7 +81,7 @@ const images =
         </Button>
       </div>
     </header>
-    <section class="pnk-grid">
+    <section class="invisible pnk-grid">
       <div
         col="start-2 span-12"
         sm:col="start-3 span-10"
@@ -111,7 +115,7 @@ const images =
         v-html="project.description"
       ></div>
     </section>
-    <section v-if="project.videoUrl" class="pnk-grid">
+    <section v-if="project.videoUrl" class="invisible pnk-grid">
       <h2
         v-if="project.videoTitle"
         class="grid-centered-8 section-title mb-12 text-center"
@@ -136,4 +140,10 @@ const images =
     </section>
   </div>
 </template>
-<style></style>
+<style lang="scss">
+.project-thumb {
+  // &.animating {
+  //   @apply col-start-8 col-span-4 scale-98 translate-x-20%;
+  // }
+}
+</style>

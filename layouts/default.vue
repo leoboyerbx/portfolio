@@ -1,5 +1,6 @@
 <script setup>
 const { locale } = useI18n()
+const transitions = useTransitionsStore()
 </script>
 
 <template>
@@ -23,7 +24,10 @@ const { locale } = useI18n()
           <img
             src="~/assets/img/hero.webp"
             alt=""
-            class="pointer-events-none absolute left-0 z-0 block h-200vh w-full rotate-180 opacity-80 blur grayscale -bottom-6"
+            class="pointer-events-none absolute left-0 z-0 block h-200vh w-full rotate-180 blur grayscale transition-opacity duration-600 -bottom-6"
+            :class="
+              transitions.isTransitionningToProject ? 'opacity-0' : 'opacity-80'
+            "
           />
           <main class="relative z-10">
             <slot />

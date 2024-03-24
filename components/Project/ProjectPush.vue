@@ -14,9 +14,10 @@ const { target, inView } = useElementInView({
 
 const transition = 'transition-all duration-1000 ease-power4-out'
 
+const transitions = useTransitionsStore()
 const linkElement = ref<HTMLElement>()
 const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
-  setTransitionTrigger(linkElement.value!)
+  transitions.setTrigger(linkElement.value!)
   navigate(e)
 }
 </script>
@@ -37,7 +38,7 @@ const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
         class="grid-centered-8 flex flex-col gap-6 md:(flex-row group-even:flex-row-reverse)"
       >
         <header
-          class="thumb aspect-16/10 origin-bottom-left overflow-hidden border border-slate-300/50 rounded-lg md:w-1/2 md:group-odd:(origin-bottom-right)"
+          class="thumb relative aspect-16/10 origin-bottom-left overflow-hidden border border-slate-300/50 rounded-xl md:w-1/2 md:group-odd:(origin-bottom-right)"
           :class="[inView ? 'scale-100' : 'scale-75 opacity-0', transition]"
         >
           <img
@@ -45,12 +46,12 @@ const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
               img(project.thumbnail, { width: 960, height: 600, fit: 'cover' })
             "
             :alt="`Thumb for ${project.name}`"
-            class="block object-cover opacity-80"
+            class="block h-full w-full object-cover opacity-85"
             :class="[inView ? 'scale-100' : 'scale-125', transition]"
           />
         </header>
         <section
-          class="flex flex-col items-start justify-end md:group-even:(items-end text-right)"
+          class="text-content flex flex-col items-start justify-end md:group-even:(items-end text-right)"
         >
           <h3
             class="block text-3xl font-bold delay-150 lg:text-6xl md:text-5xl"
@@ -77,13 +78,26 @@ const onClickLink = (e: MouseEvent, navigate: (e: MouseEvent) => void) => {
 <style lang="scss">
 .project-link.leaving {
   .thumb {
-    @apply scale-98 translate-x-20% transition duration-1000 ease-power3-in-out;
+    @apply scale-98 translate-x-20% transition duration-900 ease-power3-in-out;
   }
-  &:nth-child(2n) .thumb {
-    @apply translate-x-20%;
+  .text-content {
+    @apply opacity-0 transition duration-900 ease-power2-in-out;
   }
-  &:nth-child(2n + 1) .thumb {
-    @apply -translate-x-20%;
+  &:nth-child(2n) {
+    .thumb {
+      @apply translate-x-20%;
+    }
+    .text-content {
+      @apply -translate-x-4;
+    }
+  }
+  &:nth-child(2n + 1) {
+    .thumb {
+      @apply -translate-x-20%;
+    }
+    .text-content {
+      @apply translate-x-4;
+    }
   }
 }
 </style>
