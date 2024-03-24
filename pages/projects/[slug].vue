@@ -35,7 +35,7 @@ const images =
   []
 </script>
 <template>
-  <div class="mb-36 flex flex-col gap-32">
+  <div class="mb-36 flex flex-col gap-1.5c">
     <header class="pnk-grid pt-36">
       <img
         :src="
@@ -43,21 +43,29 @@ const images =
         "
         alt=""
         class="row-start-1 aspect-16/10 border border-slate-300/50 rounded-xl object-cover opacity-90"
-        col="start-2 span-8"
+        col="start-2 span-12"
+        md:col="start-2 span-8"
       />
       <div
-        class="relative row-start-1 flex flex-col items-end self-end my-1c"
-        col="start-7 span-6"
+        class="md:self-enditems-end relative flex flex-col my-1c md:(row-start-1 text-right)"
+        col="start-2 span-12"
+        md:col="start-8 span-6"
+        lg:col="start-7 span-6"
       >
-        <h1 class="text-right text-9vw font-black leading-120%">
+        <h1 class="text-9vw font-black leading-120%">
           {{ project.name }}
         </h1>
 
-        <p class="pl-8 text-6 font-light font-serif ml-2c">
+        <p class="text-6 font-light font-serif md:(pl-8 ml-2c)">
           {{ project.baseline }}
         </p>
       </div>
-      <div v-if="project.links?.length > 0" class="mt-6" col="start-2 span-5">
+      <div
+        v-if="project.links?.length > 0"
+        class="flex gap-2 md:(mt-6 -mx-1) lt-md:(flex-wrap -mx-2)"
+        col="start-2 span-10"
+        md:col="start-2 span-8"
+      >
         <Button
           v-for="link in project.links"
           :key="link.url"
@@ -71,13 +79,15 @@ const images =
     </header>
     <section class="pnk-grid">
       <div
-        v-if="project.description"
-        class="mt-12 prose"
-        col="start-3 span-6"
-        v-html="project.description"
-      ></div>
-      <div col="start-10 span-3" class="flex flex-col items-start">
-        <h2 class="mb-4 text-8 font-bold">{{ project.skillsTitle }}</h2>
+        col="start-2 span-12"
+        sm:col="start-3 span-10"
+        md:col="start-11 span-3"
+        lg:col="start-10 span-3"
+        class="flex flex-col items-start"
+      >
+        <h2 class="mb-4 text-8 font-bold leading-110%">
+          {{ project.skillsTitle }}
+        </h2>
         <ul
           v-if="project.skills?.length"
           class="flex flex-col gap-1 text-sm font-thin font-serif"
@@ -91,6 +101,15 @@ const images =
           </template>
         </ul>
       </div>
+      <div
+        v-if="project.description"
+        class="mt-12 prose md:-order-1"
+        col="start-2 span-12"
+        sm:col="start-3 span-10"
+        md:col="start-3 span-7"
+        lg:col="start-3 span-6"
+        v-html="project.description"
+      ></div>
     </section>
     <section v-if="project.videoUrl" class="pnk-grid">
       <h2
@@ -103,8 +122,10 @@ const images =
       </div>
       <div
         v-if="project.videoDescription"
-        class="mt-16 text-lg prose"
-        col="start-3 span-5"
+        class="text-lg mt-1c prose"
+        col="start-2 span-10"
+        sm:col="start-3 span-10"
+        lg:col="start-3 span-5"
         v-html="project.videoDescription"
       ></div>
     </section>
