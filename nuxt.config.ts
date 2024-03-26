@@ -60,9 +60,9 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
-  // nitro: {
-  //   prerender: {
-  //     autoSubfolderIndex: false,
-  //   },
-  // },
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+    },
+  },
 })
