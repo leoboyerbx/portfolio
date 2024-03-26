@@ -12,9 +12,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
       name: 'toProject',
       mode: 'out-in',
       css: false,
-      async onLeave(page, done) {
-        page.classList.add('leaving-page')
+      async onLeave(_, done) {
+        document.body.classList.add('leaving-page')
         await until(() => store.isLeaving).toBe(false)
+        document.body.classList.remove('leaving-page')
         done()
       },
     }

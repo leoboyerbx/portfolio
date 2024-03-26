@@ -19,7 +19,7 @@ const transitions = useTransitionsStore()
           <img
             src="~/assets/img/hero.webp"
             alt=""
-            class="pointer-events-none absolute left-0 block h-300vh w-full blur -top-6"
+            class="leaving-item pointer-events-none absolute left-0 block h-300vh w-full blur duration-700 delay-300 ease-power3-in-out -bottom-6 -top-6"
           />
           <img
             src="~/assets/img/hero.webp"
@@ -32,7 +32,9 @@ const transitions = useTransitionsStore()
           <main class="relative z-10">
             <slot />
           </main>
-          <Footer class="mt-auto" />
+          <Footer
+            class="leaving-item mt-auto transition duration-300 delay-600"
+          />
         </div>
       </Body>
     </Html>
