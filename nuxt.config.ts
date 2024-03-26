@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-directus',
     '@pinia/nuxt',
+    '@nuxt/image',
   ],
   css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
   vite: {
@@ -27,6 +28,9 @@ export default defineNuxtConfig({
     public: {
       apiUrl: 'https://api.leoboyer.dev',
     },
+  },
+  image: {
+    domains: ['api.leoboyer.dev'],
   },
   i18n: {
     strategy: 'prefix_except_default',
@@ -55,4 +59,10 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
+
+  // nitro: {
+  //   prerender: {
+  //     autoSubfolderIndex: false,
+  //   },
+  // },
 })

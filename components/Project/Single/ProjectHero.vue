@@ -17,11 +17,11 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       col="start-2 span-12"
       md:col="start-2 span-8"
     >
-      <img
-        :src="
-          img(project.thumbnail, { width: 1920, height: 1200, fit: 'cover' })
-        "
-        alt=""
+      <NuxtImg
+        :src="img(project.thumbnail)"
+        width="1920"
+        height="1200"
+        :alt="`Thumb for ${project.name}`"
         class="h-full w-full object-cover opacity-85"
       />
     </div>

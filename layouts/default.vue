@@ -16,13 +16,13 @@ const transitions = useTransitionsStore()
       <Body>
         <MainNav />
         <div class="relative min-h-100vh flex flex-col overflow-clip">
-          <img
-            src="~/assets/img/hero.webp"
+          <NuxtImg
+            src="/img/hero.webp"
             alt=""
             class="leaving-item pointer-events-none absolute left-0 block h-300vh w-full blur duration-700 delay-300 ease-power3-in-out -bottom-6 -top-6"
           />
-          <img
-            src="~/assets/img/hero.webp"
+          <NuxtImg
+            src="/img/hero.webp"
             alt=""
             class="pointer-events-none absolute left-0 z-0 block h-200vh w-full rotate-180 blur grayscale transition-opacity duration-600 -bottom-6"
             :class="

@@ -66,10 +66,10 @@ const onClickLink = async (
           class="thumb relative aspect-16/10 origin-bottom-left overflow-hidden border border-slate-300/50 rounded-xl md:w-1/2 md:group-odd:(origin-bottom-right)"
           :class="[inView ? 'scale-100' : 'scale-75 opacity-0', transition]"
         >
-          <img
-            :src="
-              img(project.thumbnail, { width: 960, height: 600, fit: 'cover' })
-            "
+          <NuxtImg
+            :src="img(project.thumbnail)"
+            width="1920"
+            height="1200"
             :alt="`Thumb for ${project.name}`"
             class="block h-full w-full object-cover opacity-85"
             :class="[inView ? 'scale-100' : 'scale-125', transition]"

@@ -18,7 +18,7 @@ onKeyStroke('Escape', close)
 </script>
 <template>
   <a :href="src" target="_blank" class="relative" @click.prevent="open()">
-    <img :src="thumbUrl" :alt="alt" class="h-full w-full" />
+    <NuxtImg :src="thumbUrl" :alt="alt" class="h-full w-full" />
     <teleport to="body">
       <transition name="lightbox">
         <div
@@ -27,7 +27,7 @@ onKeyStroke('Escape', close)
           @click="close"
           @mousemove="hasMoved = true"
         >
-          <img :src="src" :alt="alt" class="h-8/10 w-8/10 object-contain" />
+          <NuxtImg :src="src" :alt="alt" class="h-8/10 w-8/10 object-contain" />
           <button
             class="absolute right-4 top-4 flex items-center gap-2 text-sm transition duration-200"
             :class="hasMoved ? '' : 'md:opacity-0'"
