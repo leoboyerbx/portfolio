@@ -11,7 +11,7 @@ const scrollTo = (linkId: string) => {
   const target = document.getElementById(linkId)
   if (!target) return
   getLenis().scrollTo(target, {
-    offset: -128,
+    offset: -192,
     duration: 1,
     easing: power4.inOut.toFunction(),
   })
