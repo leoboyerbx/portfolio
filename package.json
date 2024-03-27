@@ -9,13 +9,6 @@
   "keywords": [],
   "author": "leoboyerbx",
   "license": "ISC",
-  "devDependencies": {
-    "@nx/eslint": "18.1.3",
-    "@nx/nuxt": "18.1.3",
-    "@nx/vite": "18.1.3",
-    "eslint": "~8.48.0",
-    "nuxt": "^3.10.0",
-    "nx": "18.1.3"
-  },
+  "devDependencies": {},
   "dependencies": {}
 }
