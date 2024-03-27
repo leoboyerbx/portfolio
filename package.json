@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "deploy:preview": "git checkout preview && git pull && git merge dev && git push && git checkout dev"
+  },
   "keywords": [],
   "author": "leoboyerbx",
   "license": "ISC",
