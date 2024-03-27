@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy:preview": "git checkout preview && git pull && git merge dev && git push && git checkout dev"
+    "deploy:preview": "git checkout preview && git pull && git merge dev && git push && git checkout dev",
+    "deploy": "git checkout main && git pull && git merge dev && git push && git checkout dev"
   },
   "keywords": [],
   "author": "leoboyerbx",
