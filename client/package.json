@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "nx build",
+    "dev": "nx serve",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -40,5 +40,8 @@
     "unocss": "^0.58.5",
     "unocss-preset-columns": "^1.0.1",
     "vite-plugin-dev-guides": "^1.0.0"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }
