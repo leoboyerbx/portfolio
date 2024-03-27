@@ -3,7 +3,7 @@ import type { Project } from '~/types/apiTypes'
 
 const { slug } = useRoute().params
 const { getItems } = useDirectusItems()
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData('post-single-' + slug, async () => {
   const items = await getItems<Project>({
     collection: 'projects',
     params: {

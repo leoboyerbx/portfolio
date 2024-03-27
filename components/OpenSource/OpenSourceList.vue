@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { OpenSourceContent } from '~/types/apiTypes'
 const { getSingletonItem } = useDirectusItems()
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData('open-source', async () => {
   const item = await getSingletonItem<OpenSourceContent>({
     collection: 'OpenSource',
   })

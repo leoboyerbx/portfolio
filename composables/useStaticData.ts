@@ -7,7 +7,7 @@ export async function useStaticData(): Promise<StaticData> {
   )
   const { getSingletonItem } = useDirectusItems()
   if (cachedData.value) return cachedData.value
-  const { data } = await useAsyncData(async () => {
+  const { data } = await useAsyncData('static', async () => {
     const item = await getSingletonItem<StaticData>({
       collection: 'static',
     })

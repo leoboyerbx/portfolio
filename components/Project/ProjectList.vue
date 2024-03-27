@@ -2,7 +2,7 @@
 import type { ProjectPushData } from '~/types/apiTypes'
 
 const { getItems } = useDirectusItems()
-const { data } = await useAsyncData(() =>
+const { data } = await useAsyncData('posts-all', () =>
   getItems<ProjectPushData>({
     collection: 'projects',
     params: {
