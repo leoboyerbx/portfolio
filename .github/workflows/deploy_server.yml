@@ -16,4 +16,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            ls ${{ secrets.SSH_PATH }}
+            cd ${{ secrets.SSH_PATH }}
+            pnpm install --frozen-lockfile
+            pnpm run -F server build
+            cd server
+            pm2 restart ecosystem.config.js
