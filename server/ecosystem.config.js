@@ -4,7 +4,10 @@ module.exports = {
             name: 'PortfolioAdmin',
             port: '1337',
             script: "npm",
-            args: "start"
+            args: "start",
+            env: {
+                "NODE_ENV": "development",
+            }
         },
     ],
 }
