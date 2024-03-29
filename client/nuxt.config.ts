@@ -21,6 +21,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  strapi: {},
   directus: {
     url: 'https://api.leoboyer.dev',
     devtools: true,
@@ -53,6 +54,9 @@ export default defineNuxtConfig({
     //   cookieKey: 'i18n_redirected',
     //   redirectOn: 'root', // recommended
     // },
+  },
+  imports: {
+    dirs: ['types'],
   },
   app: {
     head: {

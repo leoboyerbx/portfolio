@@ -28,6 +28,9 @@ importers:
       motion:
         specifier: ^10.17.0
         version: 10.17.0
+      qs:
+        specifier: ^6.12.0
+        version: 6.12.0
       splitting:
         specifier: ^1.0.6
         version: 1.0.6
@@ -56,6 +59,9 @@ importers:
       '@pinia/nuxt':
         specifier: ^0.5.1
         version: 0.5.1(rollup@4.13.1)(typescript@5.2.2)(vue@3.4.21)
+      '@types/qs':
+        specifier: ^6.9.14
+        version: 6.9.14
       '@unocss/eslint-config':
         specifier: ^0.58.5
         version: 0.58.8(eslint@8.57.0)(typescript@5.2.2)
@@ -5285,6 +5291,10 @@ packages:
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
     dev: false
 
+  /@types/qs@6.9.14:
+    resolution: {integrity: sha512-5khscbd3SwWMhFqylJBLQ0zIu7c1K6Vz0uBIt915BI3zV0q1nfjRQD3RqSBcPaO6PHEF4ov/t9y89fSiyThlPA==}
+    dev: true
+
   /@types/react-transition-group@4.4.10:
     resolution: {integrity: sha512-hT/+s0VQs2ojCX823m60m5f0sL5idt9SO6Tj6Dg+rdphGPIeJbJ6CxvBYkgkGKrYeDjvIpKTR38UzmtHJOGW3Q==}
     dependencies:
@@ -7497,7 +7507,7 @@ packages:
     resolution: {integrity: sha512-sX/LQ7LqUhgyaxzbe7IqwPeTr2yfpfUIQ/dgpKo6ZI4y4lpQA0YxAomWIY+7I7rHWcG02PG+OuPREzMW/5tszQ==}
     dependencies:
       inflation: 2.1.0
-      qs: 6.11.1
+      qs: 6.12.0
       raw-body: 2.5.2
       type-is: 1.6.18
     dev: false
@@ -7506,7 +7516,7 @@ packages:
     resolution: {integrity: sha512-m7pOT6CdLN7FuXUcpuz/8lfQ/L77x8SchHCF4G0RBTJO20Wzmhn5Sp4/5WsKy8OSpifBSUrmg83qEqaDHdyFuQ==}
     dependencies:
       inflation: 2.1.0
-      qs: 6.11.1
+      qs: 6.12.0
       raw-body: 2.5.2
       type-is: 1.6.18
     dev: false

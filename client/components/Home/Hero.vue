@@ -1,5 +1,10 @@
 <script setup lang="ts">
-const { intro } = await useStaticData()
+// const { intro } = await useStaticData()
+const { findOne } = useStrapi()
+const result = await findOne<HomepageData>('homepage', undefined, {
+  populate: '*',
+})
+console.log(result.data.attributes)
 const mounted = useMounted()
 </script>
 <template>
@@ -31,8 +36,8 @@ const mounted = useMounted()
         class="intro mb-8 max-w-72 flex flex-col gap-3"
         text="lg 2xl:xl"
         font="serif extralight"
-        v-html="intro"
       ></div>
+      <!-- v-html="" -->
       <Contacts
         col="start-2 span-10"
         md:col="start-3 span-4"

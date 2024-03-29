@@ -805,8 +805,14 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     };
   };
   attributes: {
-    intro: Attribute.Blocks &
-      Attribute.Required &
+    intro: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

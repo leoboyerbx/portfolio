@@ -22,8 +22,12 @@
           "localized": true
         }
       },
-      "type": "blocks",
-      "required": true
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     },
     "projects": {
       "displayName": "Projects",
@@ -62,9 +66,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "files"
-      ],
+      "allowedTypes": ["files"],
       "pluginOptions": {
         "i18n": {
           "localized": true
