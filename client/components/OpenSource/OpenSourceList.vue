@@ -1,8 +1,6 @@
 <script setup lang="ts">
-// const { getSingletonItem } = useDirectusItems()
 const { title, description, sideNote, projects } = (await useHomepage())
   .openSource
-console.log(projects)
 
 // const { title, description, works, sideNote } = data.value as OpenSourceContent
 </script>

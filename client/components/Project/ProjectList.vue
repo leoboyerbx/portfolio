@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const { getItems } = useDirectusItems()
 const { projects, title } = (await useHomepage()).projects
 </script>
 <template>
