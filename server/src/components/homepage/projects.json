@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_homepage_projects",
+  "info": {
+    "displayName": "Projects",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    }
+  }
+}

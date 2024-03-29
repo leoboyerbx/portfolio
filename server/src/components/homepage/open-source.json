@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_homepage_open_sources",
+  "info": {
+    "displayName": "Open Source",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sideNote": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "projects": {
+      "displayName": "OpenSource Project",
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.open-source-project"
+    }
+  }
+}

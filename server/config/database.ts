@@ -76,7 +76,7 @@ export default ({ env }) => {
           __dirname,
           '..',
           '..',
-          env('DATABASE_FILENAME', '.tmp/data.db')
+          env('DATABASE_FILENAME', '.dev/data.db')
         ),
       },
       useNullAsDefault: true,

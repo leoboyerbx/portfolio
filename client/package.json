@@ -38,6 +38,7 @@
     "sass": "^1.71.1",
     "unocss": "^0.58.5",
     "unocss-preset-columns": "^1.0.1",
-    "vite-plugin-dev-guides": "^1.0.0"
+    "vite-plugin-dev-guides": "^1.0.0",
+    "server": "workspace:*"
   }
 }
