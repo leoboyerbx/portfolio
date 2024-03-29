@@ -1,83 +1,110 @@
+/* eslint-disable no-use-before-define */
+
+export interface Homepage {
+  id: number
+  intro: string
+  createdAt: Date
+  updatedAt: Date
+  publishedAt: Date
+  locale: string
+  projects: HomepageProjects
+  openSource: HomepageOpenSource
+  contact: HomepageContact
+}
+
+export interface HomepageContact {
+  id: number
+  title: string
+  links: Link[]
+}
+
 export interface Link {
+  id: number
   title: string
   url: string
   newTab: boolean
 }
 
+export interface HomepageOpenSource {
+  id: number
+  title: string
+  sideNote: string
+  description: string
+  projects: OpenSourceProject[]
+}
+
+export interface OpenSourceProject {
+  id: number
+  name: string
+  description: string
+  url: string
+}
+
+export interface HomepageProjects {
+  id: number
+  title: string
+  projects: Project[]
+}
+
 export interface File {
+  id: number
+  name: string
+  alternativeText: null
+  caption: null
   width: number
   height: number
+  hash: string
+  ext: string
+  mime: string
   size: number
-  name: string
-  title: string
-  extension: string
-  fileId: string
-  fileURL: string
   url: string
-}
-
-export interface OpenSourceWork {
-  name: string
-  description: string
-  url: string
-}
-export interface OpenSourceContent {
-  title: string
-  description: string
-  sideNote: string
-  works: OpenSourceWork[]
-}
-
-export interface StaticData {
-  id: string
-  intro: string
-  projectsTitle: string
-  contactLinks: Link[]
-  contactTitle: string
-  resume: string
-}
-
-export interface ProjectSkill {
-  name?: string
-  divider?: boolean
-}
-export interface ImageBlockData {
-  file: File
-  caption: string
-  withBorder: boolean
-  stretched: boolean
-  withBackground: boolean
-}
-
-export interface ImageBlock {
-  id: string
-  type: string
-  data: ImageBlockData
-}
-
-export interface ProjectImages {
-  blocks: ImageBlock[]
+  previewUrl: null
+  provider: string
+  provider_metadata: null
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface Project {
-  id: string
-  sort: number
-  date_created: Date
-  date_updated: Date
+  id: number
   name: string
   slug: string
   baseline: string
-  links: Link[]
-  thumbnail: any
   skillsTitle: string
-  skills: ProjectSkill[]
   description: string
-  videoUrl: string
-  videoTitle: string
-  videoDescription: string
-  images: ProjectImages
+  createdAt: Date
+  updatedAt: Date
+  publishedAt: Date
+  locale: string
+  links: Link[]
+  thumbnail: File
+  skills: (SkillComponent | DividerComponent)[]
+  video: Video
+  images: File[]
+  localizations: any[]
 }
-export type ProjectPushData = Pick<
-  Project,
-  'id' | 'name' | 'slug' | 'baseline' | 'thumbnail'
->
+
+export interface SkillComponent {
+  id: number
+  __component: 'project.skill'
+  name: string
+}
+
+export interface DividerComponent {
+  id: number
+  __component: 'global.divider'
+}
+
+export interface Video {
+  id: number
+  title: string
+  embed: Embed
+  description: string
+}
+
+export interface Embed {
+  url: string
+  title: string
+  thumbnail: string
+  mime: string
+}
