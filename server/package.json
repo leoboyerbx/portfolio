@@ -11,6 +11,8 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@ckeditor/strapi-plugin-ckeditor": "^0.0.11",
+    "@ef2/strapi-plugin-bold-title-editor": "^1.0.9",
     "@strapi/plugin-cloud": "4.21.1",
     "@strapi/plugin-i18n": "4.21.1",
     "@strapi/plugin-users-permissions": "4.21.1",

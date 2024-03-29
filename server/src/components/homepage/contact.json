@@ -1,16 +1,16 @@
 {
-  "collectionName": "components_homepage_projects",
+  "collectionName": "components_homepage_contacts",
   "info": {
-    "displayName": "Projects",
-    "icon": "lightbulb",
+    "displayName": "Contact",
+    "icon": "user",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "projects": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project.project"
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.link"
     },
     "title": {
       "type": "customField",

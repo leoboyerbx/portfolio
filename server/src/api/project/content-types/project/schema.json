@@ -53,13 +53,18 @@
           "localized": true
         }
       },
-      "component": "links.link"
+      "component": "global.link"
     },
     "thumbnail": {
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "files", "videos", "audios"],
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -81,15 +86,10 @@
         }
       },
       "type": "dynamiczone",
-      "components": ["project.skill", "global.divider"]
-    },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks"
+      "components": [
+        "project.skill",
+        "global.divider"
+      ]
     },
     "video": {
       "displayName": "Video",
@@ -106,12 +106,27 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "light"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

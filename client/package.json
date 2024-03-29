@@ -25,6 +25,7 @@
     "@nuxt/image": "^1.4.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/i18n": "^8.1.1",
+    "@nuxtjs/strapi": "^1.11.0",
     "@pinia/nuxt": "^0.5.1",
     "@unocss/eslint-config": "^0.58.5",
     "@unocss/nuxt": "^0.58.5",
@@ -36,9 +37,9 @@
     "nuxt-directus": "^5.6.0",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
+    "server": "workspace:*",
     "unocss": "^0.58.5",
     "unocss-preset-columns": "^1.0.1",
-    "vite-plugin-dev-guides": "^1.0.0",
-    "server": "workspace:*"
+    "vite-plugin-dev-guides": "^1.0.0"
   }
 }

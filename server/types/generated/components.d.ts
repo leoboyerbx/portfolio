@@ -7,7 +7,42 @@ export interface GlobalDivider extends Schema.Component {
     icon: 'layer';
     description: '';
   };
-  attributes: {};
+  attributes: {
+    divider: Attribute.String & Attribute.DefaultTo<'This is a simple divider'>;
+  };
+}
+
+export interface GlobalLink extends Schema.Component {
+  collectionName: 'components_links_links';
+  info: {
+    displayName: 'Link';
+    icon: 'link';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    url: Attribute.String;
+    newTab: Attribute.Boolean & Attribute.DefaultTo<true>;
+  };
+}
+
+export interface HomepageContact extends Schema.Component {
+  collectionName: 'components_homepage_contacts';
+  info: {
+    displayName: 'Contact';
+    icon: 'user';
+    description: '';
+  };
+  attributes: {
+    links: Attribute.Component<'global.link', true>;
+    title: Attribute.String &
+      Attribute.CustomField<
+        'plugin::bold-title-editor.title',
+        {
+          output: 'html';
+        }
+      >;
+  };
 }
 
 export interface HomepageOpenSourceProject extends Schema.Component {
@@ -28,12 +63,19 @@ export interface HomepageOpenSource extends Schema.Component {
   info: {
     displayName: 'Open Source';
     icon: 'code';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
     sideNote: Attribute.Text;
     description: Attribute.Text;
     projects: Attribute.Component<'homepage.open-source-project', true>;
+    title: Attribute.String &
+      Attribute.CustomField<
+        'plugin::bold-title-editor.title',
+        {
+          output: 'html';
+        }
+      >;
   };
 }
 
@@ -42,27 +84,21 @@ export interface HomepageProjects extends Schema.Component {
   info: {
     displayName: 'Projects';
     icon: 'lightbulb';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
     projects: Attribute.Relation<
       'homepage.projects',
       'oneToMany',
       'api::project.project'
     >;
-  };
-}
-
-export interface LinksLink extends Schema.Component {
-  collectionName: 'components_links_links';
-  info: {
-    displayName: 'Link';
-    icon: 'link';
-  };
-  attributes: {
-    title: Attribute.String;
-    url: Attribute.String;
-    newTab: Attribute.Boolean & Attribute.DefaultTo<true>;
+    title: Attribute.String &
+      Attribute.CustomField<
+        'plugin::bold-title-editor.title',
+        {
+          output: 'html';
+        }
+      >;
   };
 }
 
@@ -82,11 +118,12 @@ export interface ProjectVideo extends Schema.Component {
   info: {
     displayName: 'Video';
     icon: 'play';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     embed: Attribute.Text & Attribute.CustomField<'plugin::oembed.oembed'>;
-    description: Attribute.String;
+    description: Attribute.Text;
   };
 }
 
@@ -94,10 +131,11 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'global.divider': GlobalDivider;
+      'global.link': GlobalLink;
+      'homepage.contact': HomepageContact;
       'homepage.open-source-project': HomepageOpenSourceProject;
       'homepage.open-source': HomepageOpenSource;
       'homepage.projects': HomepageProjects;
-      'links.link': LinksLink;
       'project.skill': ProjectSkill;
       'project.video': ProjectVideo;
     }

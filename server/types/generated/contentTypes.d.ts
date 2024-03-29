@@ -824,6 +824,18 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
           localized: true;
         };
       }>;
+    contact: Attribute.Component<'homepage.contact'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    resume: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -886,7 +898,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    links: Attribute.Component<'links.link', true> &
+    links: Attribute.Component<'global.link', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -911,12 +923,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    description: Attribute.Blocks &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     video: Attribute.Component<'project.video'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -924,6 +930,19 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }>;
     images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'light';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

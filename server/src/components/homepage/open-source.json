@@ -2,13 +2,11 @@
   "collectionName": "components_homepage_open_sources",
   "info": {
     "displayName": "Open Source",
-    "icon": "code"
+    "icon": "code",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "sideNote": {
       "type": "text"
     },
@@ -20,6 +18,13 @@
       "type": "component",
       "repeatable": true,
       "component": "homepage.open-source-project"
+    },
+    "title": {
+      "type": "customField",
+      "options": {
+        "output": "html"
+      },
+      "customField": "plugin::bold-title-editor.title"
     }
   }
 }

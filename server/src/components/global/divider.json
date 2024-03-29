@@ -6,5 +6,10 @@
     "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "divider": {
+      "type": "string",
+      "default": "This is a simple divider"
+    }
+  }
 }

@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     'nuxt-directus',
     '@pinia/nuxt',
     '@nuxt/image',
+    "@nuxtjs/strapi"
   ],
   css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
   vite: {
