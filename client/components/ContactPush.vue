@@ -1,16 +1,16 @@
 <script setup lang="ts">
-const { contactTitle, contactLinks } = await useStaticData()
+const { title, links } = (await useHomepage()).contact
 </script>
 <template>
   <section class="pnk-grid pb-6">
     <header class="grid-centered-8">
       <ScrollReveal class="mb-16">
-        <h2 class="section-title text-center" v-html="contactTitle"></h2>
+        <h2 class="section-title text-center" v-html="title"></h2>
       </ScrollReveal>
     </header>
     <article class="grid-centered-8 flex flex-wrap justify-center gap-5">
       <ScrollReveal
-        v-for="(link, i) in contactLinks"
+        v-for="(link, i) in links"
         :key="link.url"
         :delay="i * 0.15"
       >

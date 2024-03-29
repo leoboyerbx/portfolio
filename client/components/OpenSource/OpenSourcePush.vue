@@ -17,6 +17,7 @@ useEventListener('resize', updateHeight)
   <a
     :href="work.url"
     class="group relative block flex flex-col border-b border-slate-500 px-4 py-2 first:border-t"
+    target="_blank"
   >
     <span class="flex items-center justify-between">
       <span

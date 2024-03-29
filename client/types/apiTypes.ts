@@ -68,7 +68,7 @@ export interface Project {
   slug: string
   baseline: string
   links: Link[]
-  thumbnail: string
+  thumbnail: any
   skillsTitle: string
   skills: ProjectSkill[]
   description: string

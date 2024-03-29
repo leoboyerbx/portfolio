@@ -3,11 +3,11 @@ import type { NuxtLink } from '#build/components'
 import { getLenis } from '~/plugins/lenis.client'
 import type { ProjectPushData } from '~/types/apiTypes'
 
-defineProps<{
+const props = defineProps<{
   project: ProjectPushData
 }>()
 
-const { getThumbnail: img } = useDirectusFiles()
+const thumbnail = useStrapiMedia(props.project.thumbnail.url)
 
 const { target, inView } = useElementInView({
   amount: 0.5,
@@ -67,7 +67,7 @@ const onClickLink = async (
           :class="[inView ? 'scale-100' : 'scale-75 opacity-0', transition]"
         >
           <NuxtImg
-            :src="img(project.thumbnail)"
+            :src="thumbnail"
             width="1920"
             height="1200"
             :alt="`Thumb for ${project.name}`"

@@ -32,9 +32,9 @@ const transitions = useTransitionsStore()
           <main class="relative z-10">
             <slot />
           </main>
-          <!-- <Footer
+          <Footer
             class="leaving-item mt-auto transition duration-300 delay-600"
-          /> -->
+          />
         </div>
       </Body>
     </Html>

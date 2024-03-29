@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import type { OpenSourceContent } from '~/types/apiTypes'
-const { getSingletonItem } = useDirectusItems()
-const { data } = await useAsyncData('open-source', async () => {
-  const item = await getSingletonItem<OpenSourceContent>({
-    collection: 'OpenSource',
-  })
-  return item
-})
+// const { getSingletonItem } = useDirectusItems()
+const { title, description, sideNote, projects } = (await useHomepage())
+  .openSource
+console.log(projects)
 
-const { title, description, works, sideNote } = data.value as OpenSourceContent
+// const { title, description, works, sideNote } = data.value as OpenSourceContent
 </script>
 <template>
   <section class="flex flex-col">
@@ -41,7 +37,7 @@ const { title, description, works, sideNote } = data.value as OpenSourceContent
         xl:col="start-8 span-5"
       >
         <OpenSourcePush
-          v-for="work in works"
+          v-for="work in projects"
           :key="work.name"
           :work="work"
         ></OpenSourcePush>
