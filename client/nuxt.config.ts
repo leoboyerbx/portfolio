@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
-    'nuxt-directus',
     '@pinia/nuxt',
     '@nuxt/image',
     '@nuxtjs/strapi',
@@ -22,10 +21,6 @@ export default defineNuxtConfig({
     },
   ],
   strapi: {},
-  directus: {
-    url: 'https://api.leoboyer.dev',
-    devtools: true,
-  },
   runtimeConfig: {
     public: {
       apiUrl: 'https://api.leoboyer.dev',

@@ -86,9 +86,6 @@ importers:
       nuxt:
         specifier: ^3.11.1
         version: 3.11.1(@unocss/reset@0.58.8)(eslint@8.57.0)(floating-vue@5.2.2)(rollup@4.13.1)(sass@1.72.0)(typescript@5.2.2)(unocss@0.58.8)(vite@5.2.6)
-      nuxt-directus:
-        specifier: ^5.6.0
-        version: 5.6.1(rollup@4.13.1)
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
@@ -13608,15 +13605,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
-
-  /nuxt-directus@5.6.1(rollup@4.13.1):
-    resolution: {integrity: sha512-Sw6RqRU8yAWstOFP54QquxHXtWCQNRHp2is0Up2EpikKvgOE9fnDI5FoPHWo5GkJzfpuOOnM2S9OdowsGcYXRw==}
-    dependencies:
-      '@nuxt/kit': 3.11.1(rollup@4.13.1)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: true
 
   /nuxt@3.11.1(@unocss/reset@0.58.8)(eslint@8.57.0)(floating-vue@5.2.2)(rollup@4.13.1)(sass@1.72.0)(typescript@5.2.2)(unocss@0.58.8)(vite@5.2.6):
     resolution: {integrity: sha512-CsncE1dxP0cmOYT+PBdjMD0bOK8eZizG5tgNWUOJAAAtU45sO38maoBumYYL2kUpT/SC/dMP+831DAcVPvi9pQ==}
