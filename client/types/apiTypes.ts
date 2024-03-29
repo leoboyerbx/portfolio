@@ -98,13 +98,6 @@ export interface DividerComponent {
 export interface Video {
   id: number
   title: string
-  embed: Embed
+  embed: string
   description: string
-}
-
-export interface Embed {
-  url: string
-  title: string
-  thumbnail: string
-  mime: string
 }

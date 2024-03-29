@@ -4,8 +4,6 @@ defineProps<{
   project: Project
 }>()
 
-const { getThumbnail: img } = useDirectusFiles()
-
 const { target, inView } = useProjectElementInView()
 
 const transition = 'transition-all duration-1000 ease-power4-out'
@@ -18,7 +16,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       md:col="start-2 span-8"
     >
       <NuxtImg
-        :src="img(project.thumbnail)"
+        :src="useStrapiMedia(project.thumbnail.url)"
         width="1920"
         height="1200"
         :alt="`Thumb for ${project.name}`"

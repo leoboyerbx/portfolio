@@ -10,12 +10,11 @@
     "title": {
       "type": "string"
     },
-    "embed": {
-      "type": "customField",
-      "customField": "plugin::oembed.oembed"
-    },
     "description": {
       "type": "text"
+    },
+    "embed": {
+      "type": "string"
     }
   }
 }

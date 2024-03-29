@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const { title, description, sideNote, projects } = (await useHomepage())
   .openSource
-
-// const { title, description, works, sideNote } = data.value as OpenSourceContent
 </script>
 <template>
   <section class="flex flex-col">

@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import type { OpenSourceWork } from '~/types/apiTypes'
-
 defineProps<{
-  work: OpenSourceWork
+  work: OpenSourceProject
 }>()
 const innerDescription = ref<HTMLElement>()
 const descriptionHeight = ref('24px')

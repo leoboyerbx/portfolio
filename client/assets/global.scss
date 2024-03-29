@@ -69,8 +69,9 @@ body {
 .section-title {
     @apply font-black text-6xl;
 
-    em {
-        @apply font-serif font-light
+    em,
+    b {
+        @apply font-serif font-light italic
     }
 }
 

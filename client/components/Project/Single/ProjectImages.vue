@@ -3,11 +3,8 @@ import type { Project } from '~/types/apiTypes'
 const props = defineProps<{
   project: Project
 }>()
-const images =
-  props.project.images?.blocks
-    ?.filter((b) => b.type === 'image')
-    .map((block) => useRuntimeConfig().public.apiUrl + block.data.file.url) ??
-  []
+console.log(props.project.images)
+const images = props.project.images?.map((i) => useStrapiMedia(i.url)) ?? []
 </script>
 <template>
   <section class="pnk-grid">

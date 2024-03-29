@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import type { Project } from '~/types/apiTypes'
 
+const { find } = useStrapi()
+
 const { slug } = useRoute().params
-const { getItems } = useDirectusItems()
 const { data } = await useAsyncData('post-single-' + slug, async () => {
-  const items = await getItems<Project>({
-    collection: 'projects',
-    params: {
-      filter: {
-        slug: {
-          _eq: slug,
-        },
+  const { data } = await find<Project>('projects', {
+    populate: '*',
+    filters: {
+      slug: {
+        _eq: slug,
       },
     },
   })
-  return items[0]
+  return data[0] as unknown as Project
 })
 if (!data?.value) {
   throw createError({
@@ -28,7 +27,7 @@ const project = data.value
   <div class="mb-36 flex flex-col gap-1.5c">
     <ProjectHero :project="project" />
     <ProjectDescription :project="project" />
-    <ProjectVideo v-if="project.videoUrl" :project="project" />
-    <ProjectImages v-if="project.images?.blocks?.length" :project="project" />
+    <ProjectVideo v-if="project.video" :project="project" />
+    <ProjectImages v-if="project.images.length" :project="project" />
   </div>
 </template>

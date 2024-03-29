@@ -122,8 +122,8 @@ export interface ProjectVideo extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    embed: Attribute.Text & Attribute.CustomField<'plugin::oembed.oembed'>;
     description: Attribute.Text;
+    embed: Attribute.String;
   };
 }
 

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { NuxtLink } from '#build/components'
 import { getLenis } from '~/plugins/lenis.client'
-import type { ProjectPushData } from '~/types/apiTypes'
 
 const props = defineProps<{
-  project: ProjectPushData
+  project: Project
 }>()
 
 const thumbnail = useStrapiMedia(props.project.thumbnail.url)

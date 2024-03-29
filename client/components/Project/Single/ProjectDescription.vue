@@ -28,7 +28,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
         v-if="project.skills?.length"
         class="flex flex-col gap-1 text-sm font-thin font-serif"
       >
-        <template v-for="(skill, i) in project.skills" :key="i">
+        <template v-for="(line, i) in project.skills" :key="i">
           <li
             :class="
               inView ? 'opacity-100 ' + transition : 'opacity-0 translate-y-8'
@@ -36,10 +36,10 @@ const transition = 'transition-all duration-1000 ease-power4-out'
             :style="{ transitionDelay: `${i * 40 + 100}ms` }"
           >
             <span
-              v-if="skill.divider"
+              v-if="line.__component === 'global.divider'"
               class="my-2 block h-px w-full bg-current opacity-50"
             ></span>
-            <span v-else class="block">{{ skill.name }}</span>
+            <span v-else class="block">{{ line.name }}</span>
           </li>
         </template>
       </ul>
