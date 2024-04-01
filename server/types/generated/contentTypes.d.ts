@@ -464,13 +464,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.UID<'api::project.project', 'name'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     baseline: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -521,6 +514,18 @@ export interface ApiProjectProject extends Schema.CollectionType {
         {
           output: 'HTML';
           preset: 'light';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          pattern: 'title';
         }
       > &
       Attribute.SetPluginOptions<{
