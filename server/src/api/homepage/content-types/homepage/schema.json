@@ -20,6 +20,9 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        },
+        "translate": {
+          "translate": "translate"
         }
       },
       "type": "customField",
@@ -34,6 +37,9 @@
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        },
         "i18n": {
           "localized": true
         }
@@ -45,6 +51,9 @@
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        },
         "i18n": {
           "localized": true
         }
@@ -56,6 +65,9 @@
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        },
         "i18n": {
           "localized": true
         }
@@ -66,8 +78,13 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["files"],
+      "allowedTypes": [
+        "files"
+      ],
       "pluginOptions": {
+        "translate": {
+          "translate": "translate"
+        },
         "i18n": {
           "localized": true
         }

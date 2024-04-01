@@ -391,27 +391,42 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+        translate: {
+          translate: 'translate';
+        };
       }>;
     projects: Attribute.Component<'homepage.projects'> &
       Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
         i18n: {
           localized: true;
         };
       }>;
     openSource: Attribute.Component<'homepage.open-source'> &
       Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
         i18n: {
           localized: true;
         };
       }>;
     contact: Attribute.Component<'homepage.contact'> &
       Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
         i18n: {
           localized: true;
         };
       }>;
     resume: Attribute.Media &
       Attribute.SetPluginOptions<{
+        translate: {
+          translate: 'translate';
+        };
         i18n: {
           localized: true;
         };
@@ -785,6 +800,63 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginTranslateBatchTranslateJob
+  extends Schema.CollectionType {
+  collectionName: 'translate_batch_translate_jobs';
+  info: {
+    singularName: 'batch-translate-job';
+    pluralName: 'batch-translate-jobs';
+    displayName: 'Translate Batch Translate Job';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    contentType: Attribute.String;
+    sourceLocale: Attribute.String;
+    targetLocale: Attribute.String;
+    entityIds: Attribute.JSON;
+    status: Attribute.Enumeration<
+      [
+        'created',
+        'setup',
+        'running',
+        'paused',
+        'finished',
+        'cancelled',
+        'failed'
+      ]
+    > &
+      Attribute.DefaultTo<'created'>;
+    failureReason: Attribute.JSON;
+    progress: Attribute.Float & Attribute.DefaultTo<0>;
+    autoPublish: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::translate.batch-translate-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::translate.batch-translate-job',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginI18NLocale extends Schema.CollectionType {
   collectionName: 'i18n_locale';
   info: {
@@ -999,6 +1071,7 @@ declare module '@strapi/types' {
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::translate.batch-translate-job': PluginTranslateBatchTranslateJob;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;

@@ -15,7 +15,7 @@
     "@ef2/strapi-plugin-bold-title-editor": "^1.0.9",
     "@strapi/plugin-cloud": "4.21.1",
     "@strapi/plugin-graphql": "^4.21.1",
-    "@strapi/plugin-i18n": "4.21.1",
+    "@strapi/plugin-i18n": "4.20.2",
     "@strapi/plugin-users-permissions": "4.21.1",
     "@strapi/strapi": "4.21.1",
     "@strapi/typescript-utils": "^4.21.1",
@@ -26,6 +26,8 @@
     "react-router-dom": "5.3.4",
     "strapi-plugin-oembed": "^1.2.1",
     "strapi-plugin-transformer": "^3.1.2",
+    "strapi-plugin-translate": "^1.2.4",
+    "strapi-provider-translate-deepl": "^1.1.12",
     "styled-components": "5.3.3"
   },
   "author": {

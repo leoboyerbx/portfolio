@@ -21,11 +21,6 @@ export default defineNuxtConfig({
     },
   ],
   strapi: {},
-  runtimeConfig: {
-    public: {
-      apiUrl: 'https://api.leoboyer.dev',
-    },
-  },
   image: {
     domains: ['api.leoboyer.dev'],
   },
