@@ -26,7 +26,7 @@ onClickOutside(popup, close, {
   <transition mode="out-in">
     <div class="relative" ref="button" :key="locale">
       <button
-        class="flex items-center text-xs font-semibold text-slate-100/80 mt-0.5 group"
+        class="flex items-center text-xs font-semibold text-slate-100/80 mt-0.5 group btn-animation"
         @click="open"
       >
         <span class="i-uil:globe block mr-1"></span>
@@ -48,7 +48,7 @@ onClickOutside(popup, close, {
         <ul class="flex flex-col">
           <li v-for="l in locales" :key="l.code">
             <NuxtLink
-              class="nav-link text-xs font-bold py-1 px-2 flex gap-1"
+              class="nav-link text-xs font-bold py-1 px-2 flex gap-1 btn-animation block"
               :to="switchLocalePath(l.code)"
               @click="close"
             >

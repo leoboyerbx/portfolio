@@ -73,14 +73,17 @@ const localePath = useLocalePath()
             height="1200"
             :alt="`Thumb for ${project.name}`"
             class="block h-full w-full object-cover opacity-85"
-            :class="[inView ? 'scale-100' : 'scale-125', transition]"
+            :class="[
+              inView ? 'scale-100 group-hover:scale-108' : 'scale-125',
+              transition,
+            ]"
           />
         </header>
         <section
-          class="text-content flex flex-col items-start justify-end md:group-even:(items-end text-right)"
+          class="text-content flex flex-col items-start justify-end md:group-even:(items-end text-right) transition duration-200 text-slate-100/80 group-hover:text-slate-50"
         >
           <h3
-            class="block text-3xl font-bold delay-150 lg:text-6xl md:text-5xl"
+            class="block text-3xl font-bold delay-150 lg:text-6xl md:text-5xl text-current"
             :class="[
               inView
                 ? 'clip-base'
@@ -91,7 +94,7 @@ const localePath = useLocalePath()
             {{ project.name }}
           </h3>
           <p
-            class="font-light delay-300 lg:text-xl lt-md:text-sm"
+            class="font-light delay-300 lg:text-xl lt-md:text-sm text-current"
             :class="[inView ? '' : 'opacity-0 translate-y-4', transition]"
           >
             {{ project.baseline }}
@@ -103,6 +106,7 @@ const localePath = useLocalePath()
 </template>
 <style lang="scss">
 .project-link.leaving {
+  @apply pointer-events-none;
   .thumb {
     @apply scale-98 transition duration-900 ease-power3-in-out;
   }

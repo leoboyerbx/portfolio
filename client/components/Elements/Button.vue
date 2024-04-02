@@ -46,7 +46,7 @@ const hasBeenClicked = ref(false)
   --color: theme('colors.slate.50');
 }
 .pnk-btn {
-  @apply border rounded-full px-5 py-1.5 font-light transition duration-100 inline-flex items-center gap-2;
+  @apply border rounded-full px-5 py-1.5 font-light transition duration-200 inline-flex items-center gap-2;
   color: var(--color);
   --bg-opacity: 15%;
   --border-opacity: 40%;
