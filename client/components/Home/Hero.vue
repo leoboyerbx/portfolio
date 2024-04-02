@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { intro } = await useHomepage()
+const { intro, hero } = await useHomepage()
 const mounted = useMounted()
 </script>
 <template>
@@ -12,7 +12,12 @@ const mounted = useMounted()
           : 'transform translate-y-8 opacity-0'
       "
     >
-      <HeroText col="start-2 span-12" md:col="start-3 span-11" />
+      <HeroText
+        v-if="hero"
+        :hero="hero"
+        col="start-2 span-12"
+        md:col="start-3 span-11"
+      />
     </div>
     <div
       class="grid grid-cols-14 mt-16 md:mt-1/2c"

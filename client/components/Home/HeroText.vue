@@ -2,9 +2,11 @@
 import isVowel from '~/utils/isVowel'
 import type { TextEffect } from '#components'
 
-const { hero } = await useHomepage()
+const props = defineProps<{
+  hero: Exclude<Homepage['hero'], undefined>
+}>()
 
-const texts = hero.adjectives
+const texts = props.hero.adjectives ?? []
 
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
@@ -85,27 +87,9 @@ useIntervalFn(() => {
               :colors="[text.color1, text.color2]"
               :effect="text.effect"
             ></TextEffect>
-          </span>
-        </span>
-        {{ hero.afterAdj }}
+          </span> </span
+        ><span class="ml-1">{{ hero.afterAdj }}</span>
       </span>
     </span>
   </h1>
 </template>
-<style scoped>
-/* .line {
-  display: block;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-.line-content {
-  display: block;
-  animation: enter-line 0.6s theme('easing.power4-out') both;
-  --base-delay: 0.5s;
-  animation-delay: calc(var(--base-delay) + var(--line-index) * 0.09s);
-}
-@keyframes enter-line {
-  from {
-    transform: translateY(100%);
-  }
-} */
-</style>

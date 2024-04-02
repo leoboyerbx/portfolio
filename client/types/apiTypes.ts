@@ -4,7 +4,7 @@ import type { TextEffect } from '#components'
 
 export interface Homepage {
   id: number
-  hero: Hero
+  hero?: Hero
   intro: string
   createdAt: Date
   updatedAt: Date
@@ -23,7 +23,7 @@ export interface Hero {
   beforeAdj: string
   vowelPrefix: string
   afterAdj: string
-  adjectives: {
+  adjectives?: {
     text: string
     color1: string
     color2: string
