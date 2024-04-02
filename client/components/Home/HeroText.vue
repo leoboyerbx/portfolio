@@ -2,17 +2,10 @@
 import isVowel from '~/utils/isVowel'
 import type { TextEffect } from '#components'
 
-const texts: {
-  text: string
-  colors: string[]
-  effect: InstanceType<typeof TextEffect>['$props']['effect']
-}[] = [
-  { text: 'creative', colors: ['#38bdf8', '#c084fc'], effect: 'wave' },
-  { text: 'curious', colors: ['#0369a1', '#a7f3d0'], effect: 'blurry' },
-  { text: 'angry', colors: ['#f87171', '#ea580c'], effect: 'shake' },
-  { text: 'excited', colors: ['#6ee7b7', '#7dd3fc'], effect: 'wave' },
-  { text: 'juggling', colors: ['#fce14b', '#dc2626'], effect: 'shake' },
-]
+const { hero } = await useHomepage()
+
+const texts = hero.adjectives
+
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
 const currentText = ref(0)
@@ -50,14 +43,14 @@ useIntervalFn(() => {
   >
     <span class="line" style="--line-index: 0">
       <span class="line-content">
-        👋 <br class="sm:hidden" />{{ $t('hero.beforeName')
-        }}<span class="text-theme">{{ $t('hero.name') }}</span
-        >{{ $t('hero.afterName') }}
+        👋 <br class="sm:hidden" />{{ hero.beforeName
+        }}<span class="text-theme">{{ hero.name }}</span
+        >{{ hero.afterName }}
       </span>
     </span>
     <span class="line" style="--line-index: 1">
       <span class="line-content">
-        <span class="mr-0.25em">a</span>
+        <span class="mr-0.25em">{{ hero.beforeAdj }}</span>
         <span
           class="relative inline-block"
           :style="{
@@ -76,12 +69,12 @@ useIntervalFn(() => {
             ]"
           >
             <span
-              v-if="isVowel(text.text[0])"
+              v-if="!!hero.vowelPrefix && isVowel(text.text[0])"
               class="mr-0.25em transition-opacity duration-200 -ml-0.25em"
               :class="[
                 currentText === i ? 'opacity-100' : 'opacity-0 delay-50',
               ]"
-              >n</span
+              >{{ hero.vowelPrefix }}</span
             >
             <TextEffect
               class="transition-opacity"
@@ -89,12 +82,12 @@ useIntervalFn(() => {
                 currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
               ]"
               :text="text.text"
-              :colors="text.colors"
+              :colors="[text.color1, text.color2]"
               :effect="text.effect"
             ></TextEffect>
           </span>
         </span>
-        developer.
+        {{ hero.afterAdj }}
       </span>
     </span>
   </h1>

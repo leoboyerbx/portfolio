@@ -45,6 +45,43 @@ export interface HomepageContact extends Schema.Component {
   };
 }
 
+export interface HomepageHeroAdjective extends Schema.Component {
+  collectionName: 'components_homepage_hero_adjectives';
+  info: {
+    displayName: 'Hero Adjective';
+  };
+  attributes: {
+    text: Attribute.String & Attribute.Required;
+    color1: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    color2: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    effect: Attribute.Enumeration<['wave', 'shake', 'blurry']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'wave'>;
+  };
+}
+
+export interface HomepageHero extends Schema.Component {
+  collectionName: 'components_homepage_heroes';
+  info: {
+    displayName: 'Hero';
+    icon: 'layer';
+    description: '';
+  };
+  attributes: {
+    beforeName: Attribute.String;
+    name: Attribute.String;
+    afterName: Attribute.String;
+    beforeAdj: Attribute.String;
+    vowelPrefix: Attribute.String;
+    afterAdj: Attribute.String;
+    adjectives: Attribute.Component<'homepage.hero-adjective', true>;
+  };
+}
+
 export interface HomepageOpenSourceProject extends Schema.Component {
   collectionName: 'components_homepage_open_source_projects';
   info: {
@@ -133,6 +170,8 @@ declare module '@strapi/types' {
       'global.divider': GlobalDivider;
       'global.link': GlobalLink;
       'homepage.contact': HomepageContact;
+      'homepage.hero-adjective': HomepageHeroAdjective;
+      'homepage.hero': HomepageHero;
       'homepage.open-source-project': HomepageOpenSourceProject;
       'homepage.open-source': HomepageOpenSource;
       'homepage.projects': HomepageProjects;

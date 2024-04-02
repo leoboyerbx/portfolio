@@ -9,7 +9,8 @@ export async function useHomepage(): Promise<Homepage> {
   if (cachedData.value) return cachedData.value
   const { data } = await useAsyncData('static', async () => {
     const result = await findOne<Homepage>('homepage', undefined, {
-      populate: 'projects.projects.thumbnail,openSource.projects,contact.links',
+      populate:
+        'hero.adjectives,projects.projects.thumbnail,openSource.projects,contact.links',
       locale: locale.value as any,
     })
     return result.data as unknown as Homepage

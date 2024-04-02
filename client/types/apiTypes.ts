@@ -1,7 +1,10 @@
 /* eslint-disable no-use-before-define */
 
+import type { TextEffect } from '#components'
+
 export interface Homepage {
   id: number
+  hero: Hero
   intro: string
   createdAt: Date
   updatedAt: Date
@@ -10,6 +13,22 @@ export interface Homepage {
   projects: HomepageProjects
   openSource: HomepageOpenSource
   contact: HomepageContact
+}
+
+export interface Hero {
+  id: number
+  beforeName: string
+  name: string
+  afterName: string
+  beforeAdj: string
+  vowelPrefix: string
+  afterAdj: string
+  adjectives: {
+    text: string
+    color1: string
+    color2: string
+    effect: InstanceType<typeof TextEffect>['$props']['effect']
+  }[]
 }
 
 export interface HomepageContact {
