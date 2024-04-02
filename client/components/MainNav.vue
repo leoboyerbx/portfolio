@@ -24,7 +24,8 @@ watch(y, (y) => {
 })
 
 const route = useRoute()
-const isHome = computed(() => route.meta.isHomePage)
+const isHome = computed(() => !!route.meta.isHomePage)
+// const isHome = ref(true)
 
 const navEl = ref<HTMLElement>()
 const menuEl = ref<HTMLElement>()
@@ -34,7 +35,7 @@ const { width: backWidth } = useElementBounding(backEl)
 
 const width = computed(() => {
   if (!navEl.value) return 0
-  return isHome.value ? menuWidth.value : backWidth.value
+  return Math.round(isHome.value ? menuWidth.value : backWidth.value)
 })
 
 const router = useRouter()

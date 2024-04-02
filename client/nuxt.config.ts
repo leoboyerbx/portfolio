@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { devtoolsOutline, devtoolsColumns } from 'vite-plugin-dev-guides'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
