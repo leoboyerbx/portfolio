@@ -50,7 +50,9 @@ useIntervalFn(() => {
   >
     <span class="line" style="--line-index: 0">
       <span class="line-content">
-        👋 <br class="sm:hidden" />Hi, I'm <span class="text-theme">Léo</span>,
+        👋 <br class="sm:hidden" />{{ $t('hero.beforeName')
+        }}<span class="text-theme">{{ $t('hero.name') }}</span
+        >{{ $t('hero.afterName') }}
       </span>
     </span>
     <span class="line" style="--line-index: 1">

@@ -27,7 +27,12 @@ export default defineI18nConfig(() => ({
         openSource: 'Open Source',
         contact: 'Contact',
       },
-      hi: "Hi, I'm",
+      hero: {
+        hasN: true,
+        beforeName: "Hi, I'm ",
+        name: 'Léo',
+        afterName: ',',
+      },
       intro: `I like to try all sorts of things with code and tech, with a strong focus on crafting user-centric realtime experiences.`,
       wip: `This portfolio website is currently being redesigned. It will be back soon !`,
       contact: {
@@ -43,7 +48,6 @@ export default defineI18nConfig(() => ({
         openSource: 'Open Source',
         contact: 'Contact',
       },
-      hi: 'Bonjour, je suis',
       wip: `Ce portfolio est en cours de refonte. Il sera bientôt de retour !`,
       contact: {
         email: 'Envoyez-moi un email !',
