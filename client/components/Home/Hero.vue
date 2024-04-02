@@ -4,9 +4,6 @@ const mounted = useMounted()
 </script>
 <template>
   <header class="min-h-100vh w-full flex flex-col pb-16 pt-36">
-    <div class="absolute top-1c right-1c text-xs font-extrabold opacity-50">
-      <LanguageSwitcher />
-    </div>
     <div
       class="grid grid-cols-14 md:h-40vh"
       :class="

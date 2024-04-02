@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+const { locale, locales } = useI18n()
 const otherLocale = computed(() => (locale.value === 'en' ? 'fr' : 'en'))
 const switchLocalePath = useSwitchLocalePath()
 </script>
@@ -7,7 +7,7 @@ const switchLocalePath = useSwitchLocalePath()
   <transition mode="out-in">
     <nuxt-link
       :key="otherLocale"
-      class="flex items-center gap-1"
+      class="flex items-center gap-1 text-xs font-semibold text-slate-100/80 mt-0.5"
       :to="switchLocalePath(otherLocale)"
     >
       <!-- @click="switchLocale" -->

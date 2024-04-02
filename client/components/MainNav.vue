@@ -69,7 +69,6 @@ const mounted = useMounted()
       }"
       :class="{ transparent: !scrolled && isHome }"
     >
-      <!-- <transition mode="out-in"> -->
       <button
         ref="backEl"
         class="child-transition block flex-shrink-0 px-3.5"
@@ -100,8 +99,10 @@ const mounted = useMounted()
             {{ title }}
           </a>
         </li>
+        <li>
+          <LanguageSwitcher />
+        </li>
       </ul>
-      <!-- </transition> -->
     </nav>
   </div>
 </template>
