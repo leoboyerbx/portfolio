@@ -30,7 +30,7 @@ const mounted = useMounted()
       <div
         col="start-2 span-10"
         md:col="start-3 span-10"
-        class="intro mb-8 max-w-72 flex flex-col gap-3"
+        class="intro mb-8 max-w-96 flex flex-col gap-3"
         text="lg 2xl:xl"
         font="serif extralight"
         v-html="intro"
