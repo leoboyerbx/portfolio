@@ -5,7 +5,7 @@ const mounted = useMounted()
 <template>
   <header class="min-h-100vh w-full flex flex-col pb-16 pt-36">
     <div
-      class="grid grid-cols-14 md:h-40vh"
+      class="grid grid-cols-14 md:h-35vh"
       :class="
         mounted
           ? 'delay-200 transition duration-600 ease-power4-out'
