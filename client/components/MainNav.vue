@@ -102,7 +102,7 @@ const mounted = useMounted()
             {{ title }}
           </a>
         </li>
-        <li class="">
+        <li class="-mr-2">
           <LanguageSwitcher />
         </li>
       </ul>
