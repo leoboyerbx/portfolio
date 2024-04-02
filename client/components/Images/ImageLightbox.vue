@@ -33,7 +33,9 @@ onKeyStroke('Escape', close)
             :class="hasMoved ? 'opacity-80 hover:opacity-100' : 'md:opacity-0'"
             @click="close"
           >
-            <span>{{ $t('close') }}</span>
+            <span class="text-xs font-bold text-slate-100">{{
+              $t('close')
+            }}</span>
             <span class="kbd">Esc</span>
           </button>
         </div>
