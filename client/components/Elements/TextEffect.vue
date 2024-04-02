@@ -12,7 +12,7 @@ const props = defineProps<{
 const colorFrom = computed(() => props.colors[0])
 const colorTo = computed(() => props.colors[1])
 
-const letters = computed(() => Array.from(props.text))
+const letters = computed(() => Array.from(props.text.replaceAll(' ', ' ')))
 </script>
 <template>
   <span class="inline-flex">

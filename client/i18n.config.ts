@@ -34,6 +34,19 @@ export default defineI18nConfig(() => ({
         phone: 'Call me !',
       },
       close: 'Close',
+      error: {
+        '404': {
+          beforeEffect: 'I have looked ',
+          effect: 'everywhere',
+          afterEffect: ', but I could not find what you were looking for.',
+        },
+        generic: {
+          beforeEffect: 'Something went wrong, but ',
+          effect: 'no panic',
+          afterEffect: ", let's find a solution.",
+        },
+        back: 'Go back to safety',
+      },
     },
     fr: {
       nav: {
@@ -48,6 +61,19 @@ export default defineI18nConfig(() => ({
         phone: 'Call me !',
       },
       close: 'Fermer',
+      error: {
+        '404': {
+          beforeEffect: "J'ai cherché ",
+          effect: 'partouuut',
+          afterEffect: ", mais je n'ai rien trouvé...",
+        },
+        generic: {
+          beforeEffect: "Quelque chose a mal s'est passé, mais ",
+          effect: 'pas de panique',
+          afterEffect: ', on va trouver une solution.',
+        },
+        back: 'Revenir en lieu sûr',
+      },
     },
   },
 }))
