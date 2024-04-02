@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import type { Project } from '~/types/apiTypes'
 
+const { locale } = useI18n()
 const { find } = useStrapi()
 
 const { slug } = useRoute().params
-const { data } = await useAsyncData('post-single-' + slug, async () => {
-  const { data } = await find<Project>('projects', {
-    populate: '*',
-    filters: {
-      slug: {
-        _eq: slug,
+const { data } = await useAsyncData(
+  `post-single-${slug}-${locale.value}`,
+  async () => {
+    const { data } = await find<Project>('projects', {
+      populate: '*',
+      filters: {
+        slug: {
+          _eq: slug,
+        },
       },
-    },
-  })
-  return data[0] as unknown as Project
-})
+      locale: locale.value as any,
+    })
+    return data[0] as unknown as Project
+  }
+)
 if (!data?.value) {
   throw createError({
     statusCode: 404,

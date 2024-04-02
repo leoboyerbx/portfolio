@@ -38,11 +38,12 @@ const width = computed(() => {
 })
 
 const router = useRouter()
+const localePath = useLocalePath()
 const goBack = () => {
-  if (window.history.length > 1) {
+  if (window.history.state.back) {
     router.back()
   } else {
-    router.push('/')
+    router.push(localePath('/'))
   }
 }
 
@@ -70,7 +71,6 @@ const mounted = useMounted()
       <!-- <transition mode="out-in"> -->
       <button
         ref="backEl"
-        to="/"
         class="child-transition block flex-shrink-0 px-3.5"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',

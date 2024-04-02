@@ -44,11 +44,13 @@ const onClickLink = async (
 
   transitions.isLeaving = false // This allows the transitions hook to continue
 }
+
+const localePath = useLocalePath()
 </script>
 <template>
   <NuxtLink
     v-slot="{ href, navigate }"
-    :to="`/projects/${project.slug}`"
+    :to="localePath(`/projects/${project.slug}`)"
     :custom="true"
   >
     <a
