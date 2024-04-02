@@ -1,6 +1,23 @@
 <script setup lang="ts">
+import { getLenis } from '~/plugins/lenis.client'
+
 definePageMeta({
   isHomePage: true,
+})
+
+const route = useRoute()
+const scrollTo = route.query.scrollTo as string
+useRouter().replace(route.path)
+onMounted(async () => {
+  if (scrollTo) {
+    const target = document.getElementById(scrollTo)
+    if (target) {
+      getLenis().scrollTo(target, {
+        immediate: true,
+        offset: -128,
+      })
+    }
+  }
 })
 </script>
 <template>
