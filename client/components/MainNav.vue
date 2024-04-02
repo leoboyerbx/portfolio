@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { getLenis } from '~/plugins/lenis.client'
 
-const links: Record<string, string> = {
-  hero: 'Home',
-  projects: 'Projects',
-  openSource: 'Open Source',
-  contact: 'Contact',
-}
+const { t, locale } = useI18n()
+const links = computed(() => ({
+  hero: t('nav.hero'),
+  projects: t('nav.projects'),
+  openSource: t('nav.openSource'),
+  contact: t('nav.contact'),
+}))
 const scrollTo = (linkId: string) => {
   const target = document.getElementById(linkId)
   if (!target) return
@@ -82,6 +83,7 @@ const mounted = useMounted()
       >
         <span class="i-uil:arrow-left block text-28px"></span>
       </button>
+
       <ul
         ref="menuEl"
         class="child-transition flex flex-shrink-0 items-center px-8 sm:gap-2 md:gap-4"
@@ -94,13 +96,16 @@ const mounted = useMounted()
           :key="linkId"
           class="flex-shrink-0"
         >
-          <a
-            :href="'#' + linkId"
-            class="nav-link py-1 px-2 sm:(px-3 py-2)"
-            @click.prevent="scrollTo(linkId)"
-          >
-            {{ title }}
-          </a>
+          <transition mode="out-in">
+            <a
+              :key="locale"
+              :href="'#' + linkId"
+              class="nav-link py-1 px-2 sm:(px-3 py-2)"
+              @click.prevent="scrollTo(linkId)"
+            >
+              {{ title }}
+            </a>
+          </transition>
         </li>
         <li class="-mr-2">
           <LanguageSwitcher />

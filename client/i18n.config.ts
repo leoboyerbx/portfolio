@@ -1,17 +1,16 @@
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: 'en',
-
-  strategy: 'prefix_except_default',
-  defaultLocale: 'en',
+  inheritLocale: true,
   locales: [
     {
       code: 'en',
       iso: 'en-US',
+      name: 'English',
     },
     {
       code: 'fr',
       iso: 'fr-FR',
+      name: 'Français',
     },
   ],
   baseUrl: 'https://www.leoboyer.dev',
@@ -22,6 +21,12 @@ export default defineI18nConfig(() => ({
   },
   messages: {
     en: {
+      nav: {
+        hero: 'Home',
+        projects: 'Projects',
+        openSource: 'Open Source',
+        contact: 'Contact',
+      },
       hi: "Hi, I'm",
       intro: `I like to try all sorts of things with code and tech, with a strong focus on crafting user-centric realtime experiences.`,
       wip: `This portfolio website is currently being redesigned. It will be back soon !`,
@@ -29,13 +34,22 @@ export default defineI18nConfig(() => ({
         email: 'Send me an email !',
         phone: 'Call me !',
       },
+      close: 'Close',
     },
     fr: {
+      nav: {
+        hero: 'Accueil',
+        projects: 'Projets',
+        openSource: 'Open Source',
+        contact: 'Contact',
+      },
       hi: 'Bonjour, je suis',
       wip: `Ce portfolio est en cours de refonte. Il sera bientôt de retour !`,
       contact: {
         email: 'Envoyez-moi un email !',
+        phone: 'Call me !',
       },
+      close: 'Fermer',
     },
   },
 }))

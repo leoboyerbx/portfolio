@@ -19,7 +19,7 @@ const currentYear = new Date().getFullYear()
         </a>
       </div>
       <a
-        href="/api/resume"
+        :href="`/api/resume.pdf?locale=${$i18n.locale}`"
         target="_blank"
         class="ml-auto flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
       >
