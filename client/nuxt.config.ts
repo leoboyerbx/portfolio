@@ -32,10 +32,12 @@ export default defineNuxtConfig({
       {
         code: 'en',
         iso: 'en-US',
+        name: 'English',
       },
       {
         code: 'fr',
         iso: 'fr-FR',
+        name: 'Français',
       },
     ],
     baseUrl: 'https://www.leoboyer.dev',

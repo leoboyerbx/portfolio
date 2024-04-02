@@ -19,6 +19,9 @@ const scrollTo = (linkId: string) => {
 
 const { y } = useWindowScroll()
 const scrolled = ref(false)
+onMounted(() => {
+  y.value > 0 && (scrolled.value = true)
+})
 watch(y, (y) => {
   scrolled.value = y > 0
 })
@@ -61,7 +64,7 @@ const mounted = useMounted()
   >
     <nav
       ref="navEl"
-      class="nav-transition nav-bg pointer-events-auto absolute h-14 flex items-center overflow-clip border rounded-full"
+      class="nav-transition nav-bg pointer-events-auto absolute h-14 flex items-center overflow-clip rounded-full"
       :style="{
         width: `${width}px`,
         left: isHome ? '50%' : '24px',
@@ -81,7 +84,7 @@ const mounted = useMounted()
       </button>
       <ul
         ref="menuEl"
-        class="child-transition flex flex-shrink-0 items-center gap-3 px-8 md:gap-12 sm:gap-8"
+        class="child-transition flex flex-shrink-0 items-center px-8 sm:gap-2 md:gap-4"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
@@ -93,13 +96,13 @@ const mounted = useMounted()
         >
           <a
             :href="'#' + linkId"
-            class="text-slate-100/80 font-medium"
+            class="nav-link py-1 px-2 sm:(px-3 py-2)"
             @click.prevent="scrollTo(linkId)"
           >
             {{ title }}
           </a>
         </li>
-        <li>
+        <li class="">
           <LanguageSwitcher />
         </li>
       </ul>
@@ -119,12 +122,5 @@ $ease: theme('easing.power4-in-out');
 }
 .child-transition {
   transition: transform $duration $ease;
-}
-
-.nav-bg {
-  @apply border-slate-400/50 bg-slate-400/20 backdrop-blur-xl;
-  &.transparent {
-    @apply md:( bg-transparent border-transparent);
-  }
 }
 </style>

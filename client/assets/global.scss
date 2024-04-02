@@ -111,3 +111,16 @@ body {
         @apply transition-opacity duration-700 opacity-0 delay-0;
     }
 }
+
+
+.nav-bg {
+    @apply border-slate-400/50 bg-slate-400/20 backdrop-blur-lg border;
+
+    &.transparent {
+        @apply md:(bg-transparent border-transparent);
+    }
+}
+
+.nav-link {
+    @apply text-slate-100/80 font-medium rounded-lg transition duration-200 hover:(text-white bg-white/20);
+}
