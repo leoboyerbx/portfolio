@@ -74,7 +74,7 @@ const mounted = useMounted()
         ref="backEl"
         class="child-transition block flex-shrink-0 px-3.5"
         :style="{
-          transform: isHome ? `translateX(-${backWidth}px)` : '',
+          transform: isHome ? `translateX(-100%)` : '',
         }"
         @click="goBack"
       >
