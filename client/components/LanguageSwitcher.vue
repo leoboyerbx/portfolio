@@ -53,7 +53,7 @@ onClickOutside(popup, close, {
               @click="close"
             >
               <span
-                class="border border-current rounded-sm text-8px px-1"
+                class="border border-slate-100/80 rounded-sm text-8px px-1"
                 :class="
                   l.code === locale
                     ? 'bg-slate-100/80 text-slate-800/80'
