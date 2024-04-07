@@ -42,11 +42,18 @@ const localePath = useLocalePath()
           <span>{{ $t('error.generic.afterEffect') }}</span>
         </p>
       </div>
-      <div class="grid-centered-10 mt-8 -mx-2">
+      <div col="start-3 span-8" class="mt-8 -mx-2">
         <Button @click="navigateTo(localePath('/'))">{{
           $t('error.back')
         }}</Button>
       </div>
+      <DevOnly>
+        <div class="grid-centered-10 mt-8">
+          <pre>
+            {{ error?.message }}
+          </pre>
+        </div>
+      </DevOnly>
     </header>
   </NuxtLayout>
 </template>
