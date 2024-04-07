@@ -379,6 +379,15 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     };
   };
   attributes: {
+    hero: Attribute.Component<'homepage.hero'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+        translate: {
+          translate: 'translate';
+        };
+      }>;
     intro: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -429,15 +438,6 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
         };
         i18n: {
           localized: true;
-        };
-      }>;
-    hero: Attribute.Component<'homepage.hero'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-        translate: {
-          translate: 'translate';
         };
       }>;
     createdAt: Attribute.DateTime;
