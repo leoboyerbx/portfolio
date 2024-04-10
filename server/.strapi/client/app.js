@@ -11,6 +11,7 @@ import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import slug from "custom-slug/strapi-admin";
 import oembed from "strapi-plugin-oembed/strapi-admin";
+import translate from "strapi-plugin-translate/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -24,5 +25,6 @@ renderAdmin(document.getElementById("strapi"), {
     "users-permissions": usersPermissions,
     slug: slug,
     oembed: oembed,
+    translate: translate,
   },
 });
