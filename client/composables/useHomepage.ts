@@ -7,6 +7,7 @@ export async function useHomepage(): Promise<Homepage> {
   const { findOne } = useStrapi()
 
   if (cachedData.value) return cachedData.value
+
   const { data } = await useAsyncData('static', async () => {
     const result = await findOne<Homepage>('homepage', undefined, {
       populate:
@@ -18,5 +19,6 @@ export async function useHomepage(): Promise<Homepage> {
   if (data.value) {
     cachedData.value = data.value
   }
+
   return cachedData.value!
 }

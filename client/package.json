@@ -7,6 +7,7 @@
     "dev": "nuxt dev",
     "dev:prod": "STRAPI_URL=https://admin.leoboyer.dev pnpm run dev",
     "generate": "nuxt generate",
+    "generate:prod": "STRAPI_URL=https://admin.leoboyer.dev nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
