@@ -1,22 +1,47 @@
 <script setup lang="ts">
-const { enabled, refresh } = usePreview()
+const { enabled, refresh, autoRefresh } = usePreview()
+
+const el = ref<HTMLElement | null>(null)
+const handle = ref<HTMLElement | null>(null)
+const { style } = useDraggable(el, {
+  initialValue: { x: 40, y: 40 },
+  handle,
+})
 </script>
 <template>
   <div
     v-if="enabled"
-    class="fixed bottom-0 right-0 m-6 flex items-center gap-1 border border-slate-400/50 rounded bg-slate-800/40 px-4 py-2 opacity-50 transition-opacity"
-    hover="opacity-80"
+    ref="el"
+    :style="style"
+    class="fixed m-6 flex items-center border border-slate-600 rounded bg-gray-900 py-2 pl-3 pr-4 transition-opacity"
+    hover="opacity-100"
   >
-    <span class="pr-2 text-sm"> Preview mode enabled </span>
+    <button
+      ref="handle"
+      class="flex cursor-grab border border-transparent rounded py-1.5 text-14px transition active:cursor-grabbing hover:bg-white/20"
+      @click="autoRefresh = !autoRefresh"
+    >
+      <span class="i-uil:draggabledots"></span>
+    </button>
+    <span class="pl-2 pr-3 text-sm"> Preview mode enabled </span>
 
     <button
-      class="flex rounded p-1.5 transition hover:bg-white/20"
+      class="flex border border-transparent rounded p-1.5 transition hover:bg-white/20"
+      :class="
+        autoRefresh ? 'border-white/50 bg-white/10' : 'border-transparent'
+      "
+      @click="autoRefresh = !autoRefresh"
+    >
+      <span class="i-uil:cloud-redo"></span>
+    </button>
+    <button
+      class="flex border border-transparent rounded p-1.5 transition hover:bg-white/20"
       @click="refresh"
     >
       <span class="i-uil:redo"></span>
     </button>
     <button
-      class="flex rounded p-1.5 transition hover:bg-white/20"
+      class="flex border border-transparent rounded p-1.5 transition hover:bg-white/20"
       @click="enabled = false"
     >
       <span class="i-uil:times-circle"></span>
