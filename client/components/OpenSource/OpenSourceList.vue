@@ -1,12 +1,14 @@
 <script setup lang="ts">
-const { title, description, sideNote, projects } = (await useHomepage())
-  .openSource
+const { data: homepage } = await useHomepage()
 </script>
 <template>
-  <section class="flex flex-col">
+  <section v-if="homepage?.openSource" class="flex flex-col">
     <header class="pnk-grid">
       <ScrollReveal class="grid-centered-8 mb-28">
-        <h2 class="section-title text-center" v-html="title"></h2>
+        <h2
+          class="section-title text-center"
+          v-html="homepage.openSource.title"
+        ></h2>
       </ScrollReveal>
     </header>
     <article class="pnk-grid">
@@ -19,10 +21,10 @@ const { title, description, sideNote, projects } = (await useHomepage())
         font="serif extralight"
       >
         <p class="text-lg">
-          {{ description }}
+          {{ homepage.openSource.description }}
         </p>
         <p class="text-slate-300 italic">
-          {{ sideNote }}
+          {{ homepage.openSource.sideNote }}
         </p>
       </ScrollReveal>
       <ScrollReveal
@@ -33,7 +35,7 @@ const { title, description, sideNote, projects } = (await useHomepage())
         xl:col="start-8 span-5"
       >
         <OpenSourcePush
-          v-for="work in projects"
+          v-for="work in homepage.openSource.projects"
           :key="work.name"
           :work="work"
         ></OpenSourcePush>

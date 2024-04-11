@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const { intro, hero } = await useHomepage()
+const { data: homepage } = await useHomepage()
 const mounted = useMounted()
 </script>
 <template>
-  <header class="min-h-100vh w-full flex flex-col pb-16 pt-36">
+  <header v-if="homepage" class="min-h-100vh w-full flex flex-col pb-16 pt-36">
     <div
       class="grid grid-cols-14 md:h-35vh"
       :class="
@@ -13,8 +13,8 @@ const mounted = useMounted()
       "
     >
       <HeroText
-        v-if="hero"
-        :hero="hero"
+        v-if="homepage.hero"
+        :hero="homepage.hero"
         col="start-2 span-12"
         md:col="start-3 span-11"
       />
@@ -33,7 +33,7 @@ const mounted = useMounted()
         class="intro mb-8 max-w-96 flex flex-col gap-3"
         text="lg 2xl:xl"
         font="serif extralight"
-        v-html="intro"
+        v-html="homepage.intro"
       ></div>
       <Contacts
         col="start-2 span-10"

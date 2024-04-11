@@ -1,21 +1,30 @@
-const bus = useEventBus('preview')
+const bus = useEventBus('refresh')
 
 export default function usePreview() {
   const route = useRoute()
   const refresh = () => {
-    console.log('ref')
     bus.emit()
   }
   const { enabled } = usePreviewMode({
     shouldEnable: () => {
-      if (!route.query.previewEnabled) return false
-      refresh()
-      return true
+      return !!route.query.previewEnabled || !!import.meta.dev
     },
   })
-  return { enabled, refresh }
-}
+  const autoRefresh = ref(enabled.value)
 
-export function onPreview(callback: () => void) {
-  bus.on(callback)
+  const runAutoRefresh = () => {
+    if (enabled.value && autoRefresh.value) {
+      refresh()
+    }
+  }
+  if (enabled.value) {
+    const visibility = useDocumentVisibility()
+    whenever(() => visibility.value === 'visible', runAutoRefresh)
+    const focus = useWindowFocus()
+    whenever(focus, runAutoRefresh)
+
+    useIntervalFn(runAutoRefresh, 2000)
+  }
+
+  return { enabled, refresh, autoRefresh }
 }

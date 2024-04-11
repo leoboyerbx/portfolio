@@ -75,7 +75,7 @@ const mounted = useMounted()
     >
       <button
         ref="backEl"
-        class="child-transition block flex-shrink-0 px-3.5 btn-animation"
+        class="child-transition btn-animation block flex-shrink-0 px-3.5"
         :style="{
           transform: isHome ? `translateX(-100%)` : '',
         }"
@@ -86,7 +86,7 @@ const mounted = useMounted()
 
       <ul
         ref="menuEl"
-        class="child-transition flex flex-shrink-0 items-center px-8 sm:gap-2 md:gap-4"
+        class="child-transition flex flex-shrink-0 items-center px-8 md:gap-4 sm:gap-2"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
@@ -100,7 +100,7 @@ const mounted = useMounted()
             <a
               :key="locale"
               :href="'#' + linkId"
-              class="nav-link py-1 px-2 sm:(px-3 py-2) block btn-animation"
+              class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
               @click.prevent="scrollTo(linkId)"
             >
               {{ title }}

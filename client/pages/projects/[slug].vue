@@ -5,9 +5,10 @@ const { locale } = useI18n()
 const { find } = useStrapi()
 
 const { slug } = useRoute().params
-const { data } = await useAsyncData(
+const { data: project } = await useGlobalRefreshAsyncData(
   `post-single-${slug}-${locale.value}`,
   async () => {
+    console.log('fetch projet')
     const { data } = await find<Project>('projects', {
       populate: '*',
       filters: {
@@ -18,15 +19,17 @@ const { data } = await useAsyncData(
       locale: locale.value as any,
     })
     return data[0] as unknown as Project
+  },
+  {
+    dedupe: 'defer',
   }
 )
-if (!data?.value) {
+if (!project?.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Not Found',
   })
 }
-const project = data.value
 </script>
 <template>
   <div class="mb-36 flex flex-col gap-1.5c">
