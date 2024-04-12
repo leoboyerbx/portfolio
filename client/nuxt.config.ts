@@ -41,12 +41,12 @@ export default defineNuxtConfig({
       },
     ],
     baseUrl: 'https://www.leoboyer.dev',
-    detectBrowserLanguage: false,
-    // {
-    //   useCookie: true,
-    //   cookieKey: 'i18n_redirected',
-    //   redirectOn: 'root', // recommended
-    // },
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',
+      fallbackLocale: 'en',
+    },
   },
   imports: {
     dirs: ['types'],
