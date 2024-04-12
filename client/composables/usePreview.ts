@@ -6,7 +6,7 @@ export default function usePreview() {
   }
   const { enabled } = usePreviewMode({
     shouldEnable: () => {
-      return window?.location.host.startsWith('preview') || !!import.meta.dev
+      return !!import.meta.dev || window?.location.host.startsWith('preview')
     },
   })
   const autoRefresh = ref(enabled.value)
