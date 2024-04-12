@@ -21,7 +21,6 @@ const { height } = useWindowSize()
       <button
         ref="handle"
         class="flex cursor-grab border border-transparent rounded py-1.5 text-14px transition active:cursor-grabbing hover:bg-white/20"
-        @click="autoRefresh = !autoRefresh"
       >
         <span class="i-uil:draggabledots"></span>
       </button>
