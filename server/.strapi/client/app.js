@@ -12,7 +12,6 @@ import slug from "custom-slug/strapi-admin";
 import oembed from "strapi-plugin-oembed/strapi-admin";
 import previewButton from "strapi-plugin-preview-button/strapi-admin";
 import translate from "strapi-plugin-translate/strapi-admin";
-import deployButton from "../../src/plugins/deploy-button/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -27,6 +26,5 @@ renderAdmin(document.getElementById("strapi"), {
     oembed: oembed,
     "preview-button": previewButton,
     translate: translate,
-    "deploy-button": deployButton,
   },
 });
