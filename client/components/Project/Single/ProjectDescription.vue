@@ -36,7 +36,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
             :style="{ transitionDelay: `${i * 40 + 100}ms` }"
           >
             <span
-              v-if="line.__component === 'global.divider'"
+              v-if="line.__component === 'project.divider'"
               class="my-2 block h-px w-full bg-current opacity-50"
             ></span>
             <span v-else class="block">{{ line.name }}</span>

@@ -111,7 +111,7 @@ export interface SkillComponent {
 
 export interface DividerComponent {
   id: number
-  __component: 'global.divider'
+  __component: 'project.divider'
 }
 
 export interface Video {

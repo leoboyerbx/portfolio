@@ -128,7 +128,7 @@ export interface HomepageProjects extends Schema.Component {
 }
 
 export interface ProjectDivider extends Schema.Component {
-  collectionName: 'components_global_dividers';
+  collectionName: 'components_projects_dividers';
   info: {
     displayName: 'Divider';
     icon: 'layer';
