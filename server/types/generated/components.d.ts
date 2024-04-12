@@ -1,17 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface GlobalDivider extends Schema.Component {
-  collectionName: 'components_global_dividers';
-  info: {
-    displayName: 'Divider';
-    icon: 'layer';
-    description: '';
-  };
-  attributes: {
-    divider: Attribute.String & Attribute.DefaultTo<'This is a simple divider'>;
-  };
-}
-
 export interface GlobalLink extends Schema.Component {
   collectionName: 'components_links_links';
   info: {
@@ -139,6 +127,18 @@ export interface HomepageProjects extends Schema.Component {
   };
 }
 
+export interface ProjectDivider extends Schema.Component {
+  collectionName: 'components_global_dividers';
+  info: {
+    displayName: 'Divider';
+    icon: 'layer';
+    description: '';
+  };
+  attributes: {
+    divider: Attribute.String & Attribute.DefaultTo<'This is a simple divider'>;
+  };
+}
+
 export interface ProjectSkill extends Schema.Component {
   collectionName: 'components_project_skills';
   info: {
@@ -167,7 +167,6 @@ export interface ProjectVideo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'global.divider': GlobalDivider;
       'global.link': GlobalLink;
       'homepage.contact': HomepageContact;
       'homepage.hero-adjective': HomepageHeroAdjective;
@@ -175,6 +174,7 @@ declare module '@strapi/types' {
       'homepage.open-source-project': HomepageOpenSourceProject;
       'homepage.open-source': HomepageOpenSource;
       'homepage.projects': HomepageProjects;
+      'project.divider': ProjectDivider;
       'project.skill': ProjectSkill;
       'project.video': ProjectVideo;
     }

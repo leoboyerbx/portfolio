@@ -539,7 +539,7 @@ export interface ApiProjectProject extends Schema.CollectionType {
           translate: 'translate';
         };
       }>;
-    skills: Attribute.DynamicZone<['project.skill', 'global.divider']> &
+    skills: Attribute.DynamicZone<['project.skill', 'project.divider']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
