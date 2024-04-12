@@ -36,14 +36,12 @@ export default ({ env }) => ({
                     uid: 'api::homepage.homepage',
                     published: {
                         url: 'https://preview.portfolio-leoboyer.pages.dev/',
-                        copy: false,
                     },
                 },
                 {
                     uid: 'api::project.project',
                     published: {
                         url: 'https://preview.portfolio-leoboyer.pages.dev/projects/{slug}',
-                        copy: false,
                     },
                 },
             ],
