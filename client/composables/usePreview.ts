@@ -1,13 +1,12 @@
 const bus = useEventBus('refresh')
 
 export default function usePreview() {
-  const route = useRoute()
   const refresh = () => {
     bus.emit()
   }
   const { enabled } = usePreviewMode({
     shouldEnable: () => {
-      return !!route.query.previewEnabled || !!import.meta.dev
+      return window.location.host.startsWith('preview') || !!import.meta.dev
     },
   })
   const autoRefresh = ref(enabled.value)
