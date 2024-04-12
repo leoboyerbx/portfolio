@@ -6,7 +6,7 @@ const props = defineProps<{
   hero: Exclude<Homepage['hero'], undefined>
 }>()
 
-const texts = props.hero.adjectives ?? []
+const texts = computed(() => props.hero.adjectives ?? [])
 
 const textWidths = ref<number[]>([])
 const textElements = ref<HTMLElement[]>()
@@ -35,7 +35,7 @@ useEventListener('resize', () => {
 })
 
 useIntervalFn(() => {
-  currentText.value = (currentText.value + 1) % texts.length
+  currentText.value = (currentText.value + 1) % texts.value.length
 }, 3000)
 </script>
 <template>
