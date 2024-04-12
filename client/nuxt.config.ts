@@ -60,6 +60,12 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
+      routes: [
+        '/api/resume',
+        '/api/resume.pdf',
+        '/api/fr/resume.pdf',
+        '/api/en/resume.pdf',
+      ],
       autoSubfolderIndex: false,
     },
   },
