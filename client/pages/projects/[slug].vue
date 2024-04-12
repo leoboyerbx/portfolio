@@ -10,11 +10,7 @@ const { data: project } = await useGlobalRefreshAsyncData(
   async () => {
     const { data } = await find<Project>('projects', {
       populate: '*',
-      filters: {
-        slug: {
-          _eq: slug,
-        },
-      },
+      filters: { slug },
       locale: locale.value as any,
     })
     return data[0] as unknown as Project
@@ -35,6 +31,6 @@ if (!project?.value) {
     <ProjectHero :project="project" />
     <ProjectDescription :project="project" />
     <ProjectVideo v-if="project.video" :project="project" />
-    <ProjectImages v-if="project.images.length" :project="project" />
+    <ProjectImages v-if="project.images?.length" :project="project" />
   </div>
 </template>
