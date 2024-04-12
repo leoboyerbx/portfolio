@@ -47,4 +47,8 @@ export default ({ env }) => ({
             ],
         },
     },
+    'deploy-button': {
+        enabled: !!env('STRAPI_ADMIN_DEPLOY_WEBHOOK'),
+        resolve: './src/plugins/deploy-button'
+    },
 });
