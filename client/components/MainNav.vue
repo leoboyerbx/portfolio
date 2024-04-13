@@ -32,8 +32,8 @@ const isHome = computed(() => !!route.meta.isHomePage)
 const navEl = ref<HTMLElement>()
 const menuEl = ref<HTMLElement>()
 const backEl = ref<HTMLElement>()
-const { width: backWidth } = useElementBounding(backEl)
 const { width: windowWidth } = useWindowSize()
+const { width: backWidth } = useElementBounding(backEl)
 const { width: menuWidth } = useElementBounding(menuEl)
 const responsiveMenuWith = computed(() =>
   isMobile.value ? windowWidth.value - 64 : menuWidth.value
@@ -73,7 +73,13 @@ const currentTarget = computedWithControl(
     return 0
   }
 )
-const mobileTransform = computed(() => currentTarget.value * -32)
+
+const listEl = ref<HTMLElement>()
+const { height: listHeight } = useElementBounding(listEl)
+const mobileMenuOpen = ref(false)
+const mobileTransform = computed(() =>
+  mobileMenuOpen.value ? 0 : currentTarget.value * -32
+)
 
 const updateDistancesFromTop = () => {
   distancesFromTop = []
@@ -104,9 +110,10 @@ const mounted = useMounted()
   >
     <nav
       ref="navEl"
-      class="nav-transition nav-bg pointer-events-auto absolute h-14 flex items-center overflow-clip rounded-full"
+      class="nav-transition nav-bg pointer-events-auto absolute flex overflow-clip rounded-28px"
       :style="{
         width: `${width}px`,
+        height: `${isMobile && mobileMenuOpen ? listHeight + 24 : 56}px`,
         left: isHome ? '50%' : '24px',
         transform: isHome ? 'translateX(-50%)' : 'none',
       }"
@@ -125,17 +132,44 @@ const mounted = useMounted()
 
       <div
         ref="menuEl"
-        class="child-transition relative flex-shrink-0 px-8 flex items-center gap-4"
+        class="child-transition relative flex-shrink-0 px-6 sm:px-8 pt-3 sm:py-2 flex items-start"
         lt-sm="w-full"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
       >
+        <div
+          class="h-8 flex items-center sm:hidden -ml-1 transition-opacity duration-200"
+          :class="{ 'opacity-0': !isHome }"
+        >
+          <button
+            class="nav-link btn-animation grid place-content-center w-7 h-7 flex-shrink-0"
+            @click="mobileMenuOpen = !mobileMenuOpen"
+          >
+            <span
+              class="i-uil:bars text-20px row-start-1 col-start-1 block transition duration-200"
+              :class="
+                mobileMenuOpen
+                  ? 'scale-0 ease-power2-in'
+                  : 'delay-100 ease-power2-out'
+              "
+            ></span>
+            <span
+              class="i-uil:times text-22px row-start-1 col-start-1 block transition duration-200"
+              :class="
+                !mobileMenuOpen
+                  ? 'scale-0 ease-power2-in'
+                  : 'delay-100 ease-power2-out'
+              "
+            ></span>
+          </button>
+        </div>
         <transition mode="out-in">
-          <div :key="locale" class="relative flex-grow" lt-sm="h-8">
+          <div :key="locale" class="relative flex-grow h-8 sm:h-10" lt-sm="h-8">
             <ul
+              ref="listEl"
               class="flex transition-transform duration-400 ease-power4-in-out"
-              lt-sm="flex-col absolute top-0 left-0"
+              lt-sm="flex-col absolute top-0 left-0 items-start"
               sm="items-center"
               :style="{ transform: `translateY(${mobileTransform}px)` }"
             >
@@ -144,7 +178,7 @@ const mounted = useMounted()
                 :key="linkId"
                 class="flex-shrink-0 transition-opacity duration-300"
                 :class="
-                  isHome && i === currentTarget
+                  mobileMenuOpen || (isHome && i === currentTarget)
                     ? 'delay-100'
                     : 'lt-sm:opacity-0 delay-0'
                 "
@@ -152,7 +186,7 @@ const mounted = useMounted()
                 <a
                   :href="'#' + linkId"
                   class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
-                  @click.prevent="scrollTo(linkId)"
+                  @click.prevent="scrollTo(linkId), (mobileMenuOpen = false)"
                 >
                   {{ title }}
                 </a>
@@ -160,7 +194,7 @@ const mounted = useMounted()
             </ul>
           </div>
         </transition>
-        <div class="-mr-2 flex-shrink-0">
+        <div class="ml-4 -mr-2 flex-shrink-0 h-8 sm:h-10 flex items-center">
           <LanguageSwitcher />
         </div>
       </div>
@@ -174,6 +208,7 @@ $ease: theme('easing.power4-in-out');
   transition:
     transform $duration $ease,
     width $duration $ease,
+    height 400ms theme('easing.power4-in-out'),
     left $duration $ease,
     background-color 0.2s,
     border-color 0.2s;
