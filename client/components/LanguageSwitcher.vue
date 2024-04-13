@@ -5,7 +5,7 @@ const switchLocalePath = useSwitchLocalePath()
 const button = ref<HTMLElement>()
 const popup = ref<HTMLElement>()
 const isOpen = ref(false)
-const left = ref(0)
+const right = ref(0)
 
 const open = () => {
   if (isOpen.value || !button.value) {
@@ -13,7 +13,8 @@ const open = () => {
     return
   }
   isOpen.value = true
-  left.value = button.value.getBoundingClientRect().left
+  const rect = button.value.getBoundingClientRect()
+  right.value = window.innerWidth - rect.right
 }
 const close = () => {
   isOpen.value = false
@@ -43,7 +44,7 @@ onClickOutside(popup, close, {
         ref="popup"
         v-if="isOpen"
         class="fixed top-23 z-200 nav-bg text-slate-100/80 rounded-xl py-1 px-1"
-        :style="{ left: left + 'px' }"
+        :style="{ right: right + 'px' }"
       >
         <ul class="flex flex-col">
           <li v-for="l in locales" :key="l.code">
