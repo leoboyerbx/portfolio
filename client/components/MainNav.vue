@@ -87,14 +87,17 @@ const updateDistancesFromTop = () => {
     distancesFromTop[i] = y.value + targets[i].getBoundingClientRect().top
   }
 }
-onMounted(() => {
+const updateTargets = async () => {
   Object.keys(links.value).forEach((id) => {
     const el = document.getElementById(id)
     if (el) targets.push(el)
   })
+  await nextTick()
   updateDistancesFromTop()
   currentTarget.trigger()
-})
+}
+whenever(isHome, updateTargets)
+onMounted(updateTargets)
 useEventListener('resize', updateDistancesFromTop)
 
 const mounted = useMounted()
