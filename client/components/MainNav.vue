@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { breakpointsTailwind } from '@vueuse/core'
 import { getLenis } from '~/plugins/lenis.client'
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isMobile = breakpoints.smaller('sm')
 
 const { t, locale } = useI18n()
 const links = computed(() => ({
@@ -19,13 +23,7 @@ const scrollTo = (linkId: string) => {
 }
 
 const { y } = useWindowScroll()
-const scrolled = ref(false)
-onMounted(() => {
-  y.value > 0 && (scrolled.value = true)
-})
-watch(y, (y) => {
-  scrolled.value = y > 0
-})
+const scrolled = computed(() => y.value > 0)
 
 const route = useRoute()
 const isHome = computed(() => !!route.meta.isHomePage)
@@ -34,12 +32,16 @@ const isHome = computed(() => !!route.meta.isHomePage)
 const navEl = ref<HTMLElement>()
 const menuEl = ref<HTMLElement>()
 const backEl = ref<HTMLElement>()
-const { width: menuWidth } = useElementBounding(menuEl)
 const { width: backWidth } = useElementBounding(backEl)
+const { width: windowWidth } = useWindowSize()
+const { width: menuWidth } = useElementBounding(menuEl)
+const responsiveMenuWith = computed(() =>
+  isMobile.value ? windowWidth.value - 64 : menuWidth.value
+)
 
 const width = computed(() => {
   if (!navEl.value) return 0
-  return Math.round(isHome.value ? menuWidth.value : backWidth.value)
+  return Math.round(isHome.value ? responsiveMenuWith.value : backWidth.value)
 })
 
 const router = useRouter()
@@ -51,6 +53,43 @@ const goBack = () => {
     router.push(localePath('/'))
   }
 }
+
+// This variable doesn't need to be reactive
+let targets: HTMLElement[] = []
+let distancesFromTop: number[] = []
+const offset = 192
+const currentTarget = computedWithControl(
+  () => [y.value, isMobile.value],
+  () => {
+    // Computation is wrapped in a function so it is only called when necessary -> on mobile.
+    if (!isMobile.value) {
+      return 0
+    }
+    for (let i = distancesFromTop.length - 1; i >= 0; i--) {
+      if (distancesFromTop[i] < y.value + offset) {
+        return i
+      }
+    }
+    return 0
+  }
+)
+const mobileTransform = computed(() => currentTarget.value * -32)
+
+const updateDistancesFromTop = () => {
+  distancesFromTop = []
+  for (let i in targets) {
+    distancesFromTop[i] = y.value + targets[i].getBoundingClientRect().top
+  }
+}
+onMounted(() => {
+  Object.keys(links.value).forEach((id) => {
+    const el = document.getElementById(id)
+    if (el) targets.push(el)
+  })
+  updateDistancesFromTop()
+  currentTarget.trigger()
+})
+useEventListener('resize', updateDistancesFromTop)
 
 const mounted = useMounted()
 </script>
@@ -86,32 +125,44 @@ const mounted = useMounted()
 
       <div
         ref="menuEl"
-        class="child-transition flex-shrink-0"
+        class="child-transition relative flex-shrink-0 px-8 flex items-center gap-4"
+        lt-sm="w-full"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
       >
-        <ul class="flex items-center px-8 md:gap-4 sm:gap-2">
-          <li
-            v-for="(title, linkId) in links"
-            :key="linkId"
-            class="flex-shrink-0"
-          >
-            <transition mode="out-in">
-              <a
-                :key="locale"
-                :href="'#' + linkId"
-                class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
-                @click.prevent="scrollTo(linkId)"
+        <transition mode="out-in">
+          <div :key="locale" class="relative flex-grow" lt-sm="h-8">
+            <ul
+              class="flex transition-transform duration-400 ease-power4-in-out"
+              lt-sm="flex-col absolute top-0 left-0"
+              sm="items-center"
+              :style="{ transform: `translateY(${mobileTransform}px)` }"
+            >
+              <li
+                v-for="(title, linkId, i) in links"
+                :key="linkId"
+                class="flex-shrink-0 transition-opacity duration-300"
+                :class="
+                  isHome && i === currentTarget
+                    ? 'delay-100'
+                    : 'lt-sm:opacity-0 delay-0'
+                "
               >
-                {{ title }}
-              </a>
-            </transition>
-          </li>
-          <li class="-mr-2">
-            <LanguageSwitcher />
-          </li>
-        </ul>
+                <a
+                  :href="'#' + linkId"
+                  class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
+                  @click.prevent="scrollTo(linkId)"
+                >
+                  {{ title }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </transition>
+        <div class="-mr-2 flex-shrink-0">
+          <LanguageSwitcher />
+        </div>
       </div>
     </nav>
   </div>

@@ -122,5 +122,5 @@ body {
 }
 
 .nav-link {
-    @apply text-slate-100/80 font-medium rounded-lg transition duration-200 hover:(text-white bg-white/20);
+    @apply text-slate-100/80 font-medium rounded-lg transition duration-200 \@hover:(text-white bg-white/20) active:(text-white bg-white/20);
 }
