@@ -84,33 +84,35 @@ const mounted = useMounted()
         <span class="i-uil:arrow-left block text-28px"></span>
       </button>
 
-      <ul
+      <div
         ref="menuEl"
-        class="child-transition flex flex-shrink-0 items-center px-8 md:gap-4 sm:gap-2"
+        class="child-transition flex-shrink-0"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
       >
-        <li
-          v-for="(title, linkId) in links"
-          :key="linkId"
-          class="flex-shrink-0"
-        >
-          <transition mode="out-in">
-            <a
-              :key="locale"
-              :href="'#' + linkId"
-              class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
-              @click.prevent="scrollTo(linkId)"
-            >
-              {{ title }}
-            </a>
-          </transition>
-        </li>
-        <li class="-mr-2">
-          <LanguageSwitcher />
-        </li>
-      </ul>
+        <ul class="flex items-center px-8 md:gap-4 sm:gap-2">
+          <li
+            v-for="(title, linkId) in links"
+            :key="linkId"
+            class="flex-shrink-0"
+          >
+            <transition mode="out-in">
+              <a
+                :key="locale"
+                :href="'#' + linkId"
+                class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
+                @click.prevent="scrollTo(linkId)"
+              >
+                {{ title }}
+              </a>
+            </transition>
+          </li>
+          <li class="-mr-2">
+            <LanguageSwitcher />
+          </li>
+        </ul>
+      </div>
     </nav>
   </div>
 </template>

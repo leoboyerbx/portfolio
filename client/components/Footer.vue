@@ -2,12 +2,13 @@
 const currentYear = new Date().getFullYear()
 </script>
 <template>
-  <footer class="relative pnk-grid pb-12 pt-36">
+  <footer class="relative pnk-grid pb-12 pt-1c">
     <div
-      class="grid-centered-10 flex items-center border border-slate-500/50 rounded-full from-indigo-600/10 to-yellow-200/10 bg-gradient-to-r px-8 py-4 backdrop-blur-xl"
+      class="grid-centered-10 flex items-center justify-between gap-x-12 gap-y-2 border border-slate-500/50 rounded-full from-indigo-600/10 to-yellow-200/10 bg-gradient-to-r px-8 py-4 backdrop-blur-xl"
+      lt-sm="flex-col rounded-xl"
     >
       <!-- older variant: class="grid-centered-8 flex items-center" -->
-      <div class="flex items-center gap-1 text-sm">
+      <section class="flex items-center gap-1 text-sm">
         © {{ currentYear }} -
         <a
           href="https://pnk.studio/"
@@ -17,16 +18,18 @@ const currentYear = new Date().getFullYear()
           <span class="i-uil:mountains-sun mb-0.5 inline-block text-lg"></span>
           <span>pnk.studio</span>
         </a>
-      </div>
-      <a
-        :href="`/api/resume.pdf?locale=${$i18n.locale}`"
-        target="_blank"
-        class="ml-auto flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
-      >
-        <span class="i-uil:file-alt mr-1 block"></span> CV
-      </a>
-      <span class="mx-4">-</span>
-      <Contacts class="text-18px" :show-phone="true" />
+      </section>
+      <section class="flex items-center">
+        <a
+          :href="`/api/resume.pdf?locale=${$i18n.locale}`"
+          target="_blank"
+          class="flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
+        >
+          <span class="i-uil:file-alt mr-1 block"></span> CV
+        </a>
+        <span class="mx-2 font-light text-sm">-</span>
+        <Contacts class="text-18px" :show-phone="true" />
+      </section>
     </div>
   </footer>
 </template>

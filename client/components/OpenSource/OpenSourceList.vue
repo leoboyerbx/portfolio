@@ -4,7 +4,7 @@ const { data: homepage } = await useHomepage()
 <template>
   <section v-if="homepage?.openSource" class="flex flex-col">
     <header class="pnk-grid">
-      <ScrollReveal class="grid-centered-8 mb-28">
+      <ScrollReveal class="grid-centered-8 mb-1c">
         <h2
           class="section-title text-center"
           v-html="homepage.openSource.title"
