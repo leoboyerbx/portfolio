@@ -74,7 +74,7 @@ const localePath = useLocalePath()
             :alt="`Thumb for ${project.name}`"
             class="block h-full w-full object-cover opacity-85"
             :class="[
-              inView ? 'scale-100 group-hover:scale-108' : 'scale-125',
+              inView ? 'scale-100 thumb-hover-scale' : 'scale-125',
               transition,
             ]"
           />
@@ -105,28 +105,35 @@ const localePath = useLocalePath()
   </NuxtLink>
 </template>
 <style lang="scss">
-.project-link.leaving {
-  @apply pointer-events-none;
-  .thumb {
-    @apply scale-98 transition duration-900 ease-power3-in-out;
+.project-link {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover .thumb-hover-scale {
+      @apply scale-108;
+    }
   }
-  .text-content {
-    @apply opacity-0 transition duration-900 ease-power2-in-out;
-  }
-  &:nth-child(2n) {
+  &.leaving {
+    @apply pointer-events-none;
     .thumb {
-      @apply translate-x-20%;
+      @apply scale-98 transition duration-900 ease-power3-in-out;
     }
     .text-content {
-      @apply -translate-x-4;
+      @apply opacity-0 transition duration-900 ease-power2-in-out;
     }
-  }
-  &:nth-child(2n + 1) {
-    .thumb {
-      @apply -translate-x-20%;
+    &:nth-child(2n) {
+      .thumb {
+        @apply translate-x-20%;
+      }
+      .text-content {
+        @apply -translate-x-4;
+      }
     }
-    .text-content {
-      @apply translate-x-4;
+    &:nth-child(2n + 1) {
+      .thumb {
+        @apply -translate-x-20%;
+      }
+      .text-content {
+        @apply translate-x-4;
+      }
     }
   }
 }
