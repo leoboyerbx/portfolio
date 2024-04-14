@@ -28,6 +28,7 @@ if (!project?.value) {
 </script>
 <template>
   <div class="mb-36 flex flex-col gap-1.5c">
+    <Title>{{ project.name }} - Léo Boyer</Title>
     <ProjectHero :project="project" />
     <ProjectDescription :project="project" />
     <ProjectVideo v-if="project.video" :project="project" />
