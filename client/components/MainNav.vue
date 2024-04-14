@@ -36,7 +36,7 @@ const { width: windowWidth } = useWindowSize()
 const { width: backWidth } = useElementBounding(backEl)
 const { width: menuWidth } = useElementBounding(menuEl)
 const responsiveMenuWith = computed(() =>
-  isMobile.value ? windowWidth.value - 64 : menuWidth.value
+  isMobile.value ? windowWidth.value * (12 / 14) : menuWidth.value
 )
 
 const width = computed(() => {
@@ -55,18 +55,21 @@ const goBack = () => {
 }
 
 // This variable doesn't need to be reactive
-let targets: HTMLElement[] = []
-let distancesFromTop: number[] = []
+const store = useMainNavStore()
 const offset = 192
 const currentTarget = computedWithControl(
-  () => [y.value, isMobile.value],
+  () => [y.value, isMobile.value, store.distancesFromTop],
   () => {
-    // Computation is wrapped in a function so it is only called when necessary -> on mobile.
+    console.log('computed')
     if (!isMobile.value) {
       return 0
     }
-    for (let i = distancesFromTop.length - 1; i >= 0; i--) {
-      if (distancesFromTop[i] < y.value + offset) {
+    console.log(store.distancesFromTop)
+    if (store.distancesFromTop.length === 0) {
+      return 0
+    }
+    for (let i = store.distancesFromTop.length - 1; i >= 0; i--) {
+      if (store.distancesFromTop[i] < y.value + offset) {
         return i
       }
     }
@@ -77,28 +80,6 @@ const currentTarget = computedWithControl(
 const listEl = ref<HTMLElement>()
 const { height: listHeight } = useElementBounding(listEl)
 const mobileMenuOpen = ref(false)
-const mobileTransform = computed(() =>
-  mobileMenuOpen.value ? 0 : currentTarget.value * -32
-)
-
-const updateDistancesFromTop = () => {
-  distancesFromTop = []
-  for (let i in targets) {
-    distancesFromTop[i] = y.value + targets[i].getBoundingClientRect().top
-  }
-}
-const updateTargets = async () => {
-  Object.keys(links.value).forEach((id) => {
-    const el = document.getElementById(id)
-    if (el) targets.push(el)
-  })
-  await nextTick()
-  updateDistancesFromTop()
-  currentTarget.trigger()
-}
-whenever(isHome, updateTargets)
-onMounted(updateTargets)
-useEventListener('resize', updateDistancesFromTop)
 
 const mounted = useMounted()
 </script>
@@ -111,6 +92,10 @@ const mounted = useMounted()
         : 'transform translate-y-2 opacity-0'
     "
   >
+    <!-- {{ store.distancesFromTop }} -->
+    <!-- {{ y }} -->
+    <!-- {{ isMobile }} -->
+    <!-- {{ currentTarget }} -->
     <nav
       ref="navEl"
       class="nav-transition nav-bg pointer-events-auto absolute flex overflow-clip rounded-28px"
@@ -174,14 +159,16 @@ const mounted = useMounted()
               class="flex transition-transform duration-400 ease-power4-in-out"
               lt-sm="flex-col absolute top-0 left-0 items-start"
               sm="items-center"
-              :style="{ transform: `translateY(${mobileTransform}px)` }"
+              :style="{
+                transform: `translateY(${currentTarget * -32 * +!mobileMenuOpen}px)`,
+              }"
             >
               <li
                 v-for="(title, linkId, i) in links"
                 :key="linkId"
                 class="flex-shrink-0 transition-opacity duration-300"
                 :class="
-                  mobileMenuOpen || (isHome && i === currentTarget)
+                  (isHome && i === currentTarget) || mobileMenuOpen
                     ? 'delay-100'
                     : 'lt-sm:opacity-0 delay-0'
                 "
