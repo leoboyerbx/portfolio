@@ -21,13 +21,13 @@ const currentYear = new Date().getFullYear()
       </section>
       <section class="flex items-center">
         <a
-          :href="`/api/resume.pdf?locale=${$i18n.locale}`"
+          :href="`/api/${$i18n.locale}/resume.pdf`"
           target="_blank"
           class="flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
         >
           <span class="i-uil:file-alt mr-1 block"></span> CV
         </a>
-        <span class="mx-2 font-light text-sm">-</span>
+        <span class="mx-2 text-sm font-light">-</span>
         <Contacts class="text-18px" :show-phone="true" />
       </section>
     </div>
