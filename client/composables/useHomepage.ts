@@ -16,9 +16,6 @@ export async function useHomepage() {
       dedupe: 'defer',
     }
   )
-  watch(locale, () => {
-    refresh()
-  })
 
   return { data }
 }
