@@ -1,7 +1,6 @@
 export const useMainNavStore = defineStore('mainNav', () => {
   const targets = ref<HTMLElement[]>([])
   const distancesFromTop = computed(() => {
-    console.log('update distanxcesfromtop')
     const result = []
     for (const target of targets.value) {
       result.push(window.scrollY + target.getBoundingClientRect().top)

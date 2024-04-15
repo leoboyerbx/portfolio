@@ -60,11 +60,9 @@ const offset = 192
 const currentTarget = computedWithControl(
   () => [y.value, isMobile.value, store.distancesFromTop],
   () => {
-    console.log('computed')
     if (!isMobile.value) {
       return 0
     }
-    console.log(store.distancesFromTop)
     if (store.distancesFromTop.length === 0) {
       return 0
     }
@@ -120,22 +118,23 @@ const mounted = useMounted()
 
       <div
         ref="menuEl"
-        class="child-transition relative flex-shrink-0 px-6 sm:px-8 pt-3 sm:py-2 flex items-start"
+        class="child-transition relative flex flex-shrink-0 items-start px-6 pt-3"
         lt-sm="w-full"
+        sm="px-8 py-2 gap-2"
         :style="{
           transform: isHome ? `translateX(-${backWidth}px)` : '',
         }"
       >
         <div
-          class="h-8 flex items-center sm:hidden -ml-1 transition-opacity duration-200"
+          class="h-8 flex items-center transition-opacity duration-200 -ml-1 sm:hidden"
           :class="{ 'opacity-0': !isHome }"
         >
           <button
-            class="nav-link btn-animation grid place-content-center w-7 h-7 flex-shrink-0"
+            class="nav-link btn-animation grid h-7 w-7 flex-shrink-0 place-content-center"
             @click="mobileMenuOpen = !mobileMenuOpen"
           >
             <span
-              class="i-uil:bars text-20px row-start-1 col-start-1 block transition duration-200"
+              class="i-uil:bars col-start-1 row-start-1 block text-20px transition duration-200"
               :class="
                 mobileMenuOpen
                   ? 'scale-0 ease-power2-in'
@@ -143,7 +142,7 @@ const mounted = useMounted()
               "
             ></span>
             <span
-              class="i-uil:times text-22px row-start-1 col-start-1 block transition duration-200"
+              class="i-uil:times col-start-1 row-start-1 block text-22px transition duration-200"
               :class="
                 !mobileMenuOpen
                   ? 'scale-0 ease-power2-in'
@@ -153,12 +152,13 @@ const mounted = useMounted()
           </button>
         </div>
         <transition mode="out-in">
-          <div :key="locale" class="relative flex-grow h-8 sm:h-10" lt-sm="h-8">
+          <div :key="locale" class="relative h-8 flex-grow sm:h-10" lt-sm="h-8">
             <ul
               ref="listEl"
               class="flex transition-transform duration-400 ease-power4-in-out"
               lt-sm="flex-col absolute top-0 left-0 items-start"
-              sm="items-center"
+              sm="items-center gap-2"
+              md="gap-4"
               :style="{
                 transform: `translateY(${currentTarget * -32 * +!mobileMenuOpen}px)`,
               }"
@@ -184,7 +184,7 @@ const mounted = useMounted()
             </ul>
           </div>
         </transition>
-        <div class="ml-4 -mr-2 flex-shrink-0 h-8 sm:h-10 flex items-center">
+        <div class="ml-4 h-8 flex flex-shrink-0 items-center -mr-2 sm:h-10">
           <LanguageSwitcher />
         </div>
       </div>
