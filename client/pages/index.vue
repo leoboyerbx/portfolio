@@ -4,6 +4,9 @@ import { getLenis } from '~/plugins/lenis.client'
 definePageMeta({
   isHomePage: true,
 })
+useHead({
+  titleTemplate: '%siteName',
+})
 
 const heroEl = ref()
 const projectsEl = ref()

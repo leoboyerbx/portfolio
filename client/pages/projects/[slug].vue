@@ -8,7 +8,6 @@ const { slug } = useRoute().params
 const { data: project } = await useGlobalRefreshAsyncData(
   `post-single-${slug}-${locale.value}`,
   async () => {
-    console.log(locale.value)
     const { data } = await find<Project>('projects', {
       populate: '*',
       filters: { slug },
@@ -29,7 +28,7 @@ if (!project?.value) {
 </script>
 <template>
   <div class="mb-36 flex flex-col gap-1.5c">
-    <Title>{{ project.name }} - Léo Boyer</Title>
+    <Title>{{ project.name }}</Title>
     <ProjectHero :project="project" />
     <ProjectDescription :project="project" />
     <ProjectVideo v-if="project.video" :project="project" />

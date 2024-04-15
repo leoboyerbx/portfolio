@@ -2,7 +2,7 @@ export async function useHomepage() {
   const { locale } = useI18n()
   const { findOne } = useStrapi()
 
-  const { data, refresh } = await useGlobalRefreshAsyncData(
+  const { data } = await useGlobalRefreshAsyncData(
     'homepage-' + locale.value,
     async () => {
       const result = await findOne<Homepage>('homepage', undefined, {
