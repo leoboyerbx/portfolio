@@ -10,7 +10,7 @@ const projects = computed(() => homepage.value?.projects)
         v-html="projects.title"
       ></h2>
     </ScrollReveal>
-    <div class="grid-centered-8 flex flex-col gap-36">
+    <div class="grid-centered-8 flex flex-col gap-12 sm:gap-36">
       <ProjectPush
         v-for="project in projects.projects"
         :key="project.id"
