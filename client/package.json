@@ -5,9 +5,9 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "dev:prod": "STRAPI_URL=https://admin.leoboyer.dev pnpm run dev",
+    "dev:prod": "STRAPI_URL=https://api.leoboyer.dev pnpm run dev",
     "generate": "nuxt generate",
-    "generate:prod": "STRAPI_URL=https://admin.leoboyer.dev nuxt generate",
+    "generate:prod": "STRAPI_URL=https://api.leoboyer.dev nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -29,6 +29,7 @@
     "@nuxt/image": "^1.4.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/i18n": "^8.1.1",
+    "@nuxtjs/seo": "2.0.0-rc.10",
     "@nuxtjs/strapi": "^1.11.0",
     "@pinia/nuxt": "^0.5.1",
     "@types/qs": "^6.9.14",

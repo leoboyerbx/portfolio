@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/image',
     '@nuxtjs/strapi',
+    '@nuxtjs/seo',
   ],
   css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
   vite: {
@@ -24,6 +25,12 @@ export default defineNuxtConfig({
   strapi: {},
   image: {
     domains: ['api.leoboyer.dev'],
+  },
+  site: {
+    url: 'https://www.leoboyer.dev',
+    name: 'Léo Boyer - Creative developer',
+    description:
+      "I'm Léo, a creative and curious developer. Currently working at Wanaka, Annecy FR.",
   },
   i18n: {
     strategy: 'prefix_except_default',
