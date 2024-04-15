@@ -6,6 +6,8 @@ const props = defineProps<{
   hero: Exclude<Homepage['hero'], undefined>
 }>()
 
+const { locale } = useI18n()
+
 const texts = computed(() => props.hero.adjectives ?? [])
 
 const textWidths = ref<number[]>([])
@@ -52,7 +54,9 @@ useIntervalFn(() => {
     </span>
     <span class="line" style="--line-index: 1">
       <span class="line-content">
-        <span class="mr-0.25em">{{ hero.beforeAdj }}</span>
+        <span class="mr-0.25em"
+          >{{ hero.beforeAdj }}<br v-if="locale === 'fr'" class="sm:hidden"
+        /></span>
         <span
           class="relative inline-block"
           :style="{
@@ -76,8 +80,8 @@ useIntervalFn(() => {
               :class="[
                 currentText === i ? 'opacity-100' : 'opacity-0 delay-50',
               ]"
-              >{{ hero.vowelPrefix }}</span
-            >
+              >{{ hero.vowelPrefix }}
+            </span>
             <TextEffect
               class="transition-opacity"
               :class="[
@@ -87,8 +91,9 @@ useIntervalFn(() => {
               :colors="[text.color1, text.color2]"
               :effect="text.effect"
             ></TextEffect>
-          </span> </span
-        ><span class="ml-1">{{ hero.afterAdj }}</span>
+          </span>
+        </span>
+        <span class="ml-1">{{ hero.afterAdj }}</span>
       </span>
     </span>
   </h1>
