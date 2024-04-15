@@ -17,7 +17,13 @@ const close = () => {
 onKeyStroke('Escape', close)
 </script>
 <template>
-  <a :href="src" target="_blank" class="relative" @click.prevent="open()">
+  <a
+    :href="src"
+    target="_blank"
+    class="relative"
+    :title="`Open image in fullscreen`"
+    @click.prevent="open()"
+  >
     <NuxtImg :src="thumbUrl" :alt="alt" class="h-full w-full" />
     <teleport to="body">
       <transition name="lightbox">
@@ -33,7 +39,7 @@ onKeyStroke('Escape', close)
             :class="hasMoved ? 'opacity-80 hover:opacity-100' : 'md:opacity-0'"
             @click="close"
           >
-            <span class="text-xs font-bold text-slate-100">{{
+            <span class="text-xs text-slate-100 font-bold">{{
               $t('close')
             }}</span>
             <span class="kbd">Esc</span>
