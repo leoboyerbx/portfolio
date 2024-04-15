@@ -2,8 +2,8 @@ export async function useHomepage() {
   const { locale } = useI18n()
   const { findOne } = useStrapi()
 
-  const { data } = await useGlobalRefreshAsyncData(
-    'static',
+  const { data, refresh } = await useGlobalRefreshAsyncData(
+    'homepage-' + locale.value,
     async () => {
       const result = await findOne<Homepage>('homepage', undefined, {
         populate:
@@ -16,6 +16,9 @@ export async function useHomepage() {
       dedupe: 'defer',
     }
   )
+  watch(locale, () => {
+    refresh()
+  })
 
   return { data }
 }

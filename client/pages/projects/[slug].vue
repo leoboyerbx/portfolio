@@ -8,6 +8,7 @@ const { slug } = useRoute().params
 const { data: project } = await useGlobalRefreshAsyncData(
   `post-single-${slug}-${locale.value}`,
   async () => {
+    console.log(locale.value)
     const { data } = await find<Project>('projects', {
       populate: '*',
       filters: { slug },
