@@ -24,8 +24,9 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       />
     </div>
     <div
-      class="relative flex flex-col items-end my-1c md:(row-start-1 self-end text-right)"
+      class="relative flex flex-col items-end text-right my-1c"
       col="start-2 span-12"
+      md="row-start-1 self-end "
       md:col="start-5 span-8"
       lg:col="start-7 span-6"
     >
