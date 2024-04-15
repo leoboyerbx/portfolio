@@ -2,11 +2,11 @@
 import isVowel from '~/utils/isVowel'
 import type { TextEffect } from '#components'
 
+const { locale } = useI18n()
+
 const props = defineProps<{
   hero: Exclude<Homepage['hero'], undefined>
 }>()
-
-const { locale } = useI18n()
 
 const texts = computed(() => props.hero.adjectives ?? [])
 
