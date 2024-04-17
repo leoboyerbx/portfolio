@@ -26,25 +26,23 @@ export default defineNuxtConfig({
   image: {
     domains: ['api.leoboyer.dev'],
   },
-  site: {
-    url: 'https://www.leoboyer.dev',
-    name: 'Léo Boyer - Creative developer',
-    description:
-      "I'm Léo, a creative and curious developer. Currently working at Wanaka, Annecy FR.",
-  },
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
+    lazy: true,
+    langDir: 'locales',
     locales: [
       {
         code: 'en',
         iso: 'en-US',
         name: 'English',
+        file: 'en.ts',
       },
       {
         code: 'fr',
         iso: 'fr-FR',
         name: 'Français',
+        file: 'fr.ts',
       },
     ],
     baseUrl: 'https://www.leoboyer.dev',

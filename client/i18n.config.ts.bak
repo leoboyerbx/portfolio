@@ -1,0 +1,20 @@
+export default defineI18nConfig(() => ({
+  legacy: false,
+  inheritLocale: true,
+  locales: [
+    {
+      code: 'en',
+      iso: 'en-US',
+      name: 'English',
+    },
+    {
+      code: 'fr',
+      iso: 'fr-FR',
+      name: 'Français',
+    },
+  ],
+  messages: {
+    en: {},
+    fr: {},
+  },
+}))

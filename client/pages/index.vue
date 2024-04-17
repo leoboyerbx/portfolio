@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { getLenis } from '~/plugins/lenis.client'
 
+const { t } = useI18n()
+
 definePageMeta({
   isHomePage: true,
 })
@@ -44,13 +46,13 @@ onMounted(async () => {
 </script>
 <template>
   <div class="flex flex-col">
-    <Hero ref="heroEl" id="hero" class="leaving-item" />
-    <ProjectList ref="projectsEl" id="projects" class="mb-24 md:mb-2c" />
+    <Hero id="hero" ref="heroEl" class="leaving-item" />
+    <ProjectList id="projects" ref="projectsEl" class="mb-24 md:mb-2c" />
     <OpenSourceList
-      ref="openSourceEl"
       id="openSource"
+      ref="openSourceEl"
       class="leaving-item mb-24 md:mb-2c"
     />
-    <ContactPush ref="contactEl" id="contact" class="leaving-item mb-1c" />
+    <ContactPush id="contact" ref="contactEl" class="leaving-item mb-1c" />
   </div>
 </template>
