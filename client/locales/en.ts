@@ -11,6 +11,9 @@ export default defineI18nLocale(() => ({
     email: 'Send me an email !',
     phone: 'Call me !',
   },
+  project: {
+    description: 'Venez découvrir le projet {nameAndBaseline}',
+  },
   close: 'Close',
   error: {
     '404': {

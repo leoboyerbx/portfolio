@@ -8,7 +8,10 @@ export default defineI18nLocale(() => ({
   wip: `Ce portfolio est en cours de refonte. Il sera bientôt de retour !`,
   contact: {
     email: 'Envoyez-moi un email !',
-    phone: 'Call me !',
+    phone: 'Appelez-moi !',
+  },
+  project: {
+    description: 'Come and discover the project {nameAndBaseline}',
   },
   close: 'Fermer',
   error: {

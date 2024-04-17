@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { getLenis } from '~/plugins/lenis.client'
 
-const { t } = useI18n()
-
 definePageMeta({
   isHomePage: true,
 })

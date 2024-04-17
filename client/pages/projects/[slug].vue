@@ -29,6 +29,14 @@ if (!project?.value) {
 <template>
   <div class="mb-36 flex flex-col gap-1.5c">
     <Title>{{ project.name }}</Title>
+    <Meta
+      name="description"
+      :content="
+        $t('project.description', {
+          nameAndBaseline: `${project.name} - ${project.baseline}`,
+        })
+      "
+    />
     <ProjectHero :project="project" />
     <ProjectDescription :project="project" />
     <ProjectVideo v-if="project.video" :project="project" />
