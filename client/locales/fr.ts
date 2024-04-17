@@ -11,7 +11,7 @@ export default defineI18nLocale(() => ({
     phone: 'Appelez-moi !',
   },
   project: {
-    description: 'Come and discover the project {nameAndBaseline}',
+    description: 'Venez découvrir le projet {nameAndBaseline}',
   },
   close: 'Fermer',
   error: {

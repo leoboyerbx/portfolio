@@ -12,7 +12,7 @@ export default defineI18nLocale(() => ({
     phone: 'Call me !',
   },
   project: {
-    description: 'Venez découvrir le projet {nameAndBaseline}',
+    description: 'Come and discover the project {nameAndBaseline}',
   },
   close: 'Close',
   error: {
