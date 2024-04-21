@@ -6,6 +6,7 @@ const props = defineProps<{
 const urlWithAutoplay = computed(() => {
   const url = new URL(props.url)
   url.searchParams.set('autoplay', '1')
+  url.searchParams.set('rel', '0')
   return url.toString()
 })
 const thumb = computed(() => {
