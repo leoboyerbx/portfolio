@@ -4,7 +4,7 @@ const { data: homepage } = await useHomepage()
 <template>
     <header v-if="homepage" class="min-h-100vh w-full flex flex-col pb-16 pt-36">
         <div
-             class="grid grid-cols-14 md:h-35vh">
+             class="grid grid-cols-14 md:h-35vh reveal" style="animation-delay: 200ms;">
             <HeroText
                       v-if="homepage.hero"
                       :hero="homepage.hero"
@@ -12,7 +12,7 @@ const { data: homepage } = await useHomepage()
                       md:col="start-3 span-11" />
         </div>
         <div
-             class="grid grid-cols-14 mt-16 md:mt-1/2c">
+             class="grid grid-cols-14 mt-16 md:mt-1/2c reveal" style="animation-delay: 400ms;">
             <div
                  col="start-2 span-10"
                  md:col="start-3 span-10"
@@ -31,15 +31,21 @@ const { data: homepage } = await useHomepage()
 .intro a {
     text-decoration: underline !important;
 }
-</style>
-<style scoped>
+
 .reveal {
-    animation: reveal 600ms theme('easing.power4-in-out')
+    animation: reveal 600ms theme('easing.power4-out') both;
+    opacity: 0;
 }
 
 @keyframes reveal {
     from {
-        @apply transform translate-y-8 opacity-0;
+        transform: translateY(24px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 </style>
