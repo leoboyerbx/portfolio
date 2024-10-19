@@ -1,5 +1,7 @@
 export default defineI18nLocale(() => ({
   nav: {
+    backToHome: "Retour à l'accueil",
+    openMenu: 'Ouvrir ou fermer le menu',
     hero: 'Accueil',
     projects: 'Projets',
     openSource: 'Open Source',
