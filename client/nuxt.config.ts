@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/strapi',
         '@nuxtjs/seo',
-        // 'v-plausible',
+        'v-plausible',
     ],
     css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
     vite: {
@@ -53,14 +53,6 @@ export default defineNuxtConfig({
             redirectOn: 'root',
             fallbackLocale: 'en',
         },
-    },
-    plausible: {
-        init: {
-            domain: 'leoboyer.dev',
-            apiHost: 'https://plausible.lbxs.dev',
-            trackLocalhost: false,
-        },
-        partytown: false,
     },
     imports: {
         dirs: ['types'],
