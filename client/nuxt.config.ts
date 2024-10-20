@@ -2,85 +2,77 @@
 import { devtoolsOutline, devtoolsColumns } from 'vite-plugin-dev-guides'
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
-  modules: [
-    '@unocss/nuxt',
-    '@vueuse/nuxt',
-    '@nuxtjs/i18n',
-    '@pinia/nuxt',
-    '@nuxt/image',
-    '@nuxtjs/strapi',
-    '@nuxtjs/seo',
-    'v-plausible',
-  ],
-  css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
-  vite: {
-    plugins: [devtoolsOutline(), devtoolsColumns()],
-  },
-  components: [
-    {
-      path: '~/components',
-      pathPrefix: false,
-    },
-  ],
-  strapi: {},
-  image: {
-    domains: ['api.leoboyer.dev'],
-  },
-  i18n: {
-    strategy: 'prefix_except_default',
-    defaultLocale: 'en',
-    lazy: true,
-    langDir: 'locales',
-    locales: [
-      {
-        code: 'en',
-        iso: 'en-US',
-        name: 'English',
-        file: 'en.ts',
-      },
-      {
-        code: 'fr',
-        iso: 'fr-FR',
-        name: 'Français',
-        file: 'fr.ts',
-      },
+    devtools: { enabled: true },
+    modules: [
+        '@unocss/nuxt',
+        '@vueuse/nuxt',
+        '@nuxtjs/i18n',
+        '@pinia/nuxt',
+        '@nuxt/image',
+        '@nuxtjs/strapi',
+        '@nuxtjs/seo',
+        'v-plausible',
     ],
-    baseUrl: 'https://www.leoboyer.dev',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-      fallbackLocale: 'en',
+    css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
+    vite: {
+        plugins: [devtoolsOutline(), devtoolsColumns()],
     },
-  },
-  plausible: {
-    init: {
-      domain: 'leoboyer.dev',
-      apiHost: 'https://plausible.lbxs.dev',
-      trackLocalhost: false,
+    components: [
+        {
+            path: '~/components',
+            pathPrefix: false,
+        },
+    ],
+    strapi: {},
+    image: {
+        domains: ['api.leoboyer.dev'],
     },
-    partytown: false,
-  },
-  imports: {
-    dirs: ['types'],
-  },
-  app: {
-    head: {
-      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    i18n: {
+        strategy: 'prefix_except_default',
+        defaultLocale: 'en',
+        lazy: true,
+        langDir: 'locales',
+        locales: [
+            {
+                code: 'en',
+                iso: 'en-US',
+                name: 'English',
+                file: 'en.ts',
+            },
+            {
+                code: 'fr',
+                iso: 'fr-FR',
+                name: 'Français',
+                file: 'fr.ts',
+            },
+        ],
+        baseUrl: 'https://www.leoboyer.dev',
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'i18n_redirected',
+            redirectOn: 'root',
+            fallbackLocale: 'en',
+        },
     },
-    pageTransition: { name: 'page', mode: 'out-in' },
-  },
+    imports: {
+        dirs: ['types'],
+    },
+    app: {
+        head: {
+            link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+        },
+        pageTransition: { name: 'page', mode: 'out-in' },
+    },
 
-  nitro: {
-    prerender: {
-      routes: [
-        '/api/resume',
-        '/api/resume.pdf',
-        '/api/fr/resume.pdf',
-        '/api/en/resume.pdf',
-      ],
-      autoSubfolderIndex: false,
+    nitro: {
+        prerender: {
+            routes: [
+                '/api/resume',
+                '/api/resume.pdf',
+                '/api/fr/resume.pdf',
+                '/api/en/resume.pdf',
+            ],
+            autoSubfolderIndex: false,
+        },
     },
-  },
 })
