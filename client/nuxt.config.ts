@@ -14,6 +14,7 @@ export default defineNuxtConfig({
         '@nuxtjs/strapi',
         '@nuxtjs/seo',
         'v-plausible',
+        '@nuxthub/core',
     ],
     css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
     vite: {
@@ -33,7 +34,6 @@ export default defineNuxtConfig({
         strategy: 'prefix_except_default',
         defaultLocale: 'en',
         lazy: true,
-        langDir: 'i18n',
         locales: [
             {
                 code: 'en',
@@ -67,7 +67,6 @@ export default defineNuxtConfig({
     },
 
     nitro: {
-        preset: 'cloudflare-pages-static',
         prerender: {
             routes: [
                 '/api/resume',

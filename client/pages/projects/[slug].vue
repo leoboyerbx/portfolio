@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Project } from '~/types/apiTypes'
 
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 const { find } = useStrapi()
 
 const { slug } = useRoute().params
@@ -32,7 +32,7 @@ if (!project?.value) {
     <Meta
       name="description"
       :content="
-        $t('project.description', {
+        t('project.description', {
           nameAndBaseline: `${project.name} - ${project.baseline}`,
         })
       "

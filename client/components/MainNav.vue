@@ -107,7 +107,7 @@ const mounted = useMounted()
     >
       <button
         ref="backEl"
-        :aria-label="$t('nav.backToHome')"
+        :aria-label="t('nav.backToHome')"
         class="child-transition btn-animation block flex-shrink-0 px-3.5"
         :style="{
           transform: isHome ? `translateX(-100%)` : '',
@@ -132,7 +132,7 @@ const mounted = useMounted()
         >
           <button
             class="nav-link btn-animation grid h-7 w-7 flex-shrink-0 place-content-center"
-            :aria-label="$t('nav.openMenu')"
+            :aria-label="t('nav.openMenu')"
             @click="mobileMenuOpen = !mobileMenuOpen"
           >
             <span
