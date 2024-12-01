@@ -1,6 +1,6 @@
 export const useMainNavStore = defineStore('mainNav', () => {
     const targets = ref<HTMLElement[]>([])
-    const distancesFromTop = computed(() => {
+    const distancesFromTop = computedWithControl(() => targets.value, () => {
         const result = []
         for (const target of targets.value) {
             result.push(window.scrollY + target?.getBoundingClientRect().top)
@@ -9,7 +9,7 @@ export const useMainNavStore = defineStore('mainNav', () => {
     })
 
     useEventListener('resize', () => {
-        distancesFromTop.effect.run()
+        distancesFromTop.trigger()
     })
 
     const setTargets = (...elements: HTMLElement[]) => {
