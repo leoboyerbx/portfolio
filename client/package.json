@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "STRAPI_URL=https://api.leoboyer.dev nuxt build",
     "dev": "nuxt dev",
     "dev:prod": "STRAPI_URL=https://api.leoboyer.dev pnpm run dev",
     "generate": "nuxt generate",
@@ -43,7 +43,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "i": "^0.3.7",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.14.1592",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "server": "workspace:*",

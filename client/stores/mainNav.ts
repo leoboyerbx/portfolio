@@ -3,7 +3,9 @@ export const useMainNavStore = defineStore('mainNav', () => {
     const distancesFromTop = computedWithControl(() => targets.value, () => {
         const result = []
         for (const target of targets.value) {
-            result.push(window.scrollY + target?.getBoundingClientRect().top)
+            if (target?.getBoundingClientRect) {
+                result.push(window.scrollY + target.getBoundingClientRect().top)
+            }
         }
         return result
     })

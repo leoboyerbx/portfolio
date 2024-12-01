@@ -13,7 +13,8 @@ const open = () => {
     return
   }
   isOpen.value = true
-  const rect = button.value.getBoundingClientRect()
+  const rect = button.value?.getBoundingClientRect()
+  if (!rect) return
   right.value = window.innerWidth - rect.right
 }
 const close = () => {

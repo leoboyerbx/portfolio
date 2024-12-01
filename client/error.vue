@@ -8,7 +8,8 @@ const statusCode = computed(() => error.value?.statusCode)
 const reversedCode = computed(() =>
   statusCode.value?.toString().split('').reverse().join('')
 )
-
+console.log("Error Below")
+console.log(error)
 const localePath = useLocalePath()
 </script>
 <template>
@@ -47,13 +48,13 @@ const localePath = useLocalePath()
           $t('error.back')
         }}</Button>
       </div>
-      <DevOnly>
+      <!-- <DevOnly> -->
         <div class="grid-centered-10 mt-8">
           <pre>
             {{ error?.message }}
           </pre>
         </div>
-      </DevOnly>
+      <!-- </DevOnly> -->
     </header>
   </NuxtLayout>
 </template>
