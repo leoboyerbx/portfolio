@@ -68,15 +68,14 @@ export default defineNuxtConfig({
     },
 
     nitro: {
-        preset: 'cloudflare-pages-static',
-        prerender: {
-            routes: [
-                '/api/resume',
-                '/api/resume.pdf',
-                '/api/fr/resume.pdf',
-                '/api/en/resume.pdf',
-            ],
-            autoSubfolderIndex: false,
-        },
+        // prerender: {
+        //     routes: [
+        //         '/api/resume',
+        //         '/api/resume.pdf',
+        //         '/api/fr/resume.pdf',
+        //         '/api/en/resume.pdf',
+        //     ],
+        //     autoSubfolderIndex: false,
+        // },
     },
 })
