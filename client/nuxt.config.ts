@@ -2,7 +2,9 @@
 import { devtoolsOutline, devtoolsColumns } from 'vite-plugin-dev-guides'
 
 export default defineNuxtConfig({
+    compatibilityDate: '2024-04-03',
     devtools: { enabled: true },
+    ssr: true,
     modules: [
         '@unocss/nuxt',
         '@vueuse/nuxt',
@@ -31,17 +33,17 @@ export default defineNuxtConfig({
         strategy: 'prefix_except_default',
         defaultLocale: 'en',
         lazy: true,
-        langDir: 'locales',
+        langDir: 'i18n',
         locales: [
             {
                 code: 'en',
-                iso: 'en-US',
+                language: 'en-US',
                 name: 'English',
                 file: 'en.ts',
             },
             {
                 code: 'fr',
-                iso: 'fr-FR',
+                language: 'fr-FR',
                 name: 'Français',
                 file: 'fr.ts',
             },
