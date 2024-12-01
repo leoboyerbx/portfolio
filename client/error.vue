@@ -3,6 +3,7 @@ const error = useError()
 if (!error.value) {
   await navigateTo('/')
 }
+const { t } = useI18n()
 const statusCode = computed(() => error.value?.statusCode)
 
 const reversedCode = computed(() =>
@@ -23,29 +24,29 @@ const localePath = useLocalePath()
       </h1>
       <div col="start-3 span-5" class="mt-4vw text-2xl font-semibold">
         <p v-if="statusCode === 404">
-          <span>{{ $t('error.404.beforeEffect') }}</span>
+          <span>{{ t('error.404.beforeEffect') }}</span>
           <TextEffect
             class="transition-opacity"
-            :text="$t('error.404.effect')"
+            :text="t('error.404.effect')"
             :colors="['#ff6699', '#fce14b']"
             effect="wave"
           />
-          <span>{{ $t('error.404.afterEffect') }}</span>
+          <span>{{ t('error.404.afterEffect') }}</span>
         </p>
         <p v-else>
-          <span>{{ $t('error.generic.beforeEffect') }}</span>
+          <span>{{ t('error.generic.beforeEffect') }}</span>
           <TextEffect
             class="transition-opacity"
-            :text="$t('error.generic.effect')"
+            :text="t('error.generic.effect')"
             :colors="['#ff6699', '#fce14b']"
             effect="wave"
           />
-          <span>{{ $t('error.generic.afterEffect') }}</span>
+          <span>{{ t('error.generic.afterEffect') }}</span>
         </p>
       </div>
       <div col="start-3 span-8" class="mt-8 -mx-2">
         <Button @click="navigateTo(localePath('/'))">{{
-          $t('error.back')
+          t('error.back')
         }}</Button>
       </div>
       <!-- <DevOnly> -->

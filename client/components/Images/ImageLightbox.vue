@@ -4,6 +4,8 @@ const props = defineProps<{
   thumb?: string
   alt: string
 }>()
+
+const { t } = useI18n()
 const thumbUrl = computed(() => props.thumb || props.src)
 const isOpen = ref(false)
 const hasMoved = ref(false)
@@ -40,7 +42,7 @@ onKeyStroke('Escape', close)
             @click="close"
           >
             <span class="text-xs text-slate-100 font-bold">{{
-              $t('close')
+              t('close')
             }}</span>
             <span class="kbd">Esc</span>
           </button>
