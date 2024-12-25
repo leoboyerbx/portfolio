@@ -27,6 +27,10 @@ export default defineNuxtConfig({
     ],
     strapi: {},
     image: {
+        provider: 'cloudflare',
+        cloudflare: {
+            baseURL: 'https://leoboyer.dev',
+        },
         domains: ['api.leoboyer.dev'],
     },
     i18n: {
