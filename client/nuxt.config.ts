@@ -13,7 +13,6 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/strapi',
         '@nuxtjs/seo',
-        'v-plausible',
         '@nuxthub/core',
     ],
     css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
