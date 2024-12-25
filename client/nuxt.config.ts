@@ -13,7 +13,6 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/strapi',
         '@nuxtjs/seo',
-        'v-plausible',
         '@nuxthub/core',
     ],
     css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
@@ -28,6 +27,10 @@ export default defineNuxtConfig({
     ],
     strapi: {},
     image: {
+        provider: 'cloudflare',
+        cloudflare: {
+            baseURL: 'https://leoboyer.dev',
+        },
         domains: ['api.leoboyer.dev'],
     },
     i18n: {

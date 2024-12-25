@@ -17,8 +17,8 @@ const transition = 'transition-all duration-1000 ease-power4-out'
     >
       <NuxtImg
         :src="useStrapiMedia(project.thumbnail.url)"
-        width="1920"
-        height="1200"
+        width="1248"
+        height="780"
         :alt="`Thumb for ${project.name}`"
         class="h-full w-full object-cover opacity-85"
       />

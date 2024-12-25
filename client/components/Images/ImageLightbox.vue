@@ -26,7 +26,7 @@ onKeyStroke('Escape', close)
     :title="`Open image in fullscreen`"
     @click.prevent="open()"
   >
-    <NuxtImg :src="thumbUrl" :alt="alt" class="h-full w-full" />
+    <NuxtImg :src="thumbUrl" :alt="alt" class="h-full w-full" height="1200" />
     <teleport to="body">
       <transition name="lightbox">
         <div
@@ -35,7 +35,7 @@ onKeyStroke('Escape', close)
           @click="close"
           @mousemove="hasMoved = true"
         >
-          <NuxtImg :src="src" :alt="alt" class="h-8/10 w-8/10 object-contain" />
+          <NuxtImg :src="src" :alt="alt" class="h-8/10 w-8/10 object-contain" height="1200" />
           <button
             class="absolute right-4 top-4 flex items-center gap-2 text-sm transition duration-200"
             :class="hasMoved ? 'opacity-80 hover:opacity-100' : 'md:opacity-0'"
