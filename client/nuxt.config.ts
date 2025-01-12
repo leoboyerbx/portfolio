@@ -19,7 +19,8 @@ export default defineNuxtConfig({
     css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
     plausible: {
         domain: 'leoboyer.dev',
-        apiHost: 'https://stats.pnk.studio'
+        apiHost: 'https://stats.pnk.studio',
+        proxy: true,
     },
     vite: {
         plugins: [devtoolsOutline(), devtoolsColumns()],
