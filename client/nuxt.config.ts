@@ -14,8 +14,13 @@ export default defineNuxtConfig({
         '@nuxtjs/strapi',
         '@nuxtjs/seo',
         '@nuxthub/core',
+        '@nuxtjs/plausible',
     ],
     css: ['@unocss/reset/tailwind.css', 'assets/global.scss'],
+    plausible: {
+        domain: 'leoboyer.dev',
+        apiHost: 'https://stats.pnk.studio'
+    },
     vite: {
         plugins: [devtoolsOutline(), devtoolsColumns()],
     },
