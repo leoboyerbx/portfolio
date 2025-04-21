@@ -78,4 +78,16 @@ src: /img/projects/Journiz_2_min.png
 alt: Journiz - Back office
 ---
 ::
+::project-image
+---
+src: /img/projects/Journiz_3_min.webp
+alt: Journiz - Back office
+---
+::
+::project-image
+---
+src: /img/projects/Journiz_4_min.png
+alt: Journiz - Back office
+---
+::
 ::
