@@ -66,11 +66,16 @@ I was in charge of the video production. I had to figure out how to make the ide
 ::
 
 ::project-images
+::project-image
 ---
-images:
-  - /img/projects/Journiz_1_min.png
-  - /img/projects/Journiz_2_min.png
-  - /img/projects/Journiz_3_min.webp
-  - /img/projects/Journiz_4_min.png
+src: /img/projects/Journiz_1_min.png
+alt: Journiz - Back office
 ---
+::
+::project-image
+---
+src: /img/projects/Journiz_2_min.png
+alt: Journiz - Back office
+---
+::
 ::

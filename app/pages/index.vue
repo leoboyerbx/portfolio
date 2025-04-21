@@ -56,7 +56,7 @@ const { data } = await useAsyncData(
 <template>
   <div ref="wrapperEl" class="flex flex-col">
     <ContentRenderer :value="(data as any)" />
-    <div class="h-100"></div>
+    <!-- <div class="h-100"></div> -->
     <!-- <NuxtLink :to="localePath('/projects/journiz')">
       Go debug
     </NuxtLink> -->
