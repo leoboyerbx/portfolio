@@ -60,17 +60,37 @@ Nous avons testé presque toutes les solutions à disposition : Développement n
 ::project-video
 ---
 embed: https://www.youtube.com/embed/e0KKXw5cIjg
-title: Watch the teaser
+title: Voir le teaser
 ---
-I was in charge of the video production. I had to figure out how to make the ideas we wrote in the storyboard come to life. This implied finding teenagers that could play, planning a drone shot inside a town, framing, editing and a bit of compositing for "AR" effects.
+Étant responsable de la production vidéo, j'ai dû trouver comment donner vie aux idées que nous avions écrites dans le storyboard. Cela a impliqué de trouver des adolescents capables de jouer, de planifier une prise de vue par drone à l'intérieur d'une ville, de cadrer, de monter et de faire un peu de compositing pour les effets "réalité augmentée".
 ::
 
 ::project-images
----
-images:
-  - /img/projects/Journiz_1_min.png
-  - /img/projects/Journiz_2_min.png
-  - /img/projects/Journiz_3_min.webp
-  - /img/projects/Journiz_4_min.png
----
+  :::project-image
+  ---
+  alt: Journiz - App screens
+  src: /img/projects/Journiz_1_min.png
+  ---
+  :::
+
+  :::project-image
+  ---
+  alt: Journiz - Back office
+  src: /img/projects/Journiz_2_min.png
+  ---
+  :::
+
+  :::project-image
+  ---
+  alt: Journiz - Trailer snapshopt
+  src: /img/projects/Journiz_3_min.webp
+  ---
+  :::
+
+  :::project-image
+  ---
+  alt: Journiz - Pack shot
+  src: /img/projects/Journiz_4_min.png
+  ---
+  :::
 ::

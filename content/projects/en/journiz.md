@@ -66,28 +66,31 @@ I was in charge of the video production. I had to figure out how to make the ide
 ::
 
 ::project-images
-::project-image
----
-src: /img/projects/Journiz_1_min.png
-alt: Journiz - Back office
----
-::
-::project-image
----
-src: /img/projects/Journiz_2_min.png
-alt: Journiz - Back office
----
-::
-::project-image
----
-src: /img/projects/Journiz_3_min.webp
-alt: Journiz - Back office
----
-::
-::project-image
----
-src: /img/projects/Journiz_4_min.png
-alt: Journiz - Back office
----
-::
+  :::project-image
+  ---
+  alt: Journiz - App screens
+  src: /img/projects/Journiz_1_min.png
+  ---
+  :::
+
+  :::project-image
+  ---
+  alt: Journiz - Back office
+  src: /img/projects/Journiz_2_min.png
+  ---
+  :::
+
+  :::project-image
+  ---
+  alt: Journiz - Trailer snapshopt
+  src: /img/projects/Journiz_3_min.webp
+  ---
+  :::
+
+  :::project-image
+  ---
+  alt: Journiz - Pack shot
+  src: /img/projects/Journiz_4_min.png
+  ---
+  :::
 ::
