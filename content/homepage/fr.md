@@ -31,7 +31,6 @@ afterName: ","
 beforeAdj: développeur
 beforeName: Hey, je suis
 name: Léo
-vowelPrefix: "null"
 ---
 J'aime essayer toutes sortes de choses avec le code et la technologie, en particulier la création d'expériences temps réel accessibles et centrées sur l'utilisateur.
 

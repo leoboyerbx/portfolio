@@ -51,7 +51,7 @@ useIntervalFn(() => {
     <span class="line" style="--line-index: 0">
       <span class="line-content">
         👋 <br class="sm:hidden">{{ hero.beforeName
-        }}<span class="text-theme">{{ hero.name }}</span>{{ hero.afterName }}
+        }} <span class="text-theme">{{ hero.name }}</span>{{ hero.afterName }}
       </span>
     </span>
     <span class="line" style="--line-index: 1">
@@ -83,7 +83,7 @@ useIntervalFn(() => {
               :class="[
                 currentText === i ? 'opacity-100' : 'opacity-0 delay-50',
               ]"
-            >{{ hero.vowelPrefix }}
+            >{{ hero.vowelPrefix ?? '' }}
             </span>
             <TextEffect
               class="transition-opacity"
@@ -96,7 +96,7 @@ useIntervalFn(() => {
             />
           </span>
         </span>
-        <span class="ml-1">{{ hero.afterAdj }}</span>
+        <span class="ml-1">{{ (hero.afterAdj === '.' ? '' : ' ') + hero.afterAdj }}</span>
       </span>
     </span>
   </h1>
