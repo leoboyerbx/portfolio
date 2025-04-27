@@ -1,9 +1,8 @@
 <script setup lang="ts">
-defineProps<{
-    skillsTitle: string
-    skills: string[]
+const { skillsTitle } = defineProps<{
+    skillsTitle?: string
 }>()
-const { target, inView } = useProjectElementInView()
+const { target, inView } = useStaggerRevealParent(i => `${i * 40 + 100}ms`)
 
 const transition = 'transition-all duration-1000 ease-power4-out'
 </script>
@@ -18,6 +17,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       class="flex flex-col items-start"
     >
       <h2
+        v-if="skillsTitle"
         class="mb-4 text-8 font-bold leading-110%"
         :class="
           inView ? `opacity-100 ${transition}` : 'opacity-0 translate-y-8'
@@ -26,23 +26,9 @@ const transition = 'transition-all duration-1000 ease-power4-out'
         {{ skillsTitle }}
       </h2>
       <ul
-        v-if="skills?.length"
         class="flex flex-col gap-1 text-sm font-thin font-serif"
       >
-        <template v-for="(line, i) in skills" :key="i">
-          <li
-            :class="
-              inView ? `opacity-100 ${transition}` : 'opacity-0 translate-y-8'
-            "
-            :style="{ transitionDelay: `${i * 40 + 100}ms` }"
-          >
-            <span
-              v-if="line === '---'"
-              class="my-2 block h-px w-full bg-current opacity-50"
-            ></span>
-            <span v-else class="block">{{ line }}</span>
-          </li>
-        </template>
+        <slot name="skills"></slot>
       </ul>
     </div>
     <div

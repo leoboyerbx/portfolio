@@ -18,16 +18,6 @@ seo:
 
 ::project-description
 ---
-skills:
-  - Design Process & UX
-  - ---
-  - Mobile Developement
-  - Web Developement
-  - Backend
-  - Ops
-  - ---
-  - Video Production
-  - Editing
 skillsTitle: On this project
 ---
 The last few months I've spent at [Wanaka](https://www.wanaka.studio/) have been mostly dedicated to building the company's third portfolio website (the last one dated back to 2016).
@@ -37,32 +27,51 @@ The biggest challenge was to have a fully functional website without the 3D that
 The particles interaction is build using GPGPU: the position of each particle is computed on the GPU, with a shader, instead of looping through each one on the CPU.
 
 There are quite a few micro-interactions and Easter eggs. Feel free to [wander around](https://www.wanaka.studio/) to find them!
+
+#skills
+
+    ::skill{name="ThreeJS"}
+    ::
+    ::skill{name="GLSL Shaders & GPGPU"}
+    ::
+    ::skill{name="Page transitions with Barba"}
+    ::
+    ::skill{name="Motion One"}
+    ::
+    ::skill{name="Alpine.js"}
+    ::
+    ::skill-separator
+    ::
+    ::skill{name="Wordpress"}
+    ::
+    ::skill{name="Optimization"}
+    ::
 ::
 
 ::project-images
-  :::project-image{alt="Wanaka 3 - Homepage" src="/img/projects/wnk3-5.png"}
-  :::
+    :::project-image{alt="Wanaka 3 - Homepage" src="/img/projects/wnk3-5.png"}
+    :::
 
-  :::project-image
-  ---
-  alt: Wanaka 3 - Mobile projects page
-  src: /img/projects/wnk3-6.png
-  ---
-  :::
+    :::project-image
+    ---
+    alt: Wanaka 3 - Mobile projects page
+    src: /img/projects/wnk3-6.png
+    ---
+    :::
 
-  :::project-image
-  ---
-  alt: Wanaka 3 - Mobile homepage
-  src: /img/projects/wnk3-4.png
-  ---
-  :::
+    :::project-image
+    ---
+    alt: Wanaka 3 - Mobile homepage
+    src: /img/projects/wnk3-4.png
+    ---
+    :::
 
-  :::project-image{alt="Wanaka 3 - Case studies" src="/img/projects/wnk3-3.png"}
-  :::
+    :::project-image{alt="Wanaka 3 - Case studies" src="/img/projects/wnk3-3.png"}
+    :::
 
-  :::project-image{alt="Wanaka 3 - 404" src="/img/projects/wnk3-2.png"}
-  :::
+    :::project-image{alt="Wanaka 3 - 404" src="/img/projects/wnk3-2.png"}
+    :::
 
-  :::project-image{alt="Wanaka 3 - Mobile page" src="/img/projects/wnk3.png"}
-  :::
+    :::project-image{alt="Wanaka 3 - Mobile page" src="/img/projects/wnk3.png"}
+    :::
 ::
