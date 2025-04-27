@@ -26,7 +26,7 @@ export function useProjectElementInView(options: Parameters<typeof onElementInVi
         )
     }
 
-    const store = useTransitions()
+    const store = usePageTransitions()
     if (!store.value.isTransitionningToProject) {
         onMounted(startWatchingElement)
     }

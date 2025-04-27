@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
     if (import.meta.server)
         return
 
-    const store = useTransitions()
+    const store = usePageTransitions()
 
     if (store.value.isTransitionningToProject) {
         from.meta.pageTransition = {
@@ -14,6 +14,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
             mode: 'out-in',
             css: false,
             async onLeave(_, done) {
+                store.value.running = true
                 document.body.classList.add('leaving-page')
                 await until(() => store.value.isLeaving).toBe(false)
                 document.body.classList.remove('leaving-page')
@@ -80,6 +81,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
                 thumb.removeAttribute('style')
                 store.value.isTransitionningToProject = false
                 store.value.linkRect = undefined
+                store.value.running = false
                 done()
             },
         }
@@ -89,9 +91,11 @@ export default defineNuxtRouteMiddleware((to, from) => {
             name: 'default-page',
             mode: 'out-in',
             onBeforeLeave() {
+                store.value.running = true
                 getLenis().stop()
             },
             onAfterEnter() {
+                store.value.running = false
                 getLenis().start()
             },
         }

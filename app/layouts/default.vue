@@ -1,5 +1,5 @@
 <script setup>
-const transitions = useTransitions()
+const transitions = usePageTransitions()
 const { locale } = useI18n()
 </script>
 

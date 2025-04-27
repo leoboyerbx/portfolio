@@ -12,7 +12,7 @@ const { target, inView } = useElementInView({
 
 const transition = 'transition-all duration-1000 ease-power4-out'
 
-const transitions = useTransitions()
+const transitions = usePageTransitions()
 const linkElement = useTemplateRef('linkElement')
 const lenis = getLenis()
 
