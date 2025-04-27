@@ -5,7 +5,7 @@ const { title } = defineProps<{
 </script>
 
 <template>
-  <section id="projects" class="pnk-grid w-full">
+  <section id="projects" class="pnk-grid mb-24 w-full md:mb-2c">
     <ScrollReveal class="grid-centered-8 mb-1.5c">
       <h2
         class="section-title leaving-item text-center"

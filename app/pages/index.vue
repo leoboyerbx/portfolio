@@ -15,6 +15,7 @@ onMounted(async () => {
     mainNav.value.targets = [
         wrapperEl.value.querySelector('#hero'),
         wrapperEl.value.querySelector('#projects'),
+        wrapperEl.value.querySelector('#openSource'),
         // projectsEl.value.$el,
         // openSourceEl.value.$el,
         // contactEl.value.$el,
