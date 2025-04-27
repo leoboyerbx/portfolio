@@ -1,7 +1,4 @@
 <script setup lang="ts">
-const { name } = defineProps<{
-    name: string
-}>()
 const { visible, transitionDelay } = useStaggerRevealChild()
 
 const transition = 'transition-all duration-1000 ease-power4-out'
@@ -14,6 +11,6 @@ const transition = 'transition-all duration-1000 ease-power4-out'
     "
     :style="{ transitionDelay }"
   >
-    {{ name }}
+    <slot></slot>
   </li>
 </template>
