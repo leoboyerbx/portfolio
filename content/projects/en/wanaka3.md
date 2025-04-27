@@ -38,7 +38,7 @@ The biggest challenge was to have a fully functional website without the 3D that
 
 The particles interaction is build using GPGPU: the position of each particle is computed on the GPU, with a shader, instead of looping through each one on the CPU.
 
-There are quite a few micro-interactions and Easter eggs. Don't hesitate to [wander around](){target="_blank"} to find them!
+There are quite a few micro-interactions and Easter eggs. Feel free to [wander around](){target="_blank"} to find them!
 ::
 
 ::project-images
