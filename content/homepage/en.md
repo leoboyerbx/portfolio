@@ -38,5 +38,9 @@ I like to try all sorts of things with code and tech, with a strong focus on cra
 Currently working at [Cixi](https://www.cixi.life/){:target="_blank"}, Annecy, FR.
 ::
 
-::home-projects{:projects='["journiz"]' title="Projects"}
+::home-projects{title="Projects"}
+    ::project-item{slug="wanaka3"}
+    ::
+    ::project-item{slug="journiz"}
+    ::
 ::

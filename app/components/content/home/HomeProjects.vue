@@ -1,24 +1,7 @@
 <script setup lang="ts">
-const { title, projects: projectsSlugs } = defineProps<{
+const { title } = defineProps<{
     title: string
-    projects: string[]
 }>()
-
-const { locale } = useI18n()
-
-const { data: projects } = await useAsyncData(
-    `home-projects-${locale.value}`,
-    async () => {
-        const result = await queryCollection('projects')
-            .where('slug', 'IN', projectsSlugs)
-            .where('locale', '=', locale.value)
-            .all()
-        return result
-    },
-    {
-        dedupe: 'defer',
-    },
-)
 </script>
 
 <template>
@@ -30,11 +13,7 @@ const { data: projects } = await useAsyncData(
       ></h2>
     </ScrollReveal>
     <div class="grid-centered-8 flex flex-col gap-12 sm:gap-36">
-      <ProjectPush
-        v-for="project in projects"
-        :key="project.stem"
-        :project="project"
-      />
+      <slot></slot>
     </div>
   </section>
 </template>
