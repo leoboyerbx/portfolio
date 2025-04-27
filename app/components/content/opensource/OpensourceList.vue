@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section id="openSource" class="flex flex-col">
+  <section id="openSource" class="leaving-item mb-24 flex flex-col md:mb-2c">
     <header class="pnk-grid">
       <ScrollReveal class="grid-centered-8 mb-1c">
         <h2

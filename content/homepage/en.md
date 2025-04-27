@@ -100,3 +100,14 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   A JS and CSS library to create slideshows in HTML/CSS
   :::
 ::
+
+::home-contact
+#title
+Let's _work_ together !
+#links
+  :::contact-item{url="$resume" newTab}
+  See my resume
+  :::
+  :::contact-item{url="mailto:contact@leoboyer.fr"}
+  Contact me
+  :::

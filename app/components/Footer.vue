@@ -10,7 +10,7 @@ const transitions = usePageTransitions()
   <ScrollReveal tag="footer" class="relative pnk-grid pb-12 pt-1c">
     <div
       class="grid-centered-10 flex items-center justify-between gap-x-12 gap-y-2 border border-slate-500/50 rounded-full from-indigo-600/10 to-yellow-200/10 bg-gradient-to-r px-8 py-4 backdrop-blur-xl transition-opacity duration-200"
-      :class="{'opacity-0': transitions.running }"
+      :class="{ 'opacity-0': transitions.running }"
       lt-sm="flex-col rounded-xl"
     >
       <!-- older variant: class="grid-centered-8 flex items-center" -->
