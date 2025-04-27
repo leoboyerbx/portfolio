@@ -47,4 +47,10 @@ Currently working at [Cixi](https://www.cixi.life/){:target="_blank"}, Annecy, F
 
   :::project-item{slug="point-barre"}
   :::
+
+  :::project-item{slug="ysk"}
+  :::
+
+  :::project-item{slug="quiet"}
+  :::
 ::
