@@ -1,5 +1,6 @@
 <script setup>
 const transitions = useTransitions()
+const { locale } = useI18n()
 </script>
 
 <template>
@@ -30,7 +31,9 @@ const transitions = useTransitions()
       <main class="relative z-10">
         <slot />
       </main>
-      <Footer class="leaving-item mt-auto transition duration-300 delay-600" />
+
+      <!-- Use the locale as key so we update the footer data when the local is switched by the user -->
+      <Footer :key="locale" class="leaving-item mt-auto transition duration-300 delay-600" />
     </div>
   </div>
 </template>

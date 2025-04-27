@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const currentYear = new Date().getFullYear()
+
+const global = await useGlobal()
 </script>
 
 <template>
@@ -21,14 +23,17 @@ const currentYear = new Date().getFullYear()
         </a>
       </section>
       <section class="flex items-center">
-        <a
-          :href="`/api/${$i18n.locale}/resume.pdf`"
-          target="_blank"
-          class="flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
-        >
-          <Icon name="i-uil:file-alt" class="mr-1 block" /> CV
-        </a>
-        <span class="mx-2 text-sm font-light">-</span>
+        <template v-if="global?.resume">
+          <a
+            :href="global.resume.file"
+            target="_blank"
+            class="flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
+          >
+            <Icon name="i-uil:file-alt" class="mr-1 block" />
+            <span>{{ global.resume.title }}</span>
+          </a>
+          <span class="mx-2 text-sm font-light">-</span>
+        </template>
         <Contacts class="text-18px" :extended="true" />
       </section>
     </div>
