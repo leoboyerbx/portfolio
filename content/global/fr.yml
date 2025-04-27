@@ -1,0 +1,19 @@
+locale: fr
+resume:
+  title: CV
+  url: /files/en/Resume_Leo_Boyer.pdf
+  file: /files/CV-Léo_BOYER.pdf
+contacts:
+  - icon: i-uil:github
+    title: GitHub
+    url: https://github.com/leoboyerbx
+  - icon: i-uil:linkedin
+    title: LinkedIn
+    url: https://www.linkedin.com/in/leoboyerbx
+  - icon: i-uil:envelope
+    title: "Envoy-moi un email\_!"
+    url: mailto:contact@leoboyer.fr
+  - icon: i-uil:phone
+    title: "Appelez-moi\_!"
+    url: tel:+33782459332
+    extendedOnly: true
