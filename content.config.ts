@@ -1,12 +1,14 @@
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
+const locale = () => z.enum(['en', 'fr'])
+
 export default defineContentConfig({
     collections: {
         homepage: defineCollection({
             type: 'page',
             source: 'homepage/*.md',
             schema: z.object({
-                locale: z.string(),
+                locale: locale(),
                 title: z.string(),
             }),
         }),
@@ -14,7 +16,7 @@ export default defineContentConfig({
             type: 'page',
             source: 'projects/**/*.md',
             schema: z.object({
-                locale: z.string(),
+                locale: locale(),
                 status: z.enum(['draft', 'published']),
                 createdAt: z.date(),
                 updatedAt: z.date(),
@@ -34,10 +36,10 @@ export default defineContentConfig({
             type: 'data',
             source: 'global/*.yml',
             schema: z.object({
-                locale: z.string(),
+                locale: locale(),
                 resume: z.object({
                     title: z.string(),
-                    file: z.string().editor({ input: 'media' }),
+                    file: z.string(),
                 }),
                 contacts: z.array(z.object({
                     icon: z.string().editor({ input: 'icon' }),
