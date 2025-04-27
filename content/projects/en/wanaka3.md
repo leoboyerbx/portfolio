@@ -32,30 +32,23 @@ There are quite a few micro-interactions and Easter eggs. Feel free to [wander a
   :::skill
   ThreeJS
   :::
-
   :::skill
   GLSL Shaders & GPGPU
   :::
-
   :::skill
   Page transitions with Barba
   :::
-
   :::skill
   Motion One
   :::
-
   :::skill
   Alpine.js
   :::
-
   :::skill-separator
   :::
-
   :::skill
   Wordpress
   :::
-
   :::skill
   Optimization
   :::

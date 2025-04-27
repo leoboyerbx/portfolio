@@ -15,18 +15,43 @@ seo:
 
 ::project-description
 ---
-skills:
-  - Design Process & UX
-  - ---
-  - Mobile Developement
-  - Web Developement
-  - Backend
-  - Ops
-  - ---
-  - Video Production
-  - Editing
 skillsTitle: On this project
 ---
+#skills
+  :::skill
+  UX Design
+  :::
+  :::skill
+  User tests
+  :::
+  :::skill
+  Staging
+  :::
+  :::skill-separator
+  :::
+  :::skill
+  Tech lead
+  :::
+  :::skill
+  Realtime
+  :::
+  :::skill
+  IOT
+  :::
+  :::skill
+  Drone flight programming
+  :::
+  :::skill-separator
+  :::
+  :::skill
+  Video production
+  :::
+  :::skill
+  Editing
+  :::
+
+#default
+
 This is a school project created whils I was in Gobelins. The theme was "culture" and the project had to use Drones, Robots and IOT. The final product was the defense in front of the jury.
 
 We went from the french expression *mettre de l'eau dans son vin* ("pouring water in its wine") to explain how the romans made wine.
@@ -42,6 +67,7 @@ We had to synchronize a lot of elements:
 As web developers, we chose WebSockets as our transport layer, and this allowed us to write the main controller in Javascript, a language we were already used to, so we could iterate fast.
 
 The robot and the drone were controlled over BLE (Bluetooth Low Energy) by iOS devices on an app written in Swift. On the other side, the ESP8266 were running the Arduino framework, programmed with a subset of C++.
+
 ::
 
 ::project-video

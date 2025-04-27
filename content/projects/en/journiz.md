@@ -18,18 +18,38 @@ seo:
 
 ::project-description
 ---
-skills:
-  - Design Process & UX
-  - ---
-  - Mobile Developement
-  - Web Developement
-  - Backend
-  - Ops
-  - ---
-  - Video Production
-  - Editing
 skillsTitle: On this project
 ---
+
+#skills
+  :::skill
+  Design Process & UX
+  :::
+  :::skill-separator
+  :::
+  :::skill
+  Mobile Developement
+  :::
+  :::skill
+  Web Developement
+  :::
+  :::skill
+  Backend
+  :::
+  :::skill
+  Ops
+  :::
+  :::skill-separator
+  :::
+  :::skill
+  Video Production
+  :::
+  :::skill
+  Editing
+  :::
+
+#default
+
 This project was the last school project when I was in [Gobelins](https://www.gobelins.fr/). The goal was to provide high school teachers with an intuitive tool to create trail-game format activities during school trips.
 
 Journiz is divided into two parts: first, the teacher builds its game using the back office. Then, the day of the trip, the students can play the game he created using the mobile app. The goal is to make them explore the location of the trip by going to several points of interest.
@@ -58,6 +78,7 @@ In the short timespan we had, we chose to pick a solution that would handle all 
 ### Mobile app & back office
 
 We benchmarked almost every solution we had: Native development, React Native, NativeScript, Capacitor, Flutter. Our final choice was Capacitor, because it allowed us to mutualize UI code with the back office, while giving us full access to the native platforms (we needed this access to handle push notifications and background geolocation updates). The web view is powered by Vue.js, as is the back office.
+
 ::
 
 ::project-video
@@ -71,29 +92,29 @@ I was in charge of the video production. I had to figure out how to make the ide
 ::project-images
   :::project-image
   ---
-  alt: Journiz - App screens
-  src: /img/projects/Journiz_1_min.png
+    alt: Journiz - App screens
+    src: /img/projects/Journiz_1_min.png
   ---
   :::
 
   :::project-image
   ---
-  alt: Journiz - Back office
-  src: /img/projects/Journiz_2_min.png
+    alt: Journiz - Back office
+    src: /img/projects/Journiz_2_min.png
   ---
   :::
 
   :::project-image
   ---
-  alt: Journiz - Trailer snapshopt
-  src: /img/projects/Journiz_3_min.webp
+    alt: Journiz - Trailer snapshopt
+    src: /img/projects/Journiz_3_min.webp
   ---
   :::
 
   :::project-image
   ---
-  alt: Journiz - Pack shot
-  src: /img/projects/Journiz_4_min.png
+    alt: Journiz - Pack shot
+    src: /img/projects/Journiz_4_min.png
   ---
   :::
 ::
