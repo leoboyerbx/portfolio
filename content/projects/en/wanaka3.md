@@ -29,62 +29,62 @@ The particles interaction is build using GPGPU: the position of each particle is
 There are quite a few micro-interactions and Easter eggs. Feel free to [wander around](https://www.wanaka.studio/) to find them!
 
 #skills
-    :::skill
-    ThreeJS
-    :::
+  :::skill
+  ThreeJS
+  :::
 
-    :::skill
-    GLSL Shaders & GPGPU
-    :::
+  :::skill
+  GLSL Shaders & GPGPU
+  :::
 
-    :::skill
-    Page transitions with Barba
-    :::
+  :::skill
+  Page transitions with Barba
+  :::
 
-    :::skill
-    Motion One
-    :::
+  :::skill
+  Motion One
+  :::
 
-    :::skill
-    Alpine.js
-    :::
+  :::skill
+  Alpine.js
+  :::
 
-    :::skill-separator
-    :::
+  :::skill-separator
+  :::
 
-    :::skill
-    Wordpress
-    :::
+  :::skill
+  Wordpress
+  :::
 
-    :::skill
-    Optimization
-    :::
+  :::skill
+  Optimization
+  :::
 ::
 
 ::project-images
-    :::project-image{alt="Wanaka 3 - Homepage" src="/img/projects/wnk3-5.png"}
-    :::
+  :::project-image{alt="Wanaka 3 - Homepage" src="/img/projects/wnk3-5.png"}
+  :::
 
-    :::project-image
-    ---
-    alt: Wanaka 3 - Mobile projects page
-    src: /img/projects/wnk3-6.png
-    ---
-    :::
+  :::project-image
+  ---
+  alt: Wanaka 3 - Mobile projects page
+  src: /img/projects/wnk3-6.png
+  ---
+  :::
 
-    :::project-image
-    ---
-    alt: Wanaka 3 - Mobile homepage
-    src: /img/projects/wnk3-4.png
-    ---
-    :::
+  :::project-image
+  ---
+  alt: Wanaka 3 - Mobile homepage
+  src: /img/projects/wnk3-4.png
+  ---
+  :::
 
-    :::project-image{alt="Wanaka 3 - Case studies" src="/img/projects/wnk3-3.png"}
-    :::
+  :::project-image{alt="Wanaka 3 - Case studies" src="/img/projects/wnk3-3.png"}
+  :::
 
-    :::project-image{alt="Wanaka 3 - 404" src="/img/projects/wnk3-2.png"}
-    :::
+  :::project-image{alt="Wanaka 3 - 404" src="/img/projects/wnk3-2.png"}
+  :::
 
-    :::project-image{alt="Wanaka 3 - Mobile page" src="/img/projects/wnk3.png"}
-    :::
+  :::project-image{alt="Wanaka 3 - Mobile page" src="/img/projects/wnk3.png"}
+  :::
 ::
