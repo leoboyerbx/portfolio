@@ -4,8 +4,8 @@ locale: fr
 createdAt: 2024-04-09
 updatedAt: 2025-02-22
 status: published
-name: Journiz
-baseline: Réinventer les sorties scolaires
+title: Journiz
+description: Réinventer les sorties scolaires
 links:
   - title: Code source
     url: https://github.com/Journiz

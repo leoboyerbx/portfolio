@@ -20,9 +20,7 @@ export default defineContentConfig({
                 status: z.enum(['draft', 'published']),
                 createdAt: z.date(),
                 updatedAt: z.date(),
-                name: z.string(),
                 slug: z.string(),
-                baseline: z.string(),
                 links: z.array(z.object({
                     title: z.string(),
                     url: z.string(),

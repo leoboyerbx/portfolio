@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 
 const { slug } = useRoute().params
 const { data: project } = await useAsyncData(
@@ -26,15 +26,8 @@ if (!project.value) {
 
 <template>
   <div v-if="project" class="mb-36 flex flex-col gap-1.5c">
-    <Title>{{ project.name }}</Title>
-    <Meta
-      name="description"
-      :content="
-        t('project.description', {
-          nameAndBaseline: `${project.name} - ${project.baseline}`,
-        })
-      "
-    />
+    <Title>{{ project.seo.title }}</Title>
+    <Meta name="description" :content="project.seo.description" />
     <ProjectHero :project="project" />
     <ContentRenderer :value="project" :prose="false" class="flex flex-col gap-1.5c" />
     <!-- <ProjectDescription :project="project" />

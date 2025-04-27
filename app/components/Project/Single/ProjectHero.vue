@@ -21,7 +21,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
         :src="project.thumbnail"
         width="1248"
         height="780"
-        :alt="`Thumb for ${project.name}`"
+        :alt="`Thumb for ${project.title}`"
         class="h-full w-full object-cover opacity-85"
       />
     </div>
@@ -40,7 +40,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
             : 'clip-right translate-x-24 opacity-0'
         "
       >
-        {{ project.name }}
+        {{ project.title }}
       </h1>
 
       <p
@@ -51,7 +51,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
             : 'clip-right translate-x-16 opacity-0'
         "
       >
-        {{ project.baseline }}
+        {{ project.description }}
       </p>
     </div>
     <div

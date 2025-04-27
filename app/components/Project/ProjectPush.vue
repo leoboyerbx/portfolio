@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import type { NuxtLink } from '#build/components'
+import type { ProjectsCollectionItem } from '@nuxt/content'
 import { getLenis } from '~/plugins/lenis.client'
 
 const { project } = defineProps<{
-    project: {
-        slug: string
-        name: string
-        baseline: string
-        thumbnail: string
-    }
+    project: ProjectsCollectionItem
 }>()
 
 const { target, inView } = useElementInView({
@@ -72,7 +67,7 @@ const localePath = useLocalePath()
             :src="project.thumbnail"
             width="1920"
             height="1200"
-            :alt="`Thumb for ${project.name}`"
+            :alt="`Thumb for ${project.title}`"
             class="block h-full w-full object-cover opacity-85"
             :class="[
               inView ? 'scale-100 thumb-hover-scale' : 'scale-125',
@@ -92,13 +87,13 @@ const localePath = useLocalePath()
               transition,
             ]"
           >
-            {{ project.name }}
+            {{ project.title }}
           </h3>
           <p
             class="text-current font-light delay-300 lg:text-xl lt-md:text-sm"
             :class="[inView ? '' : 'opacity-0 translate-y-4', transition]"
           >
-            {{ project.baseline }}
+            {{ project.description }}
           </p>
         </section>
       </article>

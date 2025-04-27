@@ -4,8 +4,8 @@ locale: en
 createdAt: 2024-04-09
 updatedAt: 2025-02-22
 status: published
-name: Journiz
-baseline: Reinventing school trips
+title: Journiz
+description: Reinventing school trips
 links:
   - title: See source code
     url: https://github.com/Journiz

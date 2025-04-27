@@ -3,9 +3,7 @@ slug: wanaka3
 locale: en
 createdAt: 2024-04-09
 updatedAt: 2025-04-27T00:00:00.000Z
-status: draft
-name: Nop
-baseline: nop
+status: published
 links:
   - title: See the website
     url: https://www.wanaka.studio/
