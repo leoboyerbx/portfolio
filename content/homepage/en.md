@@ -39,8 +39,12 @@ Currently working at [Cixi](https://www.cixi.life/){:target="_blank"}, Annecy, F
 ::
 
 ::home-projects{title="Projects"}
-    ::project-item{slug="wanaka3"}
-    ::
-    ::project-item{slug="journiz"}
-    ::
+  :::project-item{slug="wanaka3"}
+  :::
+
+  :::project-item{slug="journiz"}
+  :::
+
+  :::project-item{slug="point-barre"}
+  :::
 ::
