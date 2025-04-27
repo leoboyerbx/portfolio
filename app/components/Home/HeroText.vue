@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HomeHeroProps } from '../content/HomeHero.vue'
+import type { HomeHeroProps } from '../content/home/HomeHero.vue'
 import isVowel from '~/utils/isVowel'
 
 const props = defineProps<{

@@ -47,6 +47,11 @@ export default defineNuxtConfig({
             path: '~/components',
             pathPrefix: false,
         },
+        {
+            path: '~/components/content',
+            pathPrefix: false,
+            global: true,
+        },
     ],
     image: {
         // provider: 'cloudflare',
