@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+import { getLenis } from '~/plugins/lenis.client'
+
+const { locale, locales, setLocale } = useI18n()
 
 const button = ref<HTMLElement>()
 const popup = ref<HTMLElement>()
@@ -24,6 +25,15 @@ function close() {
 onClickOutside(popup, close, {
     ignore: [button],
 })
+
+const lenis = getLenis()
+async function changeLocale(l: typeof locale.value) {
+    close()
+    lenis.scrollTo(0, {
+        lerp: 0.4,
+        onComplete: () => setLocale(l),
+    })
+}
 </script>
 
 <template>
@@ -49,10 +59,9 @@ onClickOutside(popup, close, {
       >
         <ul class="flex flex-col">
           <li v-for="l in locales" :key="l.code">
-            <NuxtLink
+            <button
               class="nav-link btn-animation block flex gap-1 px-2 py-1 text-xs font-bold"
-              :to="switchLocalePath(l.code)"
-              @click="close"
+              @click="changeLocale(l.code)"
             >
               <span
                 class="border border-slate-100/80 rounded-sm px-1 text-8px"
@@ -63,7 +72,7 @@ onClickOutside(popup, close, {
                 "
               >{{ l.code.toUpperCase() }}</span>
               <span class="font-normal">{{ l.name }}</span>
-            </NuxtLink>
+            </button>
           </li>
         </ul>
       </div>
