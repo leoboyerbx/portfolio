@@ -6,22 +6,7 @@ export const registerGalleryImageKey = Symbol('registerGalleryImage') as Injecti
 </script>
 
 <script setup lang="ts">
-const { target, inView } = useProjectElementInView()
-
-const imageCount = ref(0)
-function registerGalleryImage() {
-    const index = imageCount.value
-    imageCount.value++
-
-    const transitionDelay = `${index * 100}ms`
-
-    return {
-        visible: inView,
-        transitionDelay,
-    }
-}
-
-provide(registerGalleryImageKey, registerGalleryImage)
+const { target } = useStaggerRevealParent(i => `${i * 100}ms`)
 </script>
 
 <template>

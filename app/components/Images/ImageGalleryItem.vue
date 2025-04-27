@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { registerGalleryImageKey } from './ImageGallery.vue'
+import { useStaggerRevealChild } from '~/composables/useStaggerReveal'
 
 defineProps<{
     src: string
@@ -7,9 +7,7 @@ defineProps<{
     alt: string
 }>()
 
-const regsiterGalleryImage = inject(registerGalleryImageKey)
-
-const { visible, transitionDelay } = regsiterGalleryImage!()
+const { transitionDelay, visible } = useStaggerRevealChild()
 </script>
 
 <template>
