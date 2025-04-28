@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
+
 const props = defineProps({
     href: {
         type: String,
@@ -21,7 +23,7 @@ const props = defineProps({
         default: false,
     },
 })
-const tag = props.href ? 'a' : 'button'
+const tag = props.href ? NuxtLink : 'button'
 
 const hasBeenClicked = ref(false)
 </script>
