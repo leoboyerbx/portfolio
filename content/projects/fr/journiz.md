@@ -15,16 +15,6 @@ thumbnail: /img/projects/journiz.webp
 
 ::project-description
 ---
-skills:
-  - Conception & UX
-  - ---
-  - Développement mobile
-  - Développement Web
-  - Backend
-  - Ops
-  - ---
-  - Production vidéo
-  - Montage
 skillsTitle: Sur ce projet
 ---
 Journiz était le projet de fin d'études lors de mon master aux [Gobelins](https://www.gobelins.fr/). L'objectif était de fournir aux enseignants au lycée un outil intuitif pour créer des activités sous forme de jeux de piste pendant les voyages et sorties scolaires.
@@ -55,6 +45,41 @@ Ces contraintes nous ont conduit aux choix technologiques suivants.
 ### Application mobile et back office
 
 Nous avons testé presque toutes les solutions à disposition : Développement natif, React Native, NativeScript, Capacitor, Flutter. Notre choix final s'est porté sur Capacitor, car il nous permettait de mutualiser le code de l'interface utilisateur avec le back office, tout en nous donnant un accès complet aux plateformes natives (nous avions besoin de cet accès pour gérer les notifications push et les mises à jour de géolocalisation en arrière-plan). La webview tourne sur [Vue.js](https://www.vuejs.org/), tout comme le back-office.
+
+#skills
+  :::skill
+  Conception & UX
+  :::
+
+  :::skill-separator
+  :::
+
+  :::skill
+  Développement mobile
+  :::
+
+  :::skill
+  Développement Web
+  :::
+
+  :::skill
+  Backend
+  :::
+
+  :::skill
+  Ops
+  :::
+
+  :::skill-separator
+  :::
+
+  :::skill
+  Production vidéo
+  :::
+
+  :::skill
+  Montage
+  :::
 ::
 
 ::project-video

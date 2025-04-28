@@ -57,7 +57,7 @@ Currently working at [Cixi](https://www.cixi.life/){:target="_blank"}, Annecy, F
 
 ::opensource-list
 #title
-My _humble_ open-source work
+My *humble* open-source work
 
 #description
 Sometimes when I'm building something, I find myself needing a reusable thing that I decide to publish. It implies to write and maintain documentation and to manage releases.
@@ -65,37 +65,57 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 *Some of these projects are very old, but I still use them from time to time.*
 
 #projects
-  :::opensource-item{url="https://github.com/paapi-js/paapi"}
+  :::opensource-item
+  ---
+  url: https://github.com/paapi-js/paapi
+  ---
   #name
   paapi
+  
   #description
   The fastest way to pair 2 devices on a website !
   :::
 
-  :::opensource-item{url="https://github.com/leoboyerbx/hitbox-js"}
+  :::opensource-item
+  ---
+  url: https://github.com/leoboyerbx/hitbox-js
+  ---
   #name
   hitbox-js
+  
   #description
   Simple JavaScript library to detect collisions between DOM elements
   :::
 
-  :::opensource-item{url="https://github.com/leoboyerbx/layout-aid"}
+  :::opensource-item
+  ---
+  url: https://github.com/leoboyerbx/layout-aid
+  ---
   #name
   layout-aid
+  
   #description
   Vite and nuxt plugin that adds useful visual guides for development
   :::
 
-  :::opensource-item{url="https://github.com/leoboyerbx/unocss-preset-columns"}
+  :::opensource-item
+  ---
+  url: https://github.com/leoboyerbx/unocss-preset-columns
+  ---
   #name
   unocss-preset-columns
+  
   #description
   A dead-simple uno preset that adds a new column-size unit to Unocss.
   :::
 
-  :::opensource-item{url="https://github.com/leoboyerbx/ColorJS"}
+  :::opensource-item
+  ---
+  url: https://github.com/leoboyerbx/ColorJS
+  ---
   #name
   colorJS
+  
   #description
   A JS and CSS library to create slideshows in HTML/CSS
   :::
@@ -103,11 +123,14 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 
 ::home-contact
 #title
-Let's _work_ together !
+Let's *work* together !
+
 #links
-  :::contact-item{url="$resume" newTab}
+  :::contact-item{new-tab url="$resume"}
   See my resume
   :::
+
   :::contact-item{url="mailto:contact@leoboyer.fr"}
   Contact me
   :::
+::
