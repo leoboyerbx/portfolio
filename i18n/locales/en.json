@@ -25,7 +25,7 @@
   },
   "nuxtSiteConfig": {
     "name": "Léo Boyer - Creative developer",
-    "description":
-            "I'm Léo, a creative and curious developer. Currently working at Cixi, Annecy FR."
-  }
+    "description": "I'm Léo, a creative and curious developer. Currently working at Cixi, Annecy FR."
+  },
+  "fullscreen": "Open the image in full screen"
 }

@@ -24,7 +24,7 @@ onKeyStroke('Escape', close)
     :href="src"
     target="_blank"
     class="relative"
-    title="Open image in fullscreen"
+    :title="t('fullscreen')"
     @click.prevent="open()"
   >
     <NuxtImg
