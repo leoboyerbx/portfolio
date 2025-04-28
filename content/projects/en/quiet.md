@@ -17,10 +17,6 @@ links:
 ---
 
 ::project-description
-I worked on Quiet.fun at [Wanaka](https://www.wanaka.studio) (btw, [their new portfolio site is dope](/projects/en/wanaka3) !). The goal was to create a website with 3D that would present the process of Quiet.fun.
-
-The challenge was to connect and integrate Vue.JS with a Wordpress backend and ThreeJS. Some content coming from Wordpress REST API has to be integrated into 3D scenes.
-
 #skills
   :::skill
   Wordpress
@@ -44,6 +40,12 @@ The challenge was to connect and integrate Vue.JS with a Wordpress backend and T
   :::skill
   Page transitions
   :::
+
+#description
+I worked on Quiet.fun at [Wanaka](https://www.wanaka.studio) (btw, [their new portfolio site is dope](/projects/en/wanaka3) !). The goal was to create a website with 3D that would present the process of Quiet.fun.
+
+The challenge was to connect and integrate Vue.JS with a Wordpress backend and ThreeJS. Some content coming from Wordpress REST API has to be integrated into 3D scenes.
+
 ::
 
 ::project-images

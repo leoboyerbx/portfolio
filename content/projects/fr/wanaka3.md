@@ -20,14 +20,6 @@ seo:
 ---
 skillsTitle: On this project
 ---
-The last few months I've spent at [Wanaka](https://www.wanaka.studio/) have been mostly dedicated to building the company's third portfolio website (the last one dated back to 2016).
-
-The biggest challenge was to have a fully functional website without the 3D that could be progressively enhanced with ThreeJS-based 3D and visual effects. Each effect is enabled or not according to the device-capabilities.
-
-The particles interaction is build using GPGPU: the position of each particle is computed on the GPU, with a shader, instead of looping through each one on the CPU.
-
-There are quite a few micro-interactions and Easter eggs. Feel free to [wander around](https://www.wanaka.studio/) to find them!
-
 #skills
   :::skill
   ThreeJS
@@ -59,6 +51,16 @@ There are quite a few micro-interactions and Easter eggs. Feel free to [wander a
   :::skill
   Optimization
   :::
+
+#description
+The last few months I've spent at [Wanaka](https://www.wanaka.studio/) have been mostly dedicated to building the company's third portfolio website (the last one dated back to 2016).
+
+The biggest challenge was to have a fully functional website without the 3D that could be progressively enhanced with ThreeJS-based 3D and visual effects. Each effect is enabled or not according to the device-capabilities.
+
+The particles interaction is build using GPGPU: the position of each particle is computed on the GPU, with a shader, instead of looping through each one on the CPU.
+
+There are quite a few micro-interactions and Easter eggs. Feel free to [wander around](https://www.wanaka.studio/) to find them!
+
 ::
 
 ::project-images

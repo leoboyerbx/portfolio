@@ -50,9 +50,9 @@ skillsTitle: On this project
   Editing
   :::
 
-#default
+#description
 
-This is a school project created whils I was in Gobelins. The theme was "culture" and the project had to use Drones, Robots and IOT. The final product was the defense in front of the jury.
+This is a school project created while I was in Gobelins. The theme was "culture" and the project had to use Drones, Robots and IOT. The final product was the defense in front of the jury.
 
 We went from the french expression *mettre de l'eau dans son vin* ("pouring water in its wine") to explain how the romans made wine.
 

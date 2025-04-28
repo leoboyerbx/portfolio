@@ -20,7 +20,6 @@ seo:
 ---
 skillsTitle: On this project
 ---
-
 #skills
   :::skill
   Design Process & UX
@@ -48,7 +47,7 @@ skillsTitle: On this project
   Editing
   :::
 
-#default
+#description
 
 This project was the last school project when I was in [Gobelins](https://www.gobelins.fr/). The goal was to provide high school teachers with an intuitive tool to create trail-game format activities during school trips.
 

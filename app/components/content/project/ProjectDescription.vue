@@ -43,7 +43,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
           : 'opacity-0 translate-y-8'
       "
     >
-      <slot></slot>
+      <slot name="description"></slot>
     </div>
   </section>
 </template>
