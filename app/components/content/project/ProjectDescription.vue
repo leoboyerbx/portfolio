@@ -5,6 +5,8 @@ const { skillsTitle } = defineProps<{
 const { target, inView } = useStaggerRevealParent(i => `${i * 40 + 100}ms`)
 
 const transition = 'transition-all duration-1000 ease-power4-out'
+
+const { contentWrapper } = usePatchContentLinks()
 </script>
 
 <template>
@@ -32,6 +34,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       </ul>
     </div>
     <div
+      ref="contentWrapper"
       class="mt-12 prose md:-order-1"
       col="start-2 span-12"
       sm:col="start-3 span-10"
