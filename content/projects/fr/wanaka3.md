@@ -18,7 +18,7 @@ seo:
 
 ::project-description
 ---
-skillsTitle: On this project
+skillsTitle: Sur ce projet
 ---
 #skills
   :::skill
@@ -26,11 +26,11 @@ skillsTitle: On this project
   :::
 
   :::skill
-  GLSL Shaders & GPGPU
+  Shaders GLSL & GPGPU
   :::
 
   :::skill
-  Page transitions with Barba
+  Transitions de page avec Barba
   :::
 
   :::skill
@@ -49,18 +49,17 @@ skillsTitle: On this project
   :::
 
   :::skill
-  Optimization
+  Optimisation de performances
   :::
 
 #description
-The last few months I've spent at [Wanaka](https://www.wanaka.studio/) have been mostly dedicated to building the company's third portfolio website (the last one dated back to 2016).
+Les derniers mois que j'ai passés à [Wanaka](https://www.wanaka.studio/) ont été principalement consacrés à la création du troisième portfolio web de l'entreprise (le précédent datait de 2016).
 
-The biggest challenge was to have a fully functional website without the 3D that could be progressively enhanced with ThreeJS-based 3D and visual effects. Each effect is enabled or not according to the device-capabilities.
+Le plus grand défi a été de développer un site web entièrement fonctionnel sans 3D, pouvant être progressivement enrichi avec des effets visuels et 3D basés sur ThreeJS. Chaque effet est activé ou non en fonction des capacités de l'appareil du visiteur.
 
-The particles interaction is build using GPGPU: the position of each particle is computed on the GPU, with a shader, instead of looping through each one on the CPU.
+L'interaction avec les particules est réalisée à l'aide de la technique GPGPU : la position de chaque particule est calculée sur le GPU, grâce à un shader, au lieu de boucler sur chacune d'elles avec le CPU.
 
-There are quite a few micro-interactions and Easter eggs. Feel free to [wander around](https://www.wanaka.studio/) to find them!
-
+Il y a de nombreuses micro-interactions et quelques easter-eggs. N'hésitez pas à [explorer](https://www.wanaka.studio) pour les découvrir !
 ::
 
 ::project-images
