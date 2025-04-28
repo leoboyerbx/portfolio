@@ -28,7 +28,7 @@ I teamed up with the talented designer [Marie Cologon](https://marie.cologon.fr/
 
 ## **Tech stack**
 
-Building this tool as a solo developer drove me to take a monolithic approach that allows me to build the full-stack product without having to switch mental models constantly. I chose to go with [Nuxt 3](https://nuxt.com/) ****for the UI and use their integrated API routes for the backend. The database is a good ol' PostgreSQL with [Prisma](https://www.prisma.io/) ORM.
+Building this tool as a solo developer drove me to take a monolithic approach that allows me to build the full-stack product without having to switch mental models constantly. I chose to go with [Nuxt 3](https://nuxt.com/) for the UI and use their integrated API routes for the backend. The database is a good ol' PostgreSQL with [Prisma](https://www.prisma.io/) ORM.
 
 #skills
   :::skill
