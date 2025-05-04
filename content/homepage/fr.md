@@ -56,12 +56,12 @@ Je travaille actuellement à Annecy, chez [Cixi](https://www.cixi.life/).
 
 ::opensource-list
 #title
-My *humble* open-source work
+*Un peu* d'open-source...
 
 #description
-Sometimes when I'm building something, I find myself needing a reusable thing that I decide to publish. It implies to write and maintain documentation and to manage releases.
+Parfois, lorsque je travaille sur un projet, je me retrouve à publier un bout de code réutilisable. Cela implique la documentation et la gestion des versions.
 
-*Some of these projects are very old, but I still use them from time to time.*
+*Même si certains de ces projets sont très anciens, je les utilise encore de temps en temps.*
 
 #projects
   :::opensource-item
@@ -70,9 +70,9 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   paapi
-  
+
   #description
-  The fastest way to pair 2 devices on a website !
+  La façon la plus rapide de connecter 2 appareils sur un site web !
   :::
 
   :::opensource-item
@@ -81,9 +81,9 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   hitbox-js
-  
+
   #description
-  Simple JavaScript library to detect collisions between DOM elements
+  Outlil JS simple pour détecter les collisions entre éléments du DOM
   :::
 
   :::opensource-item
@@ -92,9 +92,9 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   layout-aid
-  
+
   #description
-  Vite and nuxt plugin that adds useful visual guides for development
+  Plugin Vite et Nuxt qui ajoute des guides visuels pour le développement
   :::
 
   :::opensource-item
@@ -103,9 +103,9 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   unocss-preset-columns
-  
+
   #description
-  A dead-simple uno preset that adds a new column-size unit to Unocss.
+  Un preset très simple qui ajoute une nouvelle unité de taille de colonne à Unocss.
   :::
 
   :::opensource-item
@@ -114,22 +114,22 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   colorJS
-  
+
   #description
-  A JS and CSS library to create slideshows in HTML/CSS
+  Une bibliothèque JS et CSS pour créer des diaporamas en HTML/CSS
   :::
 ::
 
 ::home-contact
 #title
-Let's *work* together !
+Travaillons *ensemble* !
 
 #links
   :::contact-item{new-tab url="$resume"}
-  See my resume
+  Voir mon CV
   :::
 
   :::contact-item{url="mailto:contact@leoboyer.fr"}
-  Contact me
+  Me contacter
   :::
 ::
