@@ -1,8 +1,6 @@
 ---
 slug: wanaka3
 locale: fr
-createdAt: 2024-04-09
-updatedAt: 2025-04-27T00:00:00.000Z
 status: published
 links:
   - title: See the website

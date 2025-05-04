@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     ssr: true,
     modules: [
         '@nuxtjs/seo',
+        'nuxt-content-git',
         '@nuxt/content',
         '@unocss/nuxt',
         '@vueuse/nuxt',

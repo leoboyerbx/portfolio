@@ -6,8 +6,6 @@ seo:
   description: Ysk, un outil pour créer des quizzes en ligne et en présentiel
 locale: fr
 status: published
-createdAt: 2025-04-27T00:00:00.000Z
-updatedAt: 2025-04-27T00:00:00.000Z
 slug: ysk
 links:
   - title: Essayer

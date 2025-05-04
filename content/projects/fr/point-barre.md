@@ -1,8 +1,6 @@
 ---
 slug: point-barre
 locale: fr
-createdAt: 2024-04-09
-updatedAt: 2025-04-27T00:00:00.000Z
 status: published
 title: Point Barre.
 description: Projet drones, Robots & IOT

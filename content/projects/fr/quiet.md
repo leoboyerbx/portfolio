@@ -6,8 +6,6 @@ seo:
 description: Site web WebGL
 locale: fr
 status: published
-createdAt: 2025-04-27T00:00:00.000Z
-updatedAt: 2025-04-27T00:00:00.000Z
 slug: quiet
 thumbnail: /img/projects/quiet.webp
 links:

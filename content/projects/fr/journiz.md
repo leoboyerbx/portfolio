@@ -1,8 +1,6 @@
 ---
 slug: journiz
 locale: fr
-createdAt: 2024-04-09
-updatedAt: 2025-02-22
 status: published
 title: Journiz
 description: Réinventer les sorties scolaires

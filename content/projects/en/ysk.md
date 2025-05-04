@@ -6,8 +6,6 @@ seo:
   description: Ysk, a next-gen tool to create IRL and online quizzes
 locale: en
 status: published
-createdAt: 2025-04-27T00:00:00.000Z
-updatedAt: 2025-04-27T00:00:00.000Z
 slug: ysk
 links:
   - title: Try it out
