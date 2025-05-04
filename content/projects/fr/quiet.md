@@ -42,7 +42,7 @@ links:
   :::
 
 #description
-J'ai travaillé sur Quiet.fun à [Wanaka](https://www.wanaka.studio/) (au passage, [leur nouveau site vaut le coup d'oeil !](/projects/fr/wanaka3)). L'objectif était de créer un site web en 3D qui présenterait le processus du client, Quiet. Le défi était de connecter et d'intégrer Vue.JS avec un backend Wordpress et ThreeJS. Certains contenus provenant de l'API REST de Wordpress doivent être intégrés dans des scènes 3D.
+J'ai travaillé sur Quiet.fun à [Wanaka](https://www.wanaka.studio/) (au passage, [leur nouveau site vaut le coup d'oeil !](/fr/projects/wanaka3)). L'objectif était de créer un site web en 3D qui présenterait le processus du client, Quiet. Le défi était de connecter et d'intégrer Vue.JS avec un backend Wordpress et ThreeJS. Certains contenus provenant de l'API REST de Wordpress doivent être intégrés dans des scènes 3D.
 ::
 
 ::project-images
