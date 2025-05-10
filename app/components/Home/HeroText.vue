@@ -24,8 +24,8 @@ const { locale } = useI18n()
 
 const texts = computed(() => props.hero.adjectives ?? [])
 
-const defaultTextWidth = locale.value === 'fr' ? 361 : 450 // Default values for ssr on 1080p
-const textWidths = ref<number[]>([])
+const defaultTextWidth = locale.value === 'fr' ? '19vw' : '25.5vw' // Default values for ssr on 1080p
+const textWidths = ref<string[]>([])
 const textElements = ref<HTMLElement[]>()
 const currentText = ref(0)
 const currentTextWidth = computed(() => {
@@ -40,7 +40,7 @@ async function computeWidths() {
     // await new Promise((resolve) => setTimeout(resolve, 0))
     await nextTick()
     for (let i = 0; i < textElements.value.length; i++) {
-        textWidths.value[i] = textElements.value[i]?.offsetWidth ?? defaultTextWidth
+        textWidths.value[i] = textElements.value[i]?.offsetWidth ? `${textElements.value[i]?.offsetWidth}px` : defaultTextWidth
     }
     isResizing.value = false
 }
@@ -56,7 +56,7 @@ useIntervalFn(() => {
     currentText.value = (currentText.value + 1) % texts.value.length
 }, 3000)
 
-useLetterByLetterParent(i => `${200 + i * 35}ms`)
+useLetterByLetterParent(i => `${200 + i * 30}ms`)
 </script>
 
 <template>
@@ -75,7 +75,7 @@ useLetterByLetterParent(i => `${200 + i * 35}ms`)
       <span
         class="relative inline-block"
         :style="{
-          width: `${currentTextWidth}px`,
+          width: currentTextWidth,
           transition: isResizing ? 'none' : 'width 0.3s',
         }"
       >
@@ -102,14 +102,19 @@ useLetterByLetterParent(i => `${200 + i * 35}ms`)
             :class="[
               currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
             ]"
-            :text="text.text"
+            :text="text.text + (hero.afterAdj === '.' ? '' : ' ')"
             :colors="[text.color1, text.color2]"
             :effect="text.effect"
             :letter-by-letter="i === 0"
           />
         </span>
       </span>
-      <LetterByLetter :text="(hero.afterAdj === '.' ? '' : ' ') + hero.afterAdj" class="ml-1" />
+      <LetterByLetter :text="hero.afterAdj" />
     </span>
   </h1>
 </template>
+<style>
+.mr-space::after {
+    content: ' ';
+}
+</style>

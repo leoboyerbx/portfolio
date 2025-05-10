@@ -22,7 +22,7 @@ const { animationDelay } = useLetterByLetter(letters.value.length)
 <style>
 .letter-reveal {
     display: inline-block;
-    animation: reveal-letter 300ms theme('easing.power2-out') both;
+    animation: reveal-letter 250ms theme('easing.power2-out') both;
 }
 @keyframes reveal-letter {
   from {
