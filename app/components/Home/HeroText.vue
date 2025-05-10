@@ -52,9 +52,11 @@ useEventListener('resize', () => {
     computeWidths()
 })
 
-useIntervalFn(() => {
-    currentText.value = (currentText.value + 1) % texts.value.length
-}, 3000)
+useTimeoutFn(() => {
+    useIntervalFn(() => {
+        currentText.value = (currentText.value + 1) % texts.value.length
+    }, 3000)
+}, 1000) // Delay before starting the loop, for the text reveal to have the time to happen
 
 useLetterByLetterParent(i => `${200 + i * 30}ms`)
 </script>
