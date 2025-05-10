@@ -1,5 +1,5 @@
 <script setup lang="ts">
-type effectName = 'wave' | 'shake' | 'blurry'
+type effectName = 'wave' | 'shake' | 'blurry' | 'juggle'
 
 const { text, effect, colors, letterByLetter = false } = defineProps<{
     text: string
@@ -62,6 +62,29 @@ if (letterByLetter) {
   &.blurry {
     animation: textEffectBlurry 1.4s infinite ease-in-out;
     animation-delay: calc(var(--index) * 0.05s);
+  }
+  &.juggle {
+    animation: textEffectJuggle 1.7s infinite ease-in-out;
+    animation-delay: calc(var(--index) * .15s);
+  }
+}
+
+@keyframes textEffectJuggle {
+  from {
+    transform: none;
+  }
+//   15% {
+//     transform: translateY(0.08em) rotate(-2deg);
+//   }
+  25% {
+    transform: translateY(-0.8em) rotate(180deg);
+}
+45% {
+      transform: translateY(0) rotate(369deg);
+    }
+    50%, to {
+      transform: translateY(0) rotate(360deg);
+
   }
 }
 

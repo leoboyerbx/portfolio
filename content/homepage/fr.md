@@ -25,7 +25,7 @@ adjectives:
   - text: jongleur
     color1: "#dc2626"
     color2: "#fce14b"
-    effect: shake
+    effect: juggle
 afterAdj: .
 afterName: ","
 beforeAdj: développeur

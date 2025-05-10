@@ -25,8 +25,8 @@ adjectives:
   - text: juggling
     color1: "#dc2626"
     color2: "#fce14b"
-    effect: shake
-afterAdj: developer
+    effect: juggle
+afterAdj: developer.
 afterName: ","
 beforeAdj: a
 beforeName: Hi, I'm
@@ -71,7 +71,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   paapi
-  
+
   #description
   The fastest way to pair 2 devices on a website !
   :::
@@ -82,7 +82,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   hitbox-js
-  
+
   #description
   Simple JavaScript library to detect collisions between DOM elements
   :::
@@ -93,7 +93,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   layout-aid
-  
+
   #description
   Vite and nuxt plugin that adds useful visual guides for development
   :::
@@ -104,7 +104,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   unocss-preset-columns
-  
+
   #description
   A dead-simple uno preset that adds a new column-size unit to Unocss.
   :::
@@ -115,7 +115,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
   ---
   #name
   colorJS
-  
+
   #description
   A JS and CSS library to create slideshows in HTML/CSS
   :::
