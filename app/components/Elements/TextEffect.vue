@@ -1,19 +1,25 @@
 <script setup lang="ts">
-const effects = {
-  wave: [],
-  shake: [],
-  blurry: [],
-} as const
-const props = defineProps<{
-  text: string
-  effect: keyof typeof effects
-  colors: string[]
-}>()
-const colorFrom = computed(() => props.colors[0])
-const colorTo = computed(() => props.colors[1])
+type effectName = 'wave' | 'shake' | 'blurry'
 
-const letters = computed(() => Array.from(props.text.replaceAll(' ', ' ')))
+const { text, effect, colors, letterByLetter = false } = defineProps<{
+    text: string
+    effect: effectName
+    colors: string[]
+    letterByLetter?: boolean
+}>()
+
+const colorFrom = computed(() => colors[0])
+const colorTo = computed(() => colors[1])
+
+const letters = computed(() => Array.from(text.replaceAll(' ', ' ')))
+
+let letterByLetterDelay: undefined | ((i: number) => string)
+if (letterByLetter) {
+    const { animationDelay } = useLetterByLetter(letters.value.length)
+    letterByLetterDelay = animationDelay
+}
 </script>
+
 <template>
   <span class="inline-flex">
     <span
@@ -21,15 +27,22 @@ const letters = computed(() => Array.from(props.text.replaceAll(' ', ' ')))
       :key="i"
       :style="{
         '--index': i,
-        '--percentage': (100 * i) / (letters.length - 1) + '%',
+        '--percentage': `${(100 * i) / (letters.length - 1)}%`,
       }"
       class="letter-effect"
       :class="effect"
     >
-      {{ letter }}
+      <span
+        v-if="letterByLetterDelay"
+        class="letter-reveal"
+        :style="{ animationDelay: letterByLetterDelay(i) }"
+      >{{ letter }}</span>
+      <template v-else>{{ letter }}</template>
+
     </span>
   </span>
 </template>
+
 <style scoped lang="scss">
 .letter-effect {
   color: color-mix(

@@ -1,9 +1,23 @@
 <script setup lang="ts">
-import type { HomeHeroProps } from '../content/home/HomeHero.vue'
 import isVowel from '~/utils/isVowel'
 
+export interface HeroTextProps {
+    beforeName: string
+    name: string
+    afterName: string
+    beforeAdj: string
+    vowelPrefix?: string
+    afterAdj: string
+    adjectives: {
+        text: string
+        color1: string
+        color2: string
+        effect: 'wave' | 'shake' | 'blurry'
+    }[]
+}
+
 const props = defineProps<{
-    hero: HomeHeroProps
+    hero: HeroTextProps
 }>()
 
 const { locale } = useI18n()
@@ -41,6 +55,8 @@ useEventListener('resize', () => {
 useIntervalFn(() => {
     currentText.value = (currentText.value + 1) % texts.value.length
 }, 3000)
+
+useLetterByLetterParent(i => `${200 + i * 35}ms`)
 </script>
 
 <template>
@@ -48,56 +64,52 @@ useIntervalFn(() => {
     class="flex flex-col items-start self-end font-black leading-110%"
     text="12 md:6vw"
   >
-    <span class="line" style="--line-index: 0">
-      <span class="line-content">
-        👋 <br class="sm:hidden">{{ hero.beforeName
-        }} <span class="text-theme">{{ hero.name }}</span>{{ hero.afterName }}
-      </span>
+    <span>
+      <LetterByLetter text="👋" /> <br class="sm:hidden"><LetterByLetter :text="hero.beforeName" /> <LetterByLetter class="text-theme" :text="hero.name" /><LetterByLetter :text="hero.afterName" />
     </span>
-    <span class="line" style="--line-index: 1">
-      <span class="line-content">
-        <span class="mr-0.25em">{{ hero.beforeAdj }}<br
-          v-if="locale === 'fr'"
-          class="sm:hidden"
-        ></span>
+    <span>
+      <LetterByLetter :text="hero.beforeAdj" class="mr-0.25em" /><br
+        v-if="locale === 'fr'"
+        class="sm:hidden"
+      >
+      <span
+        class="relative inline-block"
+        :style="{
+          width: `${currentTextWidth}px`,
+          transition: isResizing ? 'none' : 'width 0.3s',
+        }"
+      >
         <span
-          class="relative inline-block"
-          :style="{
-            width: `${currentTextWidth}px`,
-            transition: isResizing ? 'none' : 'width 0.3s',
-          }"
+          v-for="(text, i) in texts"
+          :key="text.text[1]"
+          ref="textElements"
+          class="left-0 top-0 items-baseline whitespace-nowrap"
+          :class="[
+            i === texts.length - 1 ? 'relative' : 'absolute',
+            currentText === i ? '' : 'pointer-events-none select-none',
+          ]"
         >
-          <span
-            v-for="(text, i) in texts"
-            :key="text.text[1]"
-            ref="textElements"
-            class="left-0 top-0 items-baseline whitespace-nowrap"
+          <LetterByLetter
+            v-if="!!hero.vowelPrefix && isVowel(text.text[0])"
+            :text="hero.vowelPrefix ?? ''"
+            class="mr-0.25em transition-opacity duration-200 -ml-0.25em"
             :class="[
-              i === texts.length - 1 ? 'relative' : 'absolute',
-              currentText === i ? '' : 'pointer-events-none select-none',
+              currentText === i ? 'opacity-100' : 'opacity-0 delay-50',
             ]"
-          >
-            <span
-              v-if="!!hero.vowelPrefix && isVowel(text.text[0])"
-              class="mr-0.25em transition-opacity duration-200 -ml-0.25em"
-              :class="[
-                currentText === i ? 'opacity-100' : 'opacity-0 delay-50',
-              ]"
-            >{{ hero.vowelPrefix ?? '' }}
-            </span>
-            <TextEffect
-              class="transition-opacity"
-              :class="[
-                currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
-              ]"
-              :text="text.text"
-              :colors="[text.color1, text.color2]"
-              :effect="text.effect"
-            />
-          </span>
+          />
+          <TextEffect
+            class="transition-opacity"
+            :class="[
+              currentText === i ? 'opacity-100 delay-200' : 'opacity-0',
+            ]"
+            :text="text.text"
+            :colors="[text.color1, text.color2]"
+            :effect="text.effect"
+            :letter-by-letter="i === 0"
+          />
         </span>
-        <span class="ml-1">{{ (hero.afterAdj === '.' ? '' : ' ') + hero.afterAdj }}</span>
       </span>
+      <LetterByLetter :text="(hero.afterAdj === '.' ? '' : ' ') + hero.afterAdj" class="ml-1" />
     </span>
   </h1>
 </template>
