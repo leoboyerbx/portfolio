@@ -95,6 +95,25 @@ export default defineNuxtConfig({
             optimizeTranslationDirective: false,
         },
     },
+    ogImage: {
+        fonts: [
+            {
+                name: 'Satoshi',
+                weight: 900,
+                path: '/og/Satoshi-Black.otf',
+            },
+            {
+                name: 'Fragen',
+                weight: 200,
+                path: '/og/Fragen-ExtraLight.otf',
+            },
+            {
+                name: 'Fragen',
+                weight: 400,
+                path: '/og/Fragen-Regular.otf',
+            },
+        ],
+    },
     app: {
         head: {
             link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
