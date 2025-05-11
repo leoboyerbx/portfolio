@@ -1,23 +1,15 @@
 <script setup lang="ts">
 import type { HeroTextProps } from '../Home/HeroText.vue'
-import { parseURL } from 'ufo'
 
-const { beforeName, name, afterName, beforeAdj, adjectives, afterAdj, vowelPrefix, website } = defineProps<HeroTextProps & {
-    website?: string
-}>()
+const { beforeName, name, afterName, beforeAdj, adjectives, afterAdj, vowelPrefix } = defineProps<HeroTextProps>()
 
 const adjective = computed(() => adjectives[0]!)
 const beforeAdjective = computed(() => beforeAdj + (isVowel(adjective.value?.text) ? vowelPrefix : ''))
-
-// fallback to site name
-const websiteUrl = computed(() => {
-    return website || parseURL(useSiteConfig().url).host
-})
 </script>
 
 <template>
   <div
-    class="apply h-full w-full flex items-start justify-start text-slate-50 font-sans !bg-slate-950"
+    class="apply h-full w-full flex items-start justify-start bg-slate-950 text-slate-50 font-sans"
     style="background-image: url('/og/bg.png'); background-size: cover; background-position: center top; background-repeat: no-repeat;"
   >
     <div class="h-full w-full flex flex-col justify-between px-24 py-20">
@@ -42,7 +34,7 @@ const websiteUrl = computed(() => {
       </h1>
 
       <div class="text-8 font-serif">
-        {{ websiteUrl }}
+        leoboyer.dev
       </div>
     </div>
   </div>

@@ -17,11 +17,15 @@ const { data: project } = await useAsyncData(
 )
 
 if (!project.value) {
-    showError({
+    throw showError({
         statusCode: 404,
         statusMessage: 'Project Not Found',
     })
 }
+
+defineOgImageComponent('OgProject', {
+    project: project.value,
+})
 </script>
 
 <template>
