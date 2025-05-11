@@ -115,6 +115,7 @@ useLetterByLetterParent(i => `${200 + i * 30}ms`)
     </span>
   </h1>
 </template>
+
 <style>
 .mr-space::after {
     content: ' ';

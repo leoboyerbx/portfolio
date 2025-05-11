@@ -2,6 +2,8 @@
 import type { HeroTextProps } from '~/components/Home/HeroText.vue'
 
 const props = defineProps<HeroTextProps>()
+
+defineOgImageComponent('OgHero', props)
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 ---
-title: Homepage
+title: Léo Boyer - Creative developer
 locale: en
 ---
 
@@ -67,7 +67,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 #projects
   :::opensource-item
   ---
-  url: https://github.com/paapi-js/paapi
+    url: https://github.com/paapi-js/paapi
   ---
   #name
   paapi
@@ -78,7 +78,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 
   :::opensource-item
   ---
-  url: https://github.com/leoboyerbx/hitbox-js
+    url: https://github.com/leoboyerbx/hitbox-js
   ---
   #name
   hitbox-js
@@ -89,7 +89,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 
   :::opensource-item
   ---
-  url: https://github.com/leoboyerbx/layout-aid
+    url: https://github.com/leoboyerbx/layout-aid
   ---
   #name
   layout-aid
@@ -100,7 +100,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 
   :::opensource-item
   ---
-  url: https://github.com/leoboyerbx/unocss-preset-columns
+    url: https://github.com/leoboyerbx/unocss-preset-columns
   ---
   #name
   unocss-preset-columns
@@ -111,7 +111,7 @@ Sometimes when I'm building something, I find myself needing a reusable thing th
 
   :::opensource-item
   ---
-  url: https://github.com/leoboyerbx/ColorJS
+    url: https://github.com/leoboyerbx/ColorJS
   ---
   #name
   colorJS

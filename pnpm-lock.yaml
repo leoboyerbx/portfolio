@@ -32,6 +32,9 @@ importers:
       nuxt-content-git:
         specifier: 6.0.0
         version: 6.0.0
+      ufo:
+        specifier: ^1.6.1
+        version: 1.6.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.12.0

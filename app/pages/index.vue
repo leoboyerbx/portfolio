@@ -50,6 +50,12 @@ const { data } = await useAsyncData(
         dedupe: 'defer',
     },
 )
+if (!data.value) {
+    throw showError({
+        statusCode: 404,
+        statusMessage: 'Home data not found',
+    })
+}
 </script>
 
 <template>
