@@ -2,7 +2,7 @@ locale: fr
 resume:
   title: CV
   url: /files/en/Resume_Leo_Boyer.pdf
-  file: /files/CV-Léo_BOYER.pdf
+  file: /files/CV-Leo_BOYER.pdf
 contacts:
   - icon: i-uil:github
     title: GitHub
