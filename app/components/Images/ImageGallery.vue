@@ -1,12 +1,7 @@
-<script lang="ts">
-export const registerGalleryImageKey = Symbol('registerGalleryImage') as InjectionKey<() => {
-    visible: Ref<boolean>
-    transitionDelay: string
-}>
-</script>
-
 <script setup lang="ts">
 const { target } = useStaggerRevealParent(i => `${i * 100}ms`)
+
+// useGallery()
 </script>
 
 <template>

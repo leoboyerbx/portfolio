@@ -7,15 +7,12 @@ const props = defineProps<{
 
 const { t } = useI18n()
 const thumbUrl = computed(() => props.thumb || props.src)
-const isOpen = ref(false)
+const { open, close, isOpen } = useGalleryItem()
 const hasMoved = ref(false)
-function open() {
-    isOpen.value = true
-}
-function close() {
+whenever(() => !isOpen.value, () => {
     hasMoved.value = false
-    isOpen.value = false
-}
+})
+
 onKeyStroke('Escape', close)
 </script>
 
