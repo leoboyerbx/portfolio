@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-content-starter",
+  "name": "portfolio-leoboyer",
   "type": "module",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "@vueuse/core": "^13.1.0",
     "lenis": "^1.3.0",
     "motion": "^10.18.0",
-    "nuxt": "^3.17.1",
+    "nuxt": "^4.2.1",
     "nuxt-content-git": "6.0.0",
     "ufo": "^1.6.1"
   },
