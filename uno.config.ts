@@ -1,4 +1,3 @@
-// uno.config.ts
 import {
     defineConfig,
     presetAttributify,
@@ -76,6 +75,7 @@ export default defineConfig({
     presets: [
         presetUno(),
         presetAttributify(),
+        // @ts-expect-error Lib not updated yet
         presetColumns(14),
         presetIcons(),
         presetWebFonts({
