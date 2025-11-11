@@ -36,7 +36,9 @@ export default defineNuxtConfig({
         apiHost: 'https://stats.pnk.studio',
         proxy: true,
     },
-    hub: {},
+    hub: {
+        database: true,
+    },
     content: {
         preview: {
             api: 'https://api.nuxt.studio',
@@ -69,7 +71,6 @@ export default defineNuxtConfig({
     i18n: {
         strategy: 'prefix_except_default',
         defaultLocale: 'en',
-        lazy: true,
         locales: [
             {
                 code: 'en',
@@ -90,9 +91,6 @@ export default defineNuxtConfig({
             cookieKey: 'i18n_redirected',
             redirectOn: 'root',
             fallbackLocale: 'en',
-        },
-        bundle: {
-            optimizeTranslationDirective: false,
         },
     },
     ogImage: {
