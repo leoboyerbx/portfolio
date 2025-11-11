@@ -36,7 +36,12 @@ function useBaseChild() {
  * Call this composable in a parent Gallery to allow the children Lightbox
  * components to enable the next/prev buttons
  */
-export function useGallery(options: { loop?: boolean } = {}) {
+export function useGallery(options: { loop?: boolean, keyboardControls?: boolean } = {}) {
+    const defaultOptions = {
+        loop: false,
+        keyboardControls: true,
+    }
+    options = { ...defaultOptions, ...options }
     const images = ref<Ref<boolean>[]>([])
     const currentImageIndex = ref<number | null>(null)
 
@@ -91,6 +96,10 @@ export function useGallery(options: { loop?: boolean } = {}) {
 
     provide(useGalleryItemKey, useChild)
 
+    if (options.keyboardControls) {
+        onKeyStroke('ArrowRight', () => next())
+        onKeyStroke('ArrowLeft', () => prev())
+    }
     return {
         currentImageIndex,
         canGoNext,
