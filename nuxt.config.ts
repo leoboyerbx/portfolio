@@ -19,6 +19,7 @@ export default defineNuxtConfig({
         '@nuxtjs/plausible',
         '@layoutaid/nuxt',
         '@nuxt/icon',
+        // 'nuxt-studio',
     ],
     css: ['@unocss/reset/tailwind.css', '~/assets/global.scss'],
     unocss: {
@@ -45,6 +46,17 @@ export default defineNuxtConfig({
             dev: true,
         },
     },
+    // studio: {
+    //     development: {
+    //         // sync: true, // Enable development mode
+    //     },
+    //     repository: {
+    //         provider: 'github',
+    //         owner: 'leoboyerbx',
+    //         repo: 'portfolio',
+    //         branch: 'dev',
+    //     },
+    // },
     components: [
         {
             path: '~/components',
