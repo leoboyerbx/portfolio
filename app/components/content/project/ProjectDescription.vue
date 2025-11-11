@@ -35,7 +35,7 @@ const { contentWrapper } = usePatchContentLinks()
     </div>
     <div
       ref="contentWrapper"
-      class="mt-12 prose md:-order-1"
+      class="mt-12 prose prose-invert md:-order-1"
       col="start-2 span-12"
       sm:col="start-3 span-10"
       md:col="start-3 span-7"

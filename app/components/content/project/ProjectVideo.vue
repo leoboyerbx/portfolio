@@ -32,7 +32,7 @@ const transition = 'transition-all duration-1000 ease-power4-out'
       <EmbedPlayer class="w-full" :url="embed" />
     </div>
     <div
-      class="text-lg mt-1c prose"
+      class="text-lg mt-1c prose prose-invert"
       col="start-2 span-10"
       sm:col="start-3 span-10"
       lg:col="start-3 span-5"
