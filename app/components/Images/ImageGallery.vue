@@ -1,7 +1,9 @@
 <script setup lang="ts">
 const { target } = useStaggerRevealParent(i => `${i * 100}ms`)
 
-// useGallery()
+const { next, prev } = useGallery({ loop: true })
+onKeyStroke('ArrowRight', () => next())
+onKeyStroke('ArrowLeft', () => prev())
 </script>
 
 <template>

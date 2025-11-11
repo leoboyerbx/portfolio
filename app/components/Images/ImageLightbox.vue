@@ -7,13 +7,13 @@ const props = defineProps<{
 
 const { t } = useI18n()
 const thumbUrl = computed(() => props.thumb || props.src)
-const { open, close, isOpen } = useGalleryItem()
+const galleryItem = useGalleryItem()
 const hasMoved = ref(false)
-whenever(() => !isOpen.value, () => {
+whenever(() => !galleryItem.isOpen.value, () => {
     hasMoved.value = false
 })
 
-onKeyStroke('Escape', close)
+onKeyStroke('Escape', galleryItem.close)
 </script>
 
 <template>
@@ -22,7 +22,7 @@ onKeyStroke('Escape', close)
     target="_blank"
     class="relative"
     :title="t('fullscreen')"
-    @click.prevent="open()"
+    @click.prevent="galleryItem.open()"
   >
     <NuxtImg
       :src="thumbUrl"
@@ -33,9 +33,9 @@ onKeyStroke('Escape', close)
     <teleport to="body">
       <transition name="lightbox">
         <div
-          v-if="isOpen"
+          v-if="galleryItem.isOpen.value"
           class="fixed inset-0 z-100 h-full w-full flex items-center justify-center bg-slate-950/70"
-          @click="close"
+          @click="galleryItem.close()"
           @mousemove="hasMoved = true"
         >
           <NuxtImg
@@ -47,13 +47,21 @@ onKeyStroke('Escape', close)
           <button
             class="absolute right-4 top-4 flex items-center gap-2 text-sm transition duration-200"
             :class="hasMoved ? 'opacity-80 hover:opacity-100' : 'md:opacity-0'"
-            @click="close"
+            @click="galleryItem.close()"
           >
             <span class="text-xs text-slate-100 font-bold">{{
               t('close')
             }}</span>
             <span class="kbd">Esc</span>
           </button>
+          <div v-if="galleryItem.isInGallery" class="pointer-events-none absolute inset-0 flex items-center justify-between gap-2 px-8">
+            <button class="btn-animation pointer-events-auto disabled:opacity-50" :disabled="!galleryItem.canGoPrev.value" @click.stop="galleryItem.prev()">
+              <Icon name="i-uil:arrow-left" class="block text-36px" />
+            </button>
+            <button class="btn-animation pointer-events-auto disabled:opacity-50" :disabled="!galleryItem.canGoNext.value" @click.stop="galleryItem.next()">
+              <Icon name="i-uil:arrow-right" class="block text-36px" />
+            </button>
+          </div>
         </div>
       </transition>
     </teleport>
