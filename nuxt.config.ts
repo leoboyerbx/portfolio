@@ -7,11 +7,11 @@ export default defineNuxtConfig({
             nodeCompat: true,
         },
     },
-    // debug: true, // Active les logs détaillés même en prod
-    // sourcemap: {
-    //     server: true,
-    //     client: true,
-    // },
+    debug: true,
+    sourcemap: {
+        server: true,
+        client: true,
+    },
     devtools: { enabled: true },
     ssr: true,
     htmlValidator: {
@@ -98,12 +98,8 @@ export default defineNuxtConfig({
             },
         ],
         baseUrl: 'https://www.leoboyer.dev',
-        detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'i18n_redirected',
-            redirectOn: 'root',
-            fallbackLocale: 'en',
-        },
+        detectBrowserLanguage: false,
+
     },
     ogImage: {
         fonts: [

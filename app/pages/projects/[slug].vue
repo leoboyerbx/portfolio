@@ -29,11 +29,11 @@ defineOgImageComponent('OgProject', {
 </script>
 
 <template>
-  <div v-if="project" class="mb-36 flex flex-col gap-1.5c">
-    <Title>{{ project.seo.title }}</Title>
-    <Meta name="description" :content="project.seo.description" />
-    <ProjectHero :project="project" />
-    <ContentRenderer :value="project" :prose="false" class="flex flex-col gap-1.5c" />
+  <div class="mb-36 flex flex-col gap-1.5c">
+    <Title>{{ project!.seo.title }}</Title>
+    <Meta name="description" :content="project!.seo.description" />
+    <ProjectHero :project="project!" />
+    <ContentRenderer :value="project!" :prose="false" class="flex flex-col gap-1.5c" />
     <!-- <ProjectDescription :project="project" />
     <ProjectVideo v-if="project.video" :project="project" />
     <ProjectImages v-if="project.images?.length" :project="project" /> -->
