@@ -1,19 +1,20 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
     compatibilityDate: '2025-12-14',
-    future: {
-        compatibilityVersion: 4,
-    },
     nitro: {
-        preset: 'cloudflare_pages',
+        preset: 'cloudflare_module',
         cloudflare: {
             deployConfig: true,
             nodeCompat: true,
         },
         prerender: {
-            autoSubfolderIndex: false,
+            crawlLinks: true,
+            // Tu peux ignorer les routes qui doivent rester dynamiques
+            ignore: ['/api'],
         },
+    },
+    routeRules: {
+        '/api': { prerender: false },
+        '/**/*': { prerender: true },
     },
     devtools: { enabled: true },
     ssr: true,
