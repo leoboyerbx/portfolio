@@ -1,9 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-    compatibilityDate: '2024-04-03',
+    compatibilityDate: '2025-12-14',
     future: {
         compatibilityVersion: 4,
+    },
+    nitro: {
+        preset: 'cloudflare_pages',
+        cloudflare: {
+            deployConfig: true,
+            nodeCompat: true,
+        },
+        prerender: {
+            autoSubfolderIndex: false,
+        },
     },
     devtools: { enabled: true },
     ssr: true,
@@ -38,7 +48,7 @@ export default defineNuxtConfig({
         proxy: true,
     },
     hub: {
-        database: true,
+        db: 'sqlite',
     },
     content: {
         preview: {
@@ -46,17 +56,6 @@ export default defineNuxtConfig({
             dev: true,
         },
     },
-    // studio: {
-    //     development: {
-    //         // sync: true, // Enable development mode
-    //     },
-    //     repository: {
-    //         provider: 'github',
-    //         owner: 'leoboyerbx',
-    //         repo: 'portfolio',
-    //         branch: 'dev',
-    //     },
-    // },
     components: [
         {
             path: '~/components',
