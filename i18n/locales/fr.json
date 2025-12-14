@@ -5,7 +5,8 @@
     "hero": "Accueil",
     "projects": "Projets",
     "openSource": "Open Source",
-    "contact": "Contact"
+    "contact": "Contact",
+    "goToSection": "Aller à la section {section}"
   },
   "wip": "Ce portfolio est en cours de refonte. Il sera bientôt de retour !",
   "close": "Fermer",
@@ -24,8 +25,10 @@
   },
   "nuxtSiteConfig": {
     "name": "Léo Boyer - Développeur créatif",
-    "description":
-            "Je suis Léo, développeur créatif et curieux. Je travaille actuellement à Cixi, Annecy."
+    "description": "Je suis Léo, développeur créatif et curieux. Je travaille actuellement à Cixi, Annecy."
   },
-  "fullscreen": "Ouvrir l'image en plein écran"
+  "fullscreen": "Ouvrir l'image en plein écran",
+  "openSource": {
+    "seeProject": "Voir le projet"
+  }
 }

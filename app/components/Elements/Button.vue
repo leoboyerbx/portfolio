@@ -32,11 +32,12 @@ const hasBeenClicked = ref(false)
   <component
     v-bind="props"
     :is="tag"
+    :type="tag === 'button' ? 'button' : undefined"
     class="pnk-btn btn-animation"
     :class="[{ 'btn-animation': hasBeenClicked }, `pnk-btn-${color}`]"
     @click="hasBeenClicked = true"
   >
-    <slot />
+    <slot mdc-unwrap="p" />
     <Icon
       v-if="icon"
       :name="icon"

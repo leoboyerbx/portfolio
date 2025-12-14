@@ -17,7 +17,7 @@ if (url === '$resume') {
     :delay="i * 0.15"
   >
     <Button :href="displayUrl" :target="newTab ? '_blank' : ''">
-      <slot></slot>
+      <slot mdc-unwrap="p" />
     </Button>
   </ScrollReveal>
 </template>

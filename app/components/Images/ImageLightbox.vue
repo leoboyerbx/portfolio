@@ -45,6 +45,7 @@ onKeyStroke('Escape', galleryItem.close)
             height="1200"
           />
           <button
+            type="button"
             class="absolute right-4 top-4 flex items-center gap-2 text-sm transition duration-200"
             :class="hasMoved ? 'opacity-80 hover:opacity-100' : 'md:opacity-0'"
             @click="galleryItem.close()"
@@ -55,10 +56,20 @@ onKeyStroke('Escape', galleryItem.close)
             <span class="kbd">Esc</span>
           </button>
           <div v-if="galleryItem.isInGallery" class="pointer-events-none absolute inset-0 flex items-center justify-between gap-2 px-8">
-            <button class="btn-animation pointer-events-auto disabled:opacity-50" :disabled="!galleryItem.canGoPrev.value" @click.stop="galleryItem.prev()">
+            <button
+              type="button"
+              class="btn-animation pointer-events-auto disabled:opacity-50"
+              :disabled="!galleryItem.canGoPrev.value"
+              @click.stop="galleryItem.prev()"
+            >
               <Icon name="i-uil:arrow-left" class="block text-36px" />
             </button>
-            <button class="btn-animation pointer-events-auto disabled:opacity-50" :disabled="!galleryItem.canGoNext.value" @click.stop="galleryItem.next()">
+            <button
+              type="button"
+              class="btn-animation pointer-events-auto disabled:opacity-50"
+              :disabled="!galleryItem.canGoNext.value"
+              @click.stop="galleryItem.next()"
+            >
               <Icon name="i-uil:arrow-right" class="block text-36px" />
             </button>
           </div>

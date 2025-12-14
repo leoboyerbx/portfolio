@@ -6,18 +6,17 @@ export default defineNuxtConfig({
             deployConfig: true,
             nodeCompat: true,
         },
-        prerender: {
-            crawlLinks: true,
-            // Tu peux ignorer les routes qui doivent rester dynamiques
-            ignore: ['/api'],
-        },
     },
-    routeRules: {
-        '/api': { prerender: false },
-        '/**/*': { prerender: true },
-    },
+    // debug: true, // Active les logs détaillés même en prod
+    // sourcemap: {
+    //     server: true,
+    //     client: true,
+    // },
     devtools: { enabled: true },
     ssr: true,
+    htmlValidator: {
+        usePrettier: true,
+    },
     modules: [
         '@nuxtjs/seo',
         'nuxt-content-git',
@@ -29,8 +28,9 @@ export default defineNuxtConfig({
         '@nuxthub/core',
         '@nuxtjs/plausible',
         '@layoutaid/nuxt',
-        '@nuxt/icon',
         // 'nuxt-studio',
+        '@nuxt/icon',
+        '@nuxtjs/html-validator',
     ],
     css: ['@unocss/reset/tailwind.css', '~/assets/global.scss'],
     unocss: {
