@@ -27,10 +27,10 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.1",
-    "@iconify/json": "^2.2.418",
+    "@iconify/json": "^2.2.420",
     "@layoutaid/nuxt": "^1.0.0",
     "@nuxt/image": "^2.0.0",
-    "@nuxthub/core": "^0.10.1",
+    "@nuxthub/core": "^0.10.3",
     "@nuxtjs/i18n": "^10.2.1",
     "@nuxtjs/plausible": "^2.0.1",
     "@nuxtjs/seo": "^3.3.0",
@@ -39,12 +39,12 @@
     "@unocss/reset": "66.5.5",
     "@vueuse/nuxt": "^14.1.0",
     "eslint": "^9.39.2",
-    "sass-embedded": "^1.96.0",
+    "sass-embedded": "^1.97.1",
     "typescript": "5.7.3",
     "unocss": "66.5.5",
     "unocss-preset-columns": "^1.0.1",
-    "vue": "^3.5.25",
-    "wrangler": "^4.54.0"
+    "vue": "^3.5.26",
+    "wrangler": "^4.56.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
