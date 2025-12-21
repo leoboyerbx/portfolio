@@ -43,7 +43,7 @@ const { locale } = useI18n()
 const { data } = await useAsyncData(
     `homepage-${locale.value}`,
     async () => {
-        const result = await queryCollection('homepage').where('locale', '=', locale.value).first()
+        const result = await queryCollection(`homepage_${locale.value}`).first()
         return result
     },
     {

@@ -98,8 +98,12 @@ export default defineNuxtConfig({
             },
         ],
         baseUrl: 'https://www.leoboyer.dev',
-        detectBrowserLanguage: false,
-
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'i18n_redirected',
+            redirectOn: 'root',
+            fallbackLocale: 'en',
+        },
     },
     ogImage: {
         fonts: [

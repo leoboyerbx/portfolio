@@ -2,15 +2,21 @@ import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
 const locale = () => z.enum(['en', 'fr'])
 
+const homepageSchema = z.object({
+    title: z.string(),
+})
+
 export default defineContentConfig({
     collections: {
-        homepage: defineCollection({
+        homepage_en: defineCollection({
             type: 'page',
-            source: 'homepage/*.md',
-            schema: z.object({
-                locale: locale(),
-                title: z.string(),
-            }),
+            source: 'en/homepage.md',
+            schema: homepageSchema,
+        }),
+        homepage_fr: defineCollection({
+            type: 'page',
+            source: 'fr/homepage.md',
+            schema: homepageSchema,
         }),
         projects: defineCollection({
             type: 'page',
