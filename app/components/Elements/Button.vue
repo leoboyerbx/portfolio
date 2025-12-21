@@ -22,8 +22,13 @@ const props = defineProps({
         required: false,
         default: false,
     },
+    tag: {
+        type: String,
+        required: false,
+        default: null,
+    },
 })
-const tag = props.href ? NuxtLink : 'button'
+const tag = props.tag ?? (props.href ? NuxtLink : 'button')
 
 const hasBeenClicked = ref(false)
 </script>

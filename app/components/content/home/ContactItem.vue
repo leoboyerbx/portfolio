@@ -16,7 +16,7 @@ if (url === '$resume') {
   <ScrollReveal
     :delay="i * 0.15"
   >
-    <Button :href="displayUrl" :target="newTab ? '_blank' : ''">
+    <Button :href="displayUrl" :target="newTab ? '_blank' : ''" tag="a">
       <slot mdc-unwrap="p" />
     </Button>
   </ScrollReveal>
