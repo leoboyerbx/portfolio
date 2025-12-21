@@ -7,18 +7,11 @@ export default defineNuxtConfig({
             nodeCompat: true,
         },
         prerender: {
-            // Pre-render the homepage
-            routes: ['/'],
+            // Pre-render the homepages
+            routes: ['/', '/fr'],
             // Then crawl all the links on the page
             crawlLinks: true,
         },
-    },
-    // routeRules: {
-    //     '/': { prerender: false },
-    // },
-    sourcemap: {
-        server: true,
-        client: true,
     },
     devtools: { enabled: true },
     htmlValidator: {
@@ -104,7 +97,12 @@ export default defineNuxtConfig({
             },
         ],
         baseUrl: 'https://www.leoboyer.dev',
-        detectBrowserLanguage: false,
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: 'i18n_redirected',
+            redirectOn: 'root',
+            fallbackLocale: 'en',
+        },
     },
     ogImage: {
         fonts: [

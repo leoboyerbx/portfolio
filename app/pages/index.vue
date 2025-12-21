@@ -26,7 +26,6 @@ onUnmounted(() => {
 
 const route = useRoute()
 const scrollTo = route.query.scrollTo as string
-useRouter().replace(route.path)
 onMounted(async () => {
     if (scrollTo) {
         const target = document.getElementById(scrollTo)
@@ -51,10 +50,14 @@ const { data: page } = await useAsyncData(
     },
 )
 if (!page.value) {
-    throw showError({
-        statusCode: 404,
-        statusMessage: 'Home data not found',
-    })
+    if (import.meta.server) {
+    // By only showing the error on the server side, we accept hydration mismatches only for the first redirected request.
+    // this is the best compromise instead of client side redirect
+        throw showError({
+            statusCode: 404,
+            statusMessage: 'Home data not found',
+        })
+    }
 }
 </script>
 
