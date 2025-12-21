@@ -9,6 +9,7 @@ links:
     url: https://github.com/Journiz
     newTab: true
 thumbnail: /img/projects/journiz.webp
+ogThumbnail: /img/projects/journiz_og.jpg
 seo:
   title: Journiz
   description: Discover Journiz, a tool & mobile app to reinvent school trips

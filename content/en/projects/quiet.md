@@ -8,6 +8,7 @@ locale: en
 status: published
 slug: quiet
 thumbnail: /img/projects/quiet.webp
+ogThumbnail: /img/projects/quiet_og.jpg
 links:
   - url: https://www.quiet.fun/
     newTab: true

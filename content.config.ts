@@ -22,6 +22,7 @@ const baseCollections = {
                 newTab: z.boolean(),
             })),
             thumbnail: z.string().editor({ input: 'media' }),
+            ogThumbnail: z.string().editor({ input: 'media' }).optional(),
             images: z.array(z.string()).editor({ input: 'media' }),
         }),
     },

@@ -40,7 +40,7 @@ onMounted(async () => {
 })
 
 const { locale } = useI18n()
-const { data } = await useAsyncData(
+const { data: page } = await useAsyncData(
     `homepage-${locale.value}`,
     async () => {
         const result = await queryCollection(`homepage_${locale.value}`).first()
@@ -50,7 +50,7 @@ const { data } = await useAsyncData(
         dedupe: 'defer',
     },
 )
-if (!data.value) {
+if (!page?.value) {
     throw showError({
         statusCode: 404,
         statusMessage: 'Home data not found',
@@ -60,7 +60,7 @@ if (!data.value) {
 
 <template>
   <div ref="wrapperEl" class="flex flex-col">
-    <ContentRenderer :value="(data as any)" />
+    <ContentRenderer v-if="page" :value="page" />
     <!-- <div class="h-100"></div> -->
     <!-- <NuxtLink :to="localePath('/projects/journiz')">
       Go debug

@@ -12,6 +12,7 @@ links:
     url: https://staging.ysk.app/login?demo
     newTab: true
 thumbnail: /img/projects/ysk.min.webp
+ogThumbnail: /img/projects/ysk_og.jpg
 ---
 
 ::project-description

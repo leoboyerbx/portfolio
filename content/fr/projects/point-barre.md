@@ -6,6 +6,7 @@ title: Point Barre.
 description: Projet drones, Robots & IOT
 links: []
 thumbnail: /img/projects/pointbarre.min.webp
+ogThumbnail: /img/projects/pointbarre_og.jpg
 seo:
   title: Point Barre.
   description: Point Barre, un projet drones, Robots & IOT

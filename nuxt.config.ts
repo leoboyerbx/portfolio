@@ -6,20 +6,24 @@ export default defineNuxtConfig({
             deployConfig: true,
             nodeCompat: true,
         },
+        prerender: {
+            // Pre-render the homepage
+            routes: ['/'],
+            // Then crawl all the links on the page
+            crawlLinks: true,
+        },
     },
-    // debug: true,
     sourcemap: {
         server: true,
         client: true,
     },
     devtools: { enabled: true },
-    ssr: true,
     htmlValidator: {
         usePrettier: true,
     },
     modules: [
         '@nuxtjs/seo',
-        'nuxt-content-git',
+        // 'nuxt-content-git',
         '@nuxt/content',
         '@unocss/nuxt',
         '@vueuse/nuxt',
@@ -129,6 +133,9 @@ export default defineNuxtConfig({
             link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
         },
         // pageTransition: { name: 'page', mode: 'out-in' },
+    },
+    linkChecker: {
+        enabled: false,
     },
 
 })
