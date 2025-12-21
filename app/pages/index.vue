@@ -50,7 +50,7 @@ const { data: page } = await useAsyncData(
         dedupe: 'defer',
     },
 )
-if (!page?.value) {
+if (!page.value) {
     throw showError({
         statusCode: 404,
         statusMessage: 'Home data not found',

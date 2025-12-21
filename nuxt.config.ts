@@ -13,6 +13,9 @@ export default defineNuxtConfig({
             crawlLinks: true,
         },
     },
+    // routeRules: {
+    //     '/': { prerender: false },
+    // },
     sourcemap: {
         server: true,
         client: true,
@@ -101,12 +104,7 @@ export default defineNuxtConfig({
             },
         ],
         baseUrl: 'https://www.leoboyer.dev',
-        detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'i18n_redirected',
-            redirectOn: 'root',
-            fallbackLocale: 'en',
-        },
+        detectBrowserLanguage: false,
     },
     ogImage: {
         fonts: [
