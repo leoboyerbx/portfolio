@@ -120,7 +120,7 @@ Parfois, lorsque je travaille sur un projet, je me retrouve à publier un bout d
 Travaillons *ensemble* !
 
 #links
-  :::contact-item{new-tab new-tab="" url="$resume"}
+  :::contact-item{new-tab="" url="$resume"}
   Voir mon CV
   :::
 

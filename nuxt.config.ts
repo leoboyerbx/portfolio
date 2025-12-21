@@ -44,7 +44,7 @@ export default defineNuxtConfig({
         },
     },
     studio: {
-        dev: false,
+        // dev: false,
         repository: {
             provider: 'github', // 'github' or 'gitlab'
             owner: 'your-username',

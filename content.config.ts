@@ -1,26 +1,22 @@
 import type { DefinedCollection } from '@nuxt/content'
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
-const locales = [{ path: 'en', prefix: '' }, { path: 'fr', prefix: '/fr' }] as const
+const locales = [{ name: 'en', path: '' }, { name: 'fr', path: 'fr/' }] as const
 
 export default defineContentConfig({
     collections: locales.reduce((collections, locale) => {
-        collections[`homepage_${locale.path}`] = defineCollection({
+        collections[`homepage_${locale.name}`] = defineCollection({
             type: 'page',
             source: {
-                include: `${locale.path}/homepage.md`,
-                prefix: `${locale.prefix ?? '/'}`,
+                include: `${locale.path}*.md`,
             },
             schema: z.object({
                 title: z.string(),
             }),
         })
-        collections[`projects_${locale.path}`] = defineCollection({
+        collections[`projects_${locale.name}`] = defineCollection({
             type: 'page',
-            source: {
-                include: `${locale.path}/projects/**.md`,
-                prefix: `${locale.prefix}/projects`,
-            },
+            source: `${locale.path}projects/**.md`,
             schema: z.object({
                 status: z.enum(['draft', 'published']),
                 createdAt: z.date(),
@@ -36,11 +32,9 @@ export default defineContentConfig({
                 images: z.array(z.string()).editor({ input: 'media' }),
             }),
         })
-        collections[`global_${locale.path}`] = defineCollection({
+        collections[`global_${locale.name}`] = defineCollection({
             type: 'data',
-            source: {
-                include: `${locale.path}/global.yaml`,
-            },
+            source: `${locale.path}global.yaml`,
             schema: z.object({
                 resume: z.object({
                     title: z.string(),
