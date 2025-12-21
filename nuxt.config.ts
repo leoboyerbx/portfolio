@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     },
     modules: [
         '@nuxtjs/seo',
-        // 'nuxt-content-git',
+        'nuxt-content-git',
         '@nuxt/content',
         '@unocss/nuxt',
         '@vueuse/nuxt',
@@ -32,7 +32,6 @@ export default defineNuxtConfig({
         '@nuxthub/core',
         '@nuxtjs/plausible',
         '@layoutaid/nuxt',
-        // 'nuxt-studio',
         '@nuxt/icon',
         '@nuxtjs/html-validator',
     ],
