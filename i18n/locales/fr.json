@@ -30,5 +30,8 @@
   "fullscreen": "Ouvrir l'image en plein écran",
   "openSource": {
     "seeProject": "Voir le projet"
+  },
+  "player": {
+    "playVideo": "Lire la vidéo"
   }
 }

@@ -31,5 +31,8 @@
   "fullscreen": "Open the image in full screen",
   "openSource": {
     "seeProject": "See project"
+  },
+  "player": {
+    "playVideo": "Play video"
   }
 }

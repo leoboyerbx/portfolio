@@ -3,6 +3,7 @@ const props = defineProps<{
     url: string
     thumbnailUrl?: string
 }>()
+
 const urlWithAutoplay = computed(() => {
     const url = new URL(props.url)
     url.searchParams.set('autoplay', '1')
@@ -49,6 +50,7 @@ const clicked = ref(false)
       <button
         type="button"
         class="z-1 grid h-16 w-16 place-content-center rounded-full bg-slate-800/30"
+        :aria-label="$t('player.playVideo')"
       >
         <Icon name="i-uil:play" class="ml-1 block text-28px" />
       </button>
