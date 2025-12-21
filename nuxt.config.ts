@@ -7,7 +7,7 @@ export default defineNuxtConfig({
             nodeCompat: true,
         },
     },
-    debug: true,
+    // debug: true,
     sourcemap: {
         server: true,
         client: true,
