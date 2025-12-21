@@ -53,6 +53,7 @@ const localePath = useLocalePath()
       ref="linkElement"
       :href="href"
       class="group project-link leaving-item"
+      :title="`View project ${project.title}`"
       @click="onClickLink($event, navigate)"
     >
       <article

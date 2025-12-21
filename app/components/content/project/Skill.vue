@@ -11,6 +11,6 @@ const transition = 'transition-all duration-1000 ease-power4-out'
     "
     :style="{ transitionDelay }"
   >
-    <slot></slot>
+    <slot mdc-unwrap="p"></slot>
   </li>
 </template>

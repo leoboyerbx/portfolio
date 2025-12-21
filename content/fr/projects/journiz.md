@@ -9,6 +9,7 @@ links:
     url: https://github.com/Journiz
     newTab: true
 thumbnail: /img/projects/journiz.webp
+ogThumbnail: /img/projects/journiz_og.jpg
 ---
 
 ::project-description

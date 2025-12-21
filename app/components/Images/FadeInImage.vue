@@ -14,6 +14,9 @@ onMounted(() => {
     if (img.complete) {
         loaded.value = true
     }
+    else {
+        img.onload = () => loaded.value = true
+    }
 })
 
 function onError() {

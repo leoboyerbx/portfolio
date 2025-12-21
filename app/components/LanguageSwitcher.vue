@@ -40,6 +40,7 @@ async function changeLocale(l: typeof locale.value) {
   <transition mode="out-in">
     <div ref="button" :key="locale" class="relative">
       <button
+        type="button"
         class="group btn-animation mt-0.5 flex items-center text-xs text-slate-100/80 font-semibold"
         @click="open"
       >
@@ -60,6 +61,7 @@ async function changeLocale(l: typeof locale.value) {
         <ul class="flex flex-col">
           <li v-for="l in locales" :key="l.code">
             <button
+              type="button"
               class="nav-link btn-animation block flex gap-1 px-2 py-1 text-xs font-bold"
               @click="changeLocale(l.code)"
             >

@@ -5,7 +5,8 @@
     "hero": "Home",
     "projects": "Projects",
     "openSource": "Open Source",
-    "contact": "Contact"
+    "contact": "Contact",
+    "goToSection": "Go to {section} section"
   },
   "intro": "I like to try all sorts of things with code and tech, with a strong focus on crafting user-centric realtime experiences.",
   "wip": "This portfolio website is currently being redesigned. It will be back soon !",
@@ -27,5 +28,11 @@
     "name": "Léo Boyer - Creative developer",
     "description": "I'm Léo, a creative and curious developer. Currently working at Cixi, Annecy FR."
   },
-  "fullscreen": "Open the image in full screen"
+  "fullscreen": "Open the image in full screen",
+  "openSource": {
+    "seeProject": "See project"
+  },
+  "player": {
+    "playVideo": "Play video"
+  }
 }

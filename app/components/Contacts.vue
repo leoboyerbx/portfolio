@@ -13,6 +13,7 @@ const links = computed(() => global.value?.contacts.filter(contact => extended |
       :key="link.url"
       :href="link.url"
       :title="link.title"
+      :aria-label="link.title"
       target="_blank"
     >
       <Icon :name="link.icon" class="block" />

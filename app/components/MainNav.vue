@@ -127,6 +127,7 @@ const mounted = useMounted()
     >
       <button
         ref="backEl"
+        type="button"
         :aria-label="t('nav.backToHome')"
         class="child-transition btn-animation block flex-shrink-0 px-3.5"
         :style="{
@@ -151,6 +152,7 @@ const mounted = useMounted()
           :class="{ 'opacity-0': !showNav }"
         >
           <button
+            type="button"
             class="nav-link btn-animation grid h-7 w-7 flex-shrink-0 place-content-center"
             :aria-label="t('nav.openMenu')"
             @click="mobileMenuOpen = !mobileMenuOpen"
@@ -200,6 +202,7 @@ const mounted = useMounted()
                 <a
                   :href="`#${linkId}`"
                   class="nav-link btn-animation block px-2 py-1 sm:(px-3 py-2)"
+                  :title="t('nav.goToSection', { section: title })"
                   @click.prevent="scrollTo(linkId), (mobileMenuOpen = false)"
                 >
                   {{ title }}

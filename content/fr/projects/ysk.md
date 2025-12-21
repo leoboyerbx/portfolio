@@ -15,6 +15,7 @@ links:
     url: https://github.com/ysk-app/ysk
     newTab: true
 thumbnail: /img/projects/ysk.min.webp
+ogThumbnail: /img/projects/ysk_og.jpg
 ---
 
 ::project-description

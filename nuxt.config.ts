@@ -1,12 +1,22 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
-    compatibilityDate: '2024-04-03',
-    future: {
-        compatibilityVersion: 4,
+    compatibilityDate: '2025-12-14',
+    nitro: {
+        preset: 'cloudflare_module',
+        cloudflare: {
+            deployConfig: true,
+            nodeCompat: true,
+        },
+        prerender: {
+            // Pre-render the homepages
+            routes: ['/', '/fr'],
+            // Then crawl all the links on the page
+            crawlLinks: true,
+        },
     },
     devtools: { enabled: true },
-    ssr: true,
+    htmlValidator: {
+        usePrettier: true,
+    },
     modules: [
         '@nuxtjs/seo',
         'nuxt-content-git',
@@ -19,6 +29,7 @@ export default defineNuxtConfig({
         '@nuxtjs/plausible',
         '@layoutaid/nuxt',
         '@nuxt/icon',
+        '@nuxtjs/html-validator',
     ],
     css: ['@unocss/reset/tailwind.css', '~/assets/global.scss'],
     unocss: {
@@ -37,7 +48,7 @@ export default defineNuxtConfig({
         proxy: true,
     },
     hub: {
-        database: true,
+        db: 'sqlite',
     },
     content: {
         preview: {
@@ -117,6 +128,9 @@ export default defineNuxtConfig({
             link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
         },
         // pageTransition: { name: 'page', mode: 'out-in' },
+    },
+    linkChecker: {
+        enabled: false,
     },
 
 })

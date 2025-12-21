@@ -31,6 +31,7 @@ const effects: Record<
 const effect = computed(() => effects[props.effect])
 const target = ref<HTMLElement>()
 
+const mounted = useMounted()
 let animation: AnimationControls
 onMounted(() => {
     if (!target.value || !effect.value)
@@ -48,7 +49,7 @@ onElementInView(target, () => {
 </script>
 
 <template>
-  <component :is="tag" ref="target">
+  <component :is="tag" ref="target" :class="{ hidden: !mounted }">
     <slot />
   </component>
 </template>

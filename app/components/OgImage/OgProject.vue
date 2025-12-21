@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { ProjectsCollectionItem } from '@nuxt/content'
+import type { ProjectsEnCollectionItem } from '@nuxt/content'
 
 const { project } = defineProps<{
-    project: ProjectsCollectionItem
+    project: ProjectsEnCollectionItem
 }>()
 </script>
 
@@ -13,7 +13,7 @@ const { project } = defineProps<{
     <NuxtImg
       :format="project.thumbnail.endsWith('webp') ? 'jpeg' : undefined"
       class="absolute inset-0 size-full object-cover"
-      :src="project.thumbnail"
+      :src="project.ogThumbnail || project.thumbnail"
     />
     <div
       class="size-full flex flex-col justify-end gap-4 px-16 pb-12 pt-20 leading-105%"

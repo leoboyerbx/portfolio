@@ -8,7 +8,7 @@
         <h2
           class="section-title text-center"
         >
-          <slot name="title"></slot>
+          <slot name="title" mdc-unwrap="p"></slot>
         </h2>
       </ScrollReveal>
     </header>

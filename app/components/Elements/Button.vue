@@ -22,8 +22,13 @@ const props = defineProps({
         required: false,
         default: false,
     },
+    tag: {
+        type: String,
+        required: false,
+        default: null,
+    },
 })
-const tag = props.href ? NuxtLink : 'button'
+const tag = props.tag ?? (props.href ? NuxtLink : 'button')
 
 const hasBeenClicked = ref(false)
 </script>
@@ -32,11 +37,12 @@ const hasBeenClicked = ref(false)
   <component
     v-bind="props"
     :is="tag"
+    :type="tag === 'button' ? 'button' : undefined"
     class="pnk-btn btn-animation"
     :class="[{ 'btn-animation': hasBeenClicked }, `pnk-btn-${color}`]"
     @click="hasBeenClicked = true"
   >
-    <slot />
+    <slot mdc-unwrap="p" />
     <Icon
       v-if="icon"
       :name="icon"

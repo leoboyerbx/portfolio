@@ -26,7 +26,6 @@ onUnmounted(() => {
 
 const route = useRoute()
 const scrollTo = route.query.scrollTo as string
-useRouter().replace(route.path)
 onMounted(async () => {
     if (scrollTo) {
         const target = document.getElementById(scrollTo)
@@ -40,27 +39,31 @@ onMounted(async () => {
 })
 
 const { locale } = useI18n()
-const { data } = await useAsyncData(
+const { data: page } = await useAsyncData(
     `homepage-${locale.value}`,
     async () => {
-        const result = await queryCollection('homepage').where('locale', '=', locale.value).first()
+        const result = await queryCollection(`homepage_${locale.value}`).first()
         return result
     },
     {
         dedupe: 'defer',
     },
 )
-if (!data.value) {
-    throw showError({
-        statusCode: 404,
-        statusMessage: 'Home data not found',
-    })
+if (!page.value) {
+    if (import.meta.server) {
+    // By only showing the error on the server side, we accept hydration mismatches only for the first redirected request.
+    // this is the best compromise instead of client side redirect
+        throw showError({
+            statusCode: 404,
+            statusMessage: 'Home data not found',
+        })
+    }
 }
 </script>
 
 <template>
   <div ref="wrapperEl" class="flex flex-col">
-    <ContentRenderer :value="(data as any)" />
+    <ContentRenderer v-if="page" :value="page" />
     <!-- <div class="h-100"></div> -->
     <!-- <NuxtLink :to="localePath('/projects/journiz')">
       Go debug

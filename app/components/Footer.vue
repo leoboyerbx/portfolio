@@ -20,6 +20,7 @@ const transitions = usePageTransitions()
           href="https://pnk.studio/"
           class="mb-px flex items-center gap-1 text-slate-400 font-extrabold transition duration-200 hover:(text-slate-50 underline)"
           target="_blank"
+          aria-label="Pnk Studio"
         >
           <Icon name="i-uil:mountains-sun" class="mb-0.5 inline-block text-lg" />
           <span>pnk.studio</span>
@@ -31,6 +32,7 @@ const transitions = usePageTransitions()
             :href="global.resume.file"
             target="_blank"
             class="flex items-center text-sm font-medium opacity-50 transition duration-200 hover:opacity-100"
+            :aria-label="global.resume.title"
           >
             <Icon name="i-uil:file-alt" class="mr-1 block" />
             <span>{{ global.resume.title }}</span>
