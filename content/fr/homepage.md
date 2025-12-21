@@ -38,20 +38,15 @@ Je travaille actuellement à Annecy, chez [Cixi](https://www.cixi.life/).
 ::
 
 ::home-projects{title="Projets"}
-  :::project-item{slug="wanaka3"}
-  :::
+:project-item{slug="wanaka3"}
 
-  :::project-item{slug="journiz"}
-  :::
+:project-item{slug="journiz"}
 
-  :::project-item{slug="point-barre"}
-  :::
+:project-item{slug="point-barre"}
 
-  :::project-item{slug="ysk"}
-  :::
+:project-item{slug="ysk"}
 
-  :::project-item{slug="quiet"}
-  :::
+:project-item{slug="quiet"}
 ::
 
 ::opensource-list
@@ -125,7 +120,7 @@ Parfois, lorsque je travaille sur un projet, je me retrouve à publier un bout d
 Travaillons *ensemble* !
 
 #links
-  :::contact-item{new-tab url="$resume"}
+  :::contact-item{new-tab new-tab="" url="$resume"}
   Voir mon CV
   :::
 

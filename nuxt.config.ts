@@ -30,6 +30,7 @@ export default defineNuxtConfig({
         '@layoutaid/nuxt',
         '@nuxt/icon',
         '@nuxtjs/html-validator',
+        'nuxt-studio',
     ],
     css: ['@unocss/reset/tailwind.css', '~/assets/global.scss'],
     unocss: {
@@ -42,6 +43,15 @@ export default defineNuxtConfig({
             },
         },
     },
+    studio: {
+        dev: false,
+        repository: {
+            provider: 'github', // 'github' or 'gitlab'
+            owner: 'your-username',
+            repo: 'your-repo',
+            branch: 'main',
+        },
+    },
     plausible: {
         domain: 'leoboyer.dev',
         apiHost: 'https://stats.pnk.studio',
@@ -49,12 +59,6 @@ export default defineNuxtConfig({
     },
     hub: {
         db: 'sqlite',
-    },
-    content: {
-        preview: {
-            api: 'https://api.nuxt.studio',
-            dev: true,
-        },
     },
     components: [
         {
