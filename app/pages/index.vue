@@ -64,17 +64,5 @@ if (!page.value) {
 <template>
   <div ref="wrapperEl" class="flex flex-col">
     <ContentRenderer v-if="page" :value="page" />
-    <!-- <div class="h-100"></div> -->
-    <!-- <NuxtLink :to="localePath('/projects/journiz')">
-      Go debug
-    </NuxtLink> -->
-    <!-- <Hero id="hero" ref="heroEl" class="leaving-item" /> -->
-    <!-- <ProjectList id="projects" ref="projectsEl" class="mb-24 md:mb-2c" />
-    <OpenSourceList
-      id="openSource"
-      ref="openSourceEl"
-      class="leaving-item mb-24 md:mb-2c"
-    />
-    <ContactPush id="contact" ref="contactEl" class="leaving-item mb-1c" /> -->
   </div>
 </template>
