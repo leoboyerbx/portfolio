@@ -5,8 +5,8 @@ const { slug } = useRoute().params
 const { data: project } = await useAsyncData(
     `project-${slug}-${locale.value}`,
     async () => {
-        const result = await queryCollection('projects')
-            .path(`/projects/${locale.value}/${slug}`)
+        const result = await queryCollection(`projects_${locale.value}`)
+            .path(`/${locale.value}/projects/${slug}`)
             .where('status', '=', 'published')
             .first()
         return result

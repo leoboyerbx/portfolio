@@ -6,9 +6,8 @@ const { locale } = useI18n()
 const { data: project } = await useAsyncData(
     `home-project-${locale.value}-${slug}`,
     async () => {
-        const result = await queryCollection('projects')
+        const result = await queryCollection(`projects_${locale.value}`)
             .where('slug', '=', slug)
-            .where('locale', '=', locale.value)
             .where('status', '=', 'published')
             .first()
         return result

@@ -3,7 +3,7 @@ export async function useGlobal() {
     const { data } = await useAsyncData(
         `global-${locale.value}`,
         async () => {
-            const result = await queryCollection('global').where('locale', '=', locale.value).first()
+            const result = await queryCollection(`global_${locale.value}`).first()
             return result
         },
         {
